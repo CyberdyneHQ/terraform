@@ -86,12 +86,12 @@ typically publish a new major version that we can depend on. Two different
 codebases included in Terraform all depend directly on the `go-textseg` module
 for parts of their functionality:
 
-* [`hashicorp/hcl`](https://github.com/hashicorp/hcl) uses text
+- [`hashicorp/hcl`](https://github.com/hashicorp/hcl) uses text
   segmentation as part of producing visual column offsets in source ranges
   returned by the tokenizer and parser. Terraform in turn uses that library
   for the underlying syntax of the Terraform language, and so it passes on
   those source ranges to the end-user as part of diagnostic messages.
-* The third-party module [`github.com/zclconf/go-cty`](https://github.com/zclconf/go-cty)
+- The third-party module [`github.com/zclconf/go-cty`](https://github.com/zclconf/go-cty)
   provides several of the Terraform language built in functions, including
   functions like `substr` and `length` which need to count grapheme clusters
   as part of their implementation.

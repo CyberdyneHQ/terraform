@@ -37,5 +37,5 @@ split(separator, string)
 
 ## Related Functions
 
-* [`join`](./join.html) performs the opposite operation: producing a string
+- [`join`](./join.html) performs the opposite operation: producing a string
   joining together a list of strings with a given separator.

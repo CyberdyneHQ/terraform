@@ -47,15 +47,15 @@ overwrite the remote state. This can be used to do manual fixups if necessary.
 When manually pushing state, Terraform will attempt to protect you from
 some potentially dangerous situations:
 
-  * **Differing lineage**: The "lineage" is a unique ID assigned to a state
-    when it is created. If a lineage is different, then it means the states
-    were created at different times and its very likely you're modifying a
-    different state. Terraform will not allow this.
+- **Differing lineage**: The "lineage" is a unique ID assigned to a state
+  when it is created. If a lineage is different, then it means the states
+  were created at different times and its very likely you're modifying a
+  different state. Terraform will not allow this.
 
-  * **Higher serial**: Every state has a monotonically increasing "serial"
-    number. If the destination state has a higher serial, Terraform will
-    not allow you to write it since it means that changes have occurred since
-    the state you're attempting to write.
+- **Higher serial**: Every state has a monotonically increasing "serial"
+  number. If the destination state has a higher serial, Terraform will
+  not allow you to write it since it means that changes have occurred since
+  the state you're attempting to write.
 
 Both of these protections can be bypassed with the `-force` flag if you're
 confident you're making the right decision. Even if using the `-force` flag,

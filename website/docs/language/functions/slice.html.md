@@ -30,5 +30,5 @@ list.
 
 ## Related Functions
 
-* [`substr`](./substr.html) performs a similar function for characters in a
+- [`substr`](./substr.html) performs a similar function for characters in a
   string, although it uses a length instead of an end index.

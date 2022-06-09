@@ -42,10 +42,10 @@ SABlAGwAbABvACAAVwBvAHIAbABkAA==
 
 ## Related Functions
 
-* [`textdecodebase64`](./textdecodebase64.html) performs the opposite operation,
+- [`textdecodebase64`](./textdecodebase64.html) performs the opposite operation,
   decoding Base64 data and interpreting it as a particular character encoding.
-* [`base64encode`](./base64encode.html) applies Base64 encoding of the UTF-8
+- [`base64encode`](./base64encode.html) applies Base64 encoding of the UTF-8
   encoding of a string.
-* [`filebase64`](./filebase64.html) reads a file from the local filesystem
+- [`filebase64`](./filebase64.html) reads a file from the local filesystem
   and returns its raw bytes with Base64 encoding, without creating an
   intermediate Unicode string.

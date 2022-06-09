@@ -18,7 +18,7 @@ backend. This backend requires either a Terraform Cloud account on
 The remote backend stores Terraform state and may be used to run operations in Terraform Cloud.
 
 When using full remote operations, operations like `terraform plan` or `terraform apply` can be executed in Terraform
-Cloud's run environment, with log output streaming to the local terminal. Remote plans and applies use variable values from the associated Terraform Cloud workspace. 
+Cloud's run environment, with log output streaming to the local terminal. Remote plans and applies use variable values from the associated Terraform Cloud workspace.
 
 Terraform Cloud can also be used with local operations, in which case only state is stored in the Terraform Cloud backend.
 
@@ -93,9 +93,9 @@ running any remote operations against them.
 
 ## Example Configurations
 
-->  **Note:** We recommend omitting the token from the configuration, and instead using
-  [`terraform login`](/docs/cli/commands/login.html) or manually configuring
-  `credentials` in the [CLI config file](/docs/cli/config/config-file.html#credentials).
+-> **Note:** We recommend omitting the token from the configuration, and instead using
+[`terraform login`](/docs/cli/commands/login.html) or manually configuring
+`credentials` in the [CLI config file](/docs/cli/config/config-file.html#credentials).
 
 ### Basic Configuration
 
@@ -171,27 +171,27 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options are supported:
 
-* `hostname` - (Optional) The remote backend hostname to connect to. Defaults
+- `hostname` - (Optional) The remote backend hostname to connect to. Defaults
   to app.terraform.io.
-* `organization` - (Required) The name of the organization containing the
+- `organization` - (Required) The name of the organization containing the
   targeted workspace(s).
-* `token` - (Optional) The token used to authenticate with the remote backend.
+- `token` - (Optional) The token used to authenticate with the remote backend.
   We recommend omitting the token from the configuration, and instead using
   [`terraform login`](/docs/cli/commands/login.html) or manually configuring
   `credentials` in the
   [CLI config file](/docs/cli/config/config-file.html#credentials).
-* `workspaces` - (Required) A block specifying which remote workspace(s) to use.
+- `workspaces` - (Required) A block specifying which remote workspace(s) to use.
   The `workspaces` block supports the following keys:
 
-  * `name` - (Optional) The full name of one remote workspace. When configured,
+  - `name` - (Optional) The full name of one remote workspace. When configured,
     only the default workspace can be used. This option conflicts with `prefix`.
-  * `prefix` - (Optional) A prefix used in the names of one or more remote
+  - `prefix` - (Optional) A prefix used in the names of one or more remote
     workspaces, all of which can be used with this configuration. The full
     workspace names are used in Terraform Cloud, and the short names
     (minus the prefix) are used on the command line for Terraform CLI workspaces.
     If omitted, only the default workspace can be used. This option conflicts with `name`.
-    
-->  **Note:** You must use the `name` key when configuring a `terraform_remote_state`
+
+-> **Note:** You must use the `name` key when configuring a `terraform_remote_state`
 data source that retrieves state from another Terraform Cloud workspace. The `prefix` key is only
 intended for use when configuring an instance of the remote backend.
 
@@ -201,19 +201,19 @@ For configurations that include a `backend "remote"` block, commands that
 make local modifications to Terraform state and then push them back up to
 the remote workspace accept the following option to modify that behavior:
 
-* `-ignore-remote-version` - Override checking that the local and remote
+- `-ignore-remote-version` - Override checking that the local and remote
   Terraform versions agree, making an operation proceed even when there is
   a mismatch.
 
-    Normally state-modification operations require using a local version of
-    Terraform CLI which is compatible with the Terraform version selected
-    for the remote workspace as part of its settings. This is to avoid the
-    local operation creating a new state snapshot which the workspace's
-    remote execution environment would then be unable to decode.
+  Normally state-modification operations require using a local version of
+  Terraform CLI which is compatible with the Terraform version selected
+  for the remote workspace as part of its settings. This is to avoid the
+  local operation creating a new state snapshot which the workspace's
+  remote execution environment would then be unable to decode.
 
-    Overriding this check can result in a Terraform Cloud workspace that is
-    no longer able to complete remote operations, so we recommend against
-    using this option.
+  Overriding this check can result in a Terraform Cloud workspace that is
+  no longer able to complete remote operations, so we recommend against
+  using this option.
 
 ## Excluding Files from Upload with .terraformignore
 
@@ -223,16 +223,15 @@ When executing a remote `plan` or `apply` in a [CLI-driven run](/docs/cloud/run/
 an archive of your configuration directory is uploaded to Terraform Cloud. You can define
 paths to ignore from upload via a `.terraformignore` file at the root of your configuration directory. If this file is not present, the archive will exclude the following by default:
 
-* .git/ directories
-* .terraform/ directories (exclusive of .terraform/modules)
+- .git/ directories
+- .terraform/ directories (exclusive of .terraform/modules)
 
 The `.terraformignore` file can include rules as one would include in a
 [.gitignore file](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring)
 
-
-* Comments (starting with `#`) or blank lines are ignored
-* End a pattern with a forward slash / to specify a directory
-* Negate a pattern by starting it with an exclamation point `!`
+- Comments (starting with `#`) or blank lines are ignored
+- End a pattern with a forward slash / to specify a directory
+- Negate a pattern by starting it with an exclamation point `!`
 
 Note that unlike `.gitignore`, only the `.terraformignore` at the root of the configuration
 directory is considered.

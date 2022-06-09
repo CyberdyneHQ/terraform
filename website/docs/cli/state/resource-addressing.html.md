@@ -32,12 +32,12 @@ A module path addresses a module within the tree of modules. It takes the form:
 module.module_name[module index]
 ```
 
- * `module` - Module keyword indicating a child module (non-root). Multiple `module`
-   keywords in a path indicate nesting.
- * `module_name` - User-defined name of the module.
- * `[module index]` - (Optional) [Index](#index-values-for-modules-and-resources)
-   to select an instance from a module call that has multiple instances,
-   surrounded by square bracket characters (`[` and `]`).
+- `module` - Module keyword indicating a child module (non-root). Multiple `module`
+  keywords in a path indicate nesting.
+- `module_name` - User-defined name of the module.
+- `[module index]` - (Optional) [Index](#index-values-for-modules-and-resources)
+  to select an instance from a module call that has multiple instances,
+  surrounded by square bracket characters (`[` and `]`).
 
 An address without a resource spec, i.e. `module.foo` applies to every resource within
 the module if a single module, or all instances of a module if a module has multiple instances.
@@ -64,11 +64,11 @@ It has the following syntax:
 resource_type.resource_name[instance index]
 ```
 
- * `resource_type` - Type of the resource being addressed.
- * `resource_name` - User-defined name of the resource.
- * `[instance index]` - (Optional) [Index](#index-values-for-modules-and-resources)
-   to select an instance from a resource that has multiple instances,
-   surrounded by square bracket characters (`[` and `]`).
+- `resource_type` - Type of the resource being addressed.
+- `resource_name` - User-defined name of the resource.
+- `[instance index]` - (Optional) [Index](#index-values-for-modules-and-resources)
+  to select an instance from a resource that has multiple instances,
+  surrounded by square bracket characters (`[` and `]`).
 
 -> In Terraform v0.12 and later, a resource spec without a module path prefix
 matches only resources in the root module. In earlier versions, a resource spec
@@ -79,12 +79,12 @@ in any descendent module.
 
 The following specifications apply to index values on modules and resources with multiple instances:
 
- * `[N]` where `N` is a `0`-based numerical index into a resource with multiple
-   instances specified by the `count` meta-argument. Omitting an index when
-   addressing a resource where `count > 1` means that the address references
-   all instances.
- * `["INDEX"]` where `INDEX` is a alphanumerical key index into a resource with
-   multiple instances specified by the `for_each` meta-argument.
+- `[N]` where `N` is a `0`-based numerical index into a resource with multiple
+  instances specified by the `count` meta-argument. Omitting an index when
+  addressing a resource where `count > 1` means that the address references
+  all instances.
+- `["INDEX"]` where `INDEX` is a alphanumerical key index into a resource with
+  multiple instances specified by the `for_each` meta-argument.
 
 ## Examples
 

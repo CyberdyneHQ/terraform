@@ -47,5 +47,5 @@ once per element of the list arguments.
 
 ## Related Functions
 
-* [`format`](./format.html) defines the specification syntax used by this
+- [`format`](./format.html) defines the specification syntax used by this
   function and produces a single string as its result.

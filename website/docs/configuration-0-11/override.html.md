@@ -19,12 +19,12 @@ configuration, rather than appended.
 
 Overrides have a few use cases:
 
-  * Machines (tools) can create overrides to modify Terraform
-    behavior without having to edit the Terraform configuration
-    tailored to human readability.
+- Machines (tools) can create overrides to modify Terraform
+  behavior without having to edit the Terraform configuration
+  tailored to human readability.
 
-  * Temporary modifications can be made to Terraform configurations
-    without having to modify the configuration itself.
+- Temporary modifications can be made to Terraform configurations
+  without having to modify the configuration itself.
 
 Overrides names must be `override` or end in `_override`, excluding
 the extension. Examples of valid override files are `override.tf`,

@@ -213,13 +213,13 @@ elements in the input variables.
 
 ## Related Functions
 
-* [`contains`](./contains.html) tests whether a given list or set contains
+- [`contains`](./contains.html) tests whether a given list or set contains
   a given element value.
-* [`flatten`](./flatten.html) is useful for flattening hierarchical data
+- [`flatten`](./flatten.html) is useful for flattening hierarchical data
   into a single list, for situations where the relationships between two
   object types are defined explicitly.
-* [`setintersection`](./setintersection.html) computes the _intersection_ of
+- [`setintersection`](./setintersection.html) computes the _intersection_ of
   multiple sets.
-* [`setsubtract`](./setsubtract.html) computes the _relative complement_ of two sets
-* [`setunion`](./setunion.html) computes the _union_ of multiple
+- [`setsubtract`](./setsubtract.html) computes the _relative complement_ of two sets
+- [`setunion`](./setunion.html) computes the _union_ of multiple
   sets.

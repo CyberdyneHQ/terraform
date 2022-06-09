@@ -77,9 +77,9 @@ about it in your configuration. See the following pages for details:
   a local mirror or cache. If you are using a persistent working directory, you
   must reinitialize whenever you change a configuration's providers.
 
-    To save time and bandwidth, Terraform CLI supports an optional plugin
-    cache. You can enable the cache using the `plugin_cache_dir` setting in
-    [the CLI configuration file](/docs/cli/config/config-file.html).
+  To save time and bandwidth, Terraform CLI supports an optional plugin
+  cache. You can enable the cache using the `plugin_cache_dir` setting in
+  [the CLI configuration file](/docs/cli/config/config-file.html).
 
 To ensure Terraform always installs the same provider versions for a given
 configuration, you can use Terraform CLI to create a
@@ -129,7 +129,6 @@ develops and maintains a given provider.
 </tr>
 </tbody>
 </table>
-
 
 ## How to Develop Providers
 

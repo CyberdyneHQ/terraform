@@ -14,23 +14,23 @@ applied to it.
 
 The Terraform language uses the following types for its values:
 
-* `string`: a sequence of Unicode characters representing some text, like
+- `string`: a sequence of Unicode characters representing some text, like
   `"hello"`.
-* `number`: a numeric value. The `number` type can represent both whole
+- `number`: a numeric value. The `number` type can represent both whole
   numbers like `15` and fractional values like `6.283185`.
-* `bool`: a boolean value, either `true` or `false`. `bool` values can be used in conditional
+- `bool`: a boolean value, either `true` or `false`. `bool` values can be used in conditional
   logic.
-* `list` (or `tuple`): a sequence of values, like
+- `list` (or `tuple`): a sequence of values, like
   `["us-west-1a", "us-west-1c"]`. Elements in a list or tuple are identified by
   consecutive whole numbers, starting with zero.
-* `map` (or `object`): a group of values identified by named labels, like
+- `map` (or `object`): a group of values identified by named labels, like
   `{name = "Mabel", age = 52}`.
 
 Strings, numbers, and bools are sometimes called _primitive types._ Lists/tuples and maps/objects are sometimes called _complex types,_ _structural types,_ or _collection types._
 
 Finally, there is one special value that has _no_ type:
 
-* `null`: a value that represents _absence_ or _omission._ If you set an
+- `null`: a value that represents _absence_ or _omission._ If you set an
   argument of a resource to `null`, Terraform behaves as though you
   had completely omitted it — it will use the argument's default value if it has
   one, or raise an error if the argument is mandatory. `null` is most useful in
@@ -142,7 +142,6 @@ Terraform automatically converts number and bool values to strings when needed.
 It also converts strings to numbers or bools, as long as the string contains a
 valid representation of a number or bool value.
 
-* `true` converts to `"true"`, and vice-versa
-* `false` converts to `"false"`, and vice-versa
-* `15` converts to `"15"`, and vice-versa
-
+- `true` converts to `"true"`, and vice-versa
+- `false` converts to `"false"`, and vice-versa
+- `15` converts to `"15"`, and vice-versa

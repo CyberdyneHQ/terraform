@@ -54,5 +54,5 @@ Call to function "coalesce" failed: all arguments must have the same type.
 
 ## Related Functions
 
-* [`coalescelist`](./coalescelist.html) performs a similar operation with
+- [`coalescelist`](./coalescelist.html) performs a similar operation with
   list arguments rather than individual arguments.

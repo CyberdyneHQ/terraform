@@ -37,9 +37,7 @@
       "name": "test",
       "provider_name": "registry.terraform.io/hashicorp/test",
       "change": {
-        "actions": [
-          "create"
-        ],
+        "actions": ["create"],
         "before": null,
         "after": {
           "ami": "bar-var"
@@ -71,9 +69,7 @@
                       "provider_config_key": "more:test",
                       "expressions": {
                         "ami": {
-                          "references": [
-                            "var.test_var"
-                          ]
+                          "references": ["var.test_var"]
                         }
                       },
                       "schema_version": 0

@@ -22,12 +22,12 @@ code written in other languages.
 
 Some existing efforts have piloted both approaches:
 
-* [Terratest](https://terratest.gruntwork.io/) and
+- [Terratest](https://terratest.gruntwork.io/) and
   [kitchen-terraform](https://github.com/newcontext-oss/kitchen-terraform)
   both pioneered the idea of writing tests for Terraform modules with explicit
   orchestration written in the Go and Ruby programming languages, respectively.
 
-* The Terraform provider
+- The Terraform provider
   [`apparentlymart/testing`](https://registry.terraform.io/providers/apparentlymart/testing/latest)
   introduced the idea of writing Terraform module tests in the Terraform
   language itself, using a special provider that can evaluate assertions
@@ -64,13 +64,13 @@ in the capabilities of this approach.
 The temporary extensions to Terraform for this experiment consist of the
 following parts:
 
-* A temporary experimental provider `terraform.io/builtin/test`, which acts as
+- A temporary experimental provider `terraform.io/builtin/test`, which acts as
   a placeholder for potential new language features related to test assertions.
 
-* A `terraform test` command for more conveniently running multiple tests in
+- A `terraform test` command for more conveniently running multiple tests in
   a single action.
 
-* An experimental convention of placing test configurations in subdirectories
+- An experimental convention of placing test configurations in subdirectories
   of a `tests` directory within your module, which `terraform test` will then
   discover and run.
 
@@ -232,13 +232,13 @@ need to set up any credentials files or environment variables needed by the
 providers your module uses before running `terraform test`. The test command
 will, for each suite:
 
-* Install the providers and any external modules the test configuration depends
+- Install the providers and any external modules the test configuration depends
   on.
-* Create an execution plan to create the objects declared in the module.
-* Apply that execution plan to create the objects in the real remote system.
-* Collect all of the test results from the apply step, which would also have
+- Create an execution plan to create the objects declared in the module.
+- Apply that execution plan to create the objects in the real remote system.
+- Collect all of the test results from the apply step, which would also have
   "created" the `test_assertions` resources.
-* Destroy all of the objects recorded in the temporary test state, as if running
+- Destroy all of the objects recorded in the temporary test state, as if running
   `terraform destroy` against the test configuration.
 
 ```shellsession
@@ -270,18 +270,18 @@ of research and design, but the main focus of this iteration is on available
 functionality and so with that in mind there are some specific possibilities
 that we know the current prototype doesn't support well:
 
-* Testing of subsequent updates to an existing deployment of a module.
+- Testing of subsequent updates to an existing deployment of a module.
   Currently tests written in this way can only exercise the create and destroy
   behaviors.
 
-* Assertions about expected errors. For a module that includes variable
+- Assertions about expected errors. For a module that includes variable
   validation rules and data resources that function as assertion checks,
   the current prototype doesn't have any way to express that a particular
   set of inputs is _expected_ to produce an error, and thus report a test
   failure if it doesn't. We'll hopefully be able to improve on this in a future
   iteration with the test assertions better integrated into the language.
 
-* Capturing context about failures. Due to this prototype using a provider as
+- Capturing context about failures. Due to this prototype using a provider as
   an approximation for new assertion syntax, the `terraform test` command is
   limited in how much context it's able to gather about failures. A design
   more integrated into the language could potentially capture the source
@@ -289,7 +289,7 @@ that we know the current prototype doesn't support well:
   similar to what Terraform typically returns from expression evaluation errors
   in the main language.
 
-* Unit testing without creating real objects. Although we do hope to spend more
+- Unit testing without creating real objects. Although we do hope to spend more
   time researching possibilities for unit testing against fake test doubles in
   the future, we've decided to focus on integration testing to start because
   it feels like the better-defined problem.

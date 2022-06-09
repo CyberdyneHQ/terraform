@@ -32,18 +32,18 @@ state.
 
 The following options apply to all of (or several of) the initialization steps:
 
-* `-input=true` Ask for input if necessary. If false, will error if
+- `-input=true` Ask for input if necessary. If false, will error if
   input was required.
 
-* `-lock=false` Disable locking of state files during state-related operations.
+- `-lock=false` Disable locking of state files during state-related operations.
 
-* `-lock-timeout=<duration>` Override the time Terraform will wait to acquire
+- `-lock-timeout=<duration>` Override the time Terraform will wait to acquire
   a state lock. The default is `0s` (zero seconds), which causes immediate
   failure if the lock is already held by another process.
 
-* `-no-color` Disable color codes in the command output.
+- `-no-color` Disable color codes in the command output.
 
-* `-upgrade` Opt to upgrade modules and plugins as part of their respective
+- `-upgrade` Opt to upgrade modules and plugins as part of their respective
   installation steps. See the sections below for more details.
 
 ## Copy a Source Module
@@ -58,11 +58,11 @@ run.
 
 This special mode of operation supports two use-cases:
 
-* Given a version control source, it can serve as a shorthand for checking out
+- Given a version control source, it can serve as a shorthand for checking out
   a configuration from version control and then initializing the working directory
   for it.
 
-* If the source refers to an _example_ configuration, it can be copied into
+- If the source refers to an _example_ configuration, it can be copied into
   a local directory to be used as a basis for a new configuration.
 
 For routine use it is recommended to check out configuration from version
@@ -83,7 +83,7 @@ directory to use the new backend settings. Either `-reconfigure` or
 
 The `-migrate-state` option will attempt to copy existing state to the new
 backend, and depending on what changed, may result in interactive prompts to
-confirm migration of workspace states.  The `-force-copy` option suppresses
+confirm migration of workspace states. The `-force-copy` option suppresses
 these prompts and answers "yes" to the migration questions. This implies
 `-migrate-state`.
 
@@ -149,11 +149,12 @@ You can modify `terraform init`'s plugin behavior with the following options:
   version constraints.
 - `-get-plugins=false` — Skip plugin installation.
 
-    -> Note: Since Terraform 0.13, this option has been superseded by the
-    [`provider_installation`](/docs/cli/config/config-file.html#provider-installation) and
-    [`plugin_cache_dir`](/docs/cli/config/config-file.html#plugin_cache_dir) settings.
-    It should not be used in Terraform versions 0.13+, and this option
-    was removed in Terraform 0.15.
+  -> Note: Since Terraform 0.13, this option has been superseded by the
+  [`provider_installation`](/docs/cli/config/config-file.html#provider-installation) and
+  [`plugin_cache_dir`](/docs/cli/config/config-file.html#plugin_cache_dir) settings.
+  It should not be used in Terraform versions 0.13+, and this option
+  was removed in Terraform 0.15.
+
 - `-plugin-dir=PATH` — Force plugin installation to read plugins _only_ from
   the specified directory, as if it had been configured as a `filesystem_mirror`
   in the CLI configuration. If you intend to routinely use a particular

@@ -31,9 +31,9 @@ Before adding a repository you must determine which distribution you are using.
 The following command lines refer to a placeholder variable `$release` which
 you must replace with the appropriate value from the following list:
 
-* Red Hat Enterprise Linux: `RHEL`
-* Fedora: `fedora`
-* Amazon Linux: `AmazonLinux`
+- Red Hat Enterprise Linux: `RHEL`
+- Fedora: `fedora`
+- Amazon Linux: `AmazonLinux`
 
 If you are using a Yum-based distribution, add the repository using
 `yum-config-manager` as follows:
@@ -71,14 +71,14 @@ There are no official packages available for other architectures, such as
 The HashiCorp Yum server currently contains release repositories for the
 following distribution releases:
 
-* AmazonLinux 2
-* Fedora 29
-* Fedora 30
-* Fedora 31
-* Fedora 32
-* Fedora 33
-* RHEL 7 (and CentOS 7)
-* RHEL 8 (and CentOS 8)
+- AmazonLinux 2
+- Fedora 29
+- Fedora 30
+- Fedora 31
+- Fedora 32
+- Fedora 33
+- RHEL 7 (and CentOS 7)
+- RHEL 8 (and CentOS 8)
 
 No repositories are available for other versions of these distributions or for
 any other RPM-based Linux distributions. If you add the repository using

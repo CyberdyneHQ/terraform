@@ -19,7 +19,6 @@ potentially save you time and effort.
   [expressions](/docs/language/expressions/index.html), which can be a faster way
   to verify that a particular resource argument results in the value you expect.
 
-
 - [The `terraform fmt` command](/docs/cli/commands/fmt.html) rewrites Terraform
   configuration files to a canonical format and style, so you don't have to
   waste time making minor adjustments for readability and consistency. It works

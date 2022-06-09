@@ -67,13 +67,13 @@ in new versions.
 Alternatively, there are several integration points which produce JSON output
 that is specifically intended for consumption by external software:
 
-* [The `terraform output` command](/docs/cli/commands/output.html)
-has a `-json` option, for obtaining either the full set of root module output
-values or a specific named output value from the latest state snapshot.
-* [The `terraform show` command](/docs/cli/commands/show.html) has a `-json`
-option for inspecting the latest state snapshot in full, and also for
-inspecting saved plan files which include a copy of the prior state at the
-time the plan was made.
+- [The `terraform output` command](/docs/cli/commands/output.html)
+  has a `-json` option, for obtaining either the full set of root module output
+  values or a specific named output value from the latest state snapshot.
+- [The `terraform show` command](/docs/cli/commands/show.html) has a `-json`
+  option for inspecting the latest state snapshot in full, and also for
+  inspecting saved plan files which include a copy of the prior state at the
+  time the plan was made.
 
 A typical way to use these in situations where Terraform is running in
 automation is to run them immediately after a successful `terraform apply`

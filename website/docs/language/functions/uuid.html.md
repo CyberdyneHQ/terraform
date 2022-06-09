@@ -37,4 +37,4 @@ b5ee72a3-54dd-c4b8-551c-4bdc0204cedb
 
 ## Related Functions
 
-* [`uuidv5`](./uuidv5.html), which generates name-based UUIDs.
+- [`uuidv5`](./uuidv5.html), which generates name-based UUIDs.

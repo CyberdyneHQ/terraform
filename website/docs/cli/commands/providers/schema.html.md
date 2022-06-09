@@ -19,7 +19,7 @@ Usage: `terraform providers schema [options]`
 
 The list of available flags are:
 
-* `-json` - Displays the schemas in a machine-readable, JSON format.
+- `-json` - Displays the schemas in a machine-readable, JSON format.
 
 Please note that, at this time, the `-json` flag is a _required_ option. In future releases, this command will be extended to allow for additional options.
 

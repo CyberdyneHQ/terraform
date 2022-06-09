@@ -7,7 +7,7 @@ description: The Terraform Integration Program allows prospect partners to creat
 
 # Terraform Integration Program
 
-The Terraform Integration Program facilitates prospect partners in creating and publishing Terraform integrations that have been verified by HashiCorp. 
+The Terraform Integration Program facilitates prospect partners in creating and publishing Terraform integrations that have been verified by HashiCorp.
 
 ## Terraform Editions
 
@@ -21,9 +21,9 @@ HashiCorp offers three editions of Terraform: Open Source, Terraform Cloud, and 
 
 ## Types of Terraform Integrations
 
-The Terraform ecosystem is designed to enable users to apply Terraform across different use cases and environments. The Terraform Integration Program current supports both workflow and integration partners (details below). Some partners can be both, depending on their use cases.  
+The Terraform ecosystem is designed to enable users to apply Terraform across different use cases and environments. The Terraform Integration Program current supports both workflow and integration partners (details below). Some partners can be both, depending on their use cases.
 
-- **Workflow Partners** build integrations for Terraform Cloud and/or Terraform Enterprise.  Ideally, these partners are seeking to enable customers to use their existing platform within a Terraform Run. 
+- **Workflow Partners** build integrations for Terraform Cloud and/or Terraform Enterprise. Ideally, these partners are seeking to enable customers to use their existing platform within a Terraform Run.
 
 - **Infrastructure Partners** empower customers to leverage Terraform to manage resources exposed by their platform APIs. These are accessible to users of all Terraform editions.
 
@@ -60,15 +60,13 @@ Our Infrastructure Partners typically have the following use cases:
 - **Comms & Messaging:** These partners integrate with communication, email, and messaging platforms.
 - **Database:** These partners offer capabilities to provision and configure your database resources.
 - **PaaS (Platform-as-a-Service):** These are platform and PaaS providers that offer a range of hardware, software, and application development tools. This category includes smaller-scale providers and those with more specialized offerings.
-- **Web Services:** These partners  focus on web hosting, web performance, CDN and DNS services.
+- **Web Services:** These partners focus on web hosting, web performance, CDN and DNS services.
 
 Infrastructure partners integrate by building and publishing a plugin called a Terraform [provider](https://www.terraform.io/docs/language/providers/index.html). Providers are executable binaries written in Go that communicate with Terraform Core over an RPC interface. The provider acts as a translation layer for transactions with external APIs, such as a public cloud service (AWS, GCP, Azure), a PaaS service (Heroku), a SaaS service (DNSimple, CloudFlare), or on-prem resources (vSphere). Providers work across Terraform OSS, Terraform Cloud and Terraform Enterprise. Refer to the [Terraform Provider Integrations documentation](https://www.terraform.io/guides/terraform-integration-program.html#terraform-provider-integrations) for more detail.
 
-
-
 ## Terraform Provider Integrations
 
-You can follow the five steps. below to develop your provider alongside HashiCorp. This ensures that you can publish new versions with Terraform quickly and efficiently. 
+You can follow the five steps. below to develop your provider alongside HashiCorp. This ensures that you can publish new versions with Terraform quickly and efficiently.
 
 ![Provider Development Process](/assets/images/docs/provider-program-steps.png)
 
@@ -112,9 +110,10 @@ All providers integrate into and operate with Terraform exactly the same way. Th
 </tbody>
 </table>
 
-
 ### 1. Prepare
+
 To get started with the Terraform provider development, we recommend reviewing and following the articles listed below.
+
 #### Provider Development Kit
 
 a) Writing custom providers [guide](https://www.terraform.io/guides/writing-custom-terraform-providers.html)
@@ -131,12 +130,12 @@ f) HashiCorp developer [forum](https://discuss.hashicorp.com/c/terraform-provide
 
 Please submit questions or suggestions about the Terraform SDK and provider development to the HashiCorp Terraform plugin SDK forum. If you are new to provider development and would like assistance, you can leverage one of the following development agencies that have developed Terraform providers in the past:
 
-| Partner            | Email                        | Website              |
-|--------------------|:-----------------------------|:---------------------|
-| Crest Data Systems | malhar@crestdatasys.com      | www.crestdatasys.com |
-| DigitalOnUs        | hashicorp@digitalonus.com    | www.digitalonus.com  |
-| Akava              | bd@akava.io                  | www.akava.io         |
-| OpenCredo          | hashicorp@opencredo.com      | www.opencredo.com    |
+| Partner            | Email                     | Website              |
+| ------------------ | :------------------------ | :------------------- |
+| Crest Data Systems | malhar@crestdatasys.com   | www.crestdatasys.com |
+| DigitalOnUs        | hashicorp@digitalonus.com | www.digitalonus.com  |
+| Akava              | bd@akava.io               | www.akava.io         |
+| OpenCredo          | hashicorp@opencredo.com   | www.opencredo.com    |
 
 #### Provider License
 
@@ -157,6 +156,7 @@ All Terraform providers listed as Verified must contain one of the following ope
 - CC-BY
 - Microsoft Public License (MS-PL)
 - MIT
+
 ### 2. Publish
 
 After your provider is complete and ready to release, you can publish it the integration to the [Terraform Registry](https://registry.terraform.io/). This makes it publicly available for all Terraform users.
@@ -175,7 +175,7 @@ Work with your HashiCorp Alliances representative to verify the plugin within th
 
 ### 5. Support
 
-Getting a new provider built and published to the Terraform Registry is just the first step towards enabling your users with a quality Terraform integration. Once a verified provider has been published, on-going effort is required to maintain the provider. 
+Getting a new provider built and published to the Terraform Registry is just the first step towards enabling your users with a quality Terraform integration. Once a verified provider has been published, on-going effort is required to maintain the provider.
 
 HashiCorp Terraform has an extremely wide community of users and contributors and we encourage everyone to report issues however small, as well as help resolve them when possible. We expect that all verified provider publishers will continue to maintain the provider and address any issues users report in a timely manner. This includes resolving all critical issues within 48 hours and all other issues within 5 business days. HashiCorp reserves the right to remove verified status from any integration that is no longer being maintained.
 
@@ -187,21 +187,21 @@ Run tasks allow Terraform Cloud to execute tasks in external systems at specific
 
 The external system can then use this run information and respond back to Terraform Cloud with a passed or failed status. Terraform Cloud uses this status response to determine if a run should proceed, based on the task's enforcement settings within a workspace.
 
-Partners who successfully complete the Terraform Cloud Integration Checklist obtain a Terraform Cloud badge. This signifies HashiCorp has verified the integration and the partner is a member of the HashiCorp Technology Partner Program. 
+Partners who successfully complete the Terraform Cloud Integration Checklist obtain a Terraform Cloud badge. This signifies HashiCorp has verified the integration and the partner is a member of the HashiCorp Technology Partner Program.
 
-- Note: Currently, pre-apply is the only integration phase available at this time. As of September 2021, run tasks are available only as a beta feature, are subject to change, and not all customers will see this functionality in their Terraform Cloud organization since this is currently enabled by default for our business tier customers of Terraform Cloud. If you have a customer that is interested in run tasks and are not a current Terraform Cloud for Business customer, customers can [sign up here](https://docs.google.com/forms/d/e/1FAIpQLSf3JJIkU05bKWov2wXa9c-QV524WNaHuGIk7xjHnwl5ceGw2A/viewform). 
+- Note: Currently, pre-apply is the only integration phase available at this time. As of September 2021, run tasks are available only as a beta feature, are subject to change, and not all customers will see this functionality in their Terraform Cloud organization since this is currently enabled by default for our business tier customers of Terraform Cloud. If you have a customer that is interested in run tasks and are not a current Terraform Cloud for Business customer, customers can [sign up here](https://docs.google.com/forms/d/e/1FAIpQLSf3JJIkU05bKWov2wXa9c-QV524WNaHuGIk7xjHnwl5ceGw2A/viewform).
 
 ![TFC Badge](/assets/images/docs/tfc-badge.png)
 
-The above badge will help drive visibility for the partner as well as provide better differentiation for joint customers. This badge will be available for partners to use at their digital properties (as per guidelines in the technology partner guide that partners receive when they join HashiCorp’s technology partner program). 
+The above badge will help drive visibility for the partner as well as provide better differentiation for joint customers. This badge will be available for partners to use at their digital properties (as per guidelines in the technology partner guide that partners receive when they join HashiCorp’s technology partner program).
 
 The Terraform Cloud Integration program has the following five steps.
 
 ![RunTask Program Process](/assets/images/docs/runtask-program-steps.png)
 
 1. **Engage**: Sign up for the Technology Partner
-Program
-2. **Develop & Test**: Understand and build using the API integration for Run Tasks 
+   Program
+2. **Develop & Test**: Understand and build using the API integration for Run Tasks
 3. **Review**: Review integration with HashiCorp Alliances team
 4. **Release**: Provide documentation for your Integration
 5. **Support**: Vendor provides ongoing maintanance and support
@@ -211,8 +211,9 @@ Program
 For partners who are new to working with Hashicorp, we recommend [signing up for our Technology Partner Program](https://www.hashicorp.com/go/tech-partner). To understand more about the program, check out our “[Become a Partner](https://www.hashicorp.com/partners/become-a-partner)” page.
 
 ### 2. Develop & Test
+
 Partners should build an integration using [Run Task APIs in Terraform Cloud](https://www.terraform.io/docs/cloud/api/run-tasks.html). To better understand how run Task enhances the workflow, see diagram listed below and check out our [announcement about Terraform run Task](https://www.hashicorp.com/blog/terraform-cloud-run-tasks-beta-now-available). [Snyk](https://docs.snyk.io/features/integrations/ci-cd-integrations/integrating-snyk-with-terraform-cloud), for example, created an integration to detect configuration anomalies in code while reducing risk to the infrastructure. For additional API resources, [click here](https://www.terraform.io/docs/cloud/api/index.html).
-**Currently, pre-apply is the only integration phase available.** 
+**Currently, pre-apply is the only integration phase available.**
 
 ![RunTask Diagram](/assets/images/docs/runtask-diagram.png)
 
@@ -232,4 +233,4 @@ At HashiCorp, we view the release step to be the beginning of the journey. Getti
 
 We expect that partners will create a mechanism to track and resolve all critical issues as soon as possible (ideally within 48 hours) and all other issues within 5 business days. This is a requirement given the critical nature of Terraform Cloud to a customer’s operation. If you choose not to support your integration, we cannot consider it Verified and will not list it on the Terraform documentation website.
 
--> Contact us at technologypartners@hashicorp.com with any questions or feedback. 
+-> Contact us at technologypartners@hashicorp.com with any questions or feedback.

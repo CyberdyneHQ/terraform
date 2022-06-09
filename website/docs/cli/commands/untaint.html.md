@@ -45,21 +45,21 @@ identifying a particular resource instance which is currently tainted.
 
 This command also accepts the following options:
 
-* `-allow-missing` - If specified, the command will succeed (exit code 0)
+- `-allow-missing` - If specified, the command will succeed (exit code 0)
   even if the resource is missing. The command might still return an error
   for other situations, such as if there is a problem reading or writing
   the state.
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
+- `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
   instructs Terraform to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.
 
-* `-no-color` - Disables terminal formatting sequences in the output. Use this
+- `-no-color` - Disables terminal formatting sequences in the output. Use this
   if you are running Terraform in a context where its output will be
   rendered by a system that cannot interpret terminal formatting.
 

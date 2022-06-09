@@ -29,15 +29,15 @@ the destination state.
 Terraform will perform a number of safety checks to prevent you from
 making changes that appear to be unsafe:
 
-  * **Differing lineage**: If the "lineage" value in the state differs,
-    Terraform will not allow you to push the state. A differing lineage
-    suggests that the states are completely different and you may lose
-    data.
+- **Differing lineage**: If the "lineage" value in the state differs,
+  Terraform will not allow you to push the state. A differing lineage
+  suggests that the states are completely different and you may lose
+  data.
 
-  * **Higher remote serial**: If the "serial" value in the destination state
-    is higher than the state being pushed, Terraform will prevent the push.
-    A higher serial suggests that data is in the destination state that isn't
-    accounted for in the local state being pushed.
+- **Higher remote serial**: If the "serial" value in the destination state
+  is higher than the state being pushed, Terraform will prevent the push.
+  A higher serial suggests that data is in the destination state that isn't
+  accounted for in the local state being pushed.
 
 Both of these safety checks can be disabled with the `-force` flag.
 **This is not recommended.** If you disable the safety checks and are

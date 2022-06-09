@@ -88,10 +88,10 @@ resource "aws_instance" "example" {
 Within each top-level block type the rules for mapping to JSON are slightly
 different (see the [block-type-specific exceptions](#block-type-specific-exceptions) below), but the following general rules apply in most cases:
 
-* The JSON object representing the block body contains properties that
+- The JSON object representing the block body contains properties that
   correspond either to argument names or to nested block type names.
 
-* Where a property corresponds to an argument that accepts
+- Where a property corresponds to an argument that accepts
   [arbitrary expressions](/docs/language/expressions/index.html) in the native syntax, the
   property value is mapped to an expression as described under
   [_Expression Mapping_](#expression-mapping) below. For arguments that
@@ -100,7 +100,7 @@ different (see the [block-type-specific exceptions](#block-type-specific-excepti
   [block-type-specific exceptions](#block-type-specific-exceptions)
   given later in this page.
 
-* Where a property name corresponds to an expected nested block type name,
+- Where a property name corresponds to an expected nested block type name,
   the value is interpreted as described under
   [_Nested Block Mapping_](#nested-block-mapping) below, unless otherwise
   stated in [the block-type-specific exceptions](#block-type-specific-exceptions)
@@ -332,10 +332,10 @@ must be presented as a string in the JSON syntax:
 
 This special processing applies to the following meta-arguments:
 
-* `provider`: a single string, as shown above
-* `depends_on`: an array of strings containing references to named entities,
+- `provider`: a single string, as shown above
+- `depends_on`: an array of strings containing references to named entities,
   like `["aws_instance.example"]`.
-* `ignore_changes` within the `lifecycle` block: if set to `all`, a single
+- `ignore_changes` within the `lifecycle` block: if set to `all`, a single
   string `"all"` must be given. Otherwise, an array of JSON strings containing
   property references must be used, like `["ami"]`.
 
@@ -348,11 +348,11 @@ parsed and evaluated as a string template.
 
 All arguments inside `variable` blocks have non-standard mappings to JSON:
 
-* `type`: a string containing a type expression, like `"string"` or `"list(string)"`.
-* `default`: a literal JSON value that can be converted to the given type.
+- `type`: a string containing a type expression, like `"string"` or `"list(string)"`.
+- `default`: a literal JSON value that can be converted to the given type.
   Strings within this value are taken literally and _not_ interpreted as
   string templates.
-* `description`: a literal JSON string, _not_ interpreted as a template.
+- `description`: a literal JSON string, _not_ interpreted as a template.
 
 ```json
 {

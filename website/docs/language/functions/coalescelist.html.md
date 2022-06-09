@@ -40,5 +40,5 @@ symbol to expand the outer list as arguments:
 
 ## Related Functions
 
-* [`coalesce`](./coalesce.html) performs a similar operation with string
+- [`coalesce`](./coalesce.html) performs a similar operation with string
   arguments rather than list arguments.

@@ -51,11 +51,11 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options or environment variables are supported:
 
- * `secret_id` - (Optional) Secret id of Tencent Cloud. It supports environment variables `TENCENTCLOUD_SECRET_ID`.
- * `secret_key` - (Optional) Secret key of Tencent Cloud. It supports environment variables `TENCENTCLOUD_SECRET_KEY`.
- * `region` - (Optional) The region of the COS bucket. It supports environment variables `TENCENTCLOUD_REGION`.
- * `bucket` - (Required) The name of the COS bucket. You shall manually create it first.
- * `prefix` - (Optional) The directory for saving the state file in bucket. Default to "env:".
- * `key` - (Optional) The path for saving the state file in bucket. Defaults to `terraform.tfstate`.
- * `encrypt` - (Optional) Whether to enable server side encryption of the state file. If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
- * `acl` - (Optional) Object ACL to be applied to the state file, allows `private` and `public-read`. Defaults to `private`.
+- `secret_id` - (Optional) Secret id of Tencent Cloud. It supports environment variables `TENCENTCLOUD_SECRET_ID`.
+- `secret_key` - (Optional) Secret key of Tencent Cloud. It supports environment variables `TENCENTCLOUD_SECRET_KEY`.
+- `region` - (Optional) The region of the COS bucket. It supports environment variables `TENCENTCLOUD_REGION`.
+- `bucket` - (Required) The name of the COS bucket. You shall manually create it first.
+- `prefix` - (Optional) The directory for saving the state file in bucket. Default to "env:".
+- `key` - (Optional) The path for saving the state file in bucket. Defaults to `terraform.tfstate`.
+- `encrypt` - (Optional) Whether to enable server side encryption of the state file. If it is true, COS will use 'AES256' encryption algorithm to encrypt state file.
+- `acl` - (Optional) Object ACL to be applied to the state file, allows `private` and `public-read`. Defaults to `private`.
