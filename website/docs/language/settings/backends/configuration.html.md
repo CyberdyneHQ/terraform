@@ -5,7 +5,6 @@ page_title: "Backend Configuration - Configuration Language"
 
 # Backend Configuration
 
-
 Each Terraform configuration can specify a backend, which defines exactly where
 and how operations are performed, where [state](/docs/language/state/index.html)
 snapshots are stored, etc. Most non-trivial Terraform configurations configure
@@ -74,21 +73,21 @@ provided as part of [the initialization process](/docs/cli/init/index.html).
 
 There are several ways to supply the remaining arguments:
 
-  * **File**: A configuration file may be specified via the `init` command line.
-    To specify a file, use the `-backend-config=PATH` option when running
-    `terraform init`. If the file contains secrets it may be kept in
-    a secure data store, such as [Vault](https://www.vaultproject.io/),
-    in which case it must be downloaded to the local disk before running Terraform.
+- **File**: A configuration file may be specified via the `init` command line.
+  To specify a file, use the `-backend-config=PATH` option when running
+  `terraform init`. If the file contains secrets it may be kept in
+  a secure data store, such as [Vault](https://www.vaultproject.io/),
+  in which case it must be downloaded to the local disk before running Terraform.
 
-  * **Command-line key/value pairs**: Key/value pairs can be specified via the
-    `init` command line. Note that many shells retain command-line flags in a
-    history file, so this isn't recommended for secrets. To specify a single
-    key/value pair, use the `-backend-config="KEY=VALUE"` option when running
-    `terraform init`.
+- **Command-line key/value pairs**: Key/value pairs can be specified via the
+  `init` command line. Note that many shells retain command-line flags in a
+  history file, so this isn't recommended for secrets. To specify a single
+  key/value pair, use the `-backend-config="KEY=VALUE"` option when running
+  `terraform init`.
 
-  * **Interactively**: Terraform will interactively ask you for the required
-    values, unless interactive input is disabled. Terraform will not prompt for
-    optional values.
+- **Interactively**: Terraform will interactively ask you for the required
+  values, unless interactive input is disabled. Terraform will not prompt for
+  optional values.
 
 If backend settings are provided in multiple locations, the top-level
 settings are merged such that any command-line options override the settings

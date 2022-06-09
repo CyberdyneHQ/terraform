@@ -30,11 +30,11 @@ Re-usable modules are defined using all of the same
 [configuration language](/docs/language/index.html) concepts we use in root modules.
 Most commonly, modules use:
 
-* [Input variables](/docs/language/values/variables.html) to accept values from
+- [Input variables](/docs/language/values/variables.html) to accept values from
   the calling module.
-* [Output values](/docs/language/values/outputs.html) to return results to the
+- [Output values](/docs/language/values/outputs.html) to return results to the
   calling module, which it can then use to populate arguments elsewhere.
-* [Resources](/docs/language/resources/index.html) to define one or more
+- [Resources](/docs/language/resources/index.html) to define one or more
   infrastructure objects that the module will manage.
 
 To define a module, create a new directory for it and place one or more `.tf`

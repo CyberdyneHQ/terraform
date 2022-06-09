@@ -4,7 +4,6 @@ page_title: "Backend Type: azurerm"
 sidebar_current: "docs-backends-types-standard-azurerm"
 description: |-
   Terraform can store state remotely in Azure Blob Storage.
-
 ---
 
 # azurerm
@@ -199,51 +198,51 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options are supported:
 
-* `storage_account_name` - (Required) The Name of [the Storage Account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account).
+- `storage_account_name` - (Required) The Name of [the Storage Account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account).
 
-* `container_name` - (Required) The Name of [the Storage Container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) within the Storage Account.
+- `container_name` - (Required) The Name of [the Storage Container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) within the Storage Account.
 
-* `key` - (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
+- `key` - (Required) The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container.
 
-* `environment` - (Optional) The Azure Environment which should be used. This can also be sourced from the `ARM_ENVIRONMENT` environment variable. Possible values are `public`, `china`, `german`, `stack` and `usgovernment`. Defaults to `public`.
+- `environment` - (Optional) The Azure Environment which should be used. This can also be sourced from the `ARM_ENVIRONMENT` environment variable. Possible values are `public`, `china`, `german`, `stack` and `usgovernment`. Defaults to `public`.
 
-* `endpoint` - (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the `ARM_ENDPOINT` environment variable.
+- `endpoint` - (Optional) The Custom Endpoint for Azure Resource Manager. This can also be sourced from the `ARM_ENDPOINT` environment variable.
 
 ~> **NOTE:** An `endpoint` should only be configured when using Azure Stack.
 
-* `snapshot` - (Optional) Should the Blob used to store the Terraform Statefile be snapshotted before use? Defaults to `false`. This value can also be sourced from the `ARM_SNAPSHOT` environment variable.
+- `snapshot` - (Optional) Should the Blob used to store the Terraform Statefile be snapshotted before use? Defaults to `false`. This value can also be sourced from the `ARM_SNAPSHOT` environment variable.
 
 ---
 
 When authenticating using the Managed Service Identity (MSI) - the following fields are also supported:
 
-* `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
+- `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
 
-* `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
+- `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
 
-* `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.
+- `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.
 
-* `msi_endpoint` - (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified. This can also be sourced from the `ARM_MSI_ENDPOINT` environment variable.
+- `msi_endpoint` - (Optional) The path to a custom Managed Service Identity endpoint which is automatically determined if not specified. This can also be sourced from the `ARM_MSI_ENDPOINT` environment variable.
 
-* `use_msi` - (Optional) Should Managed Service Identity authentication be used? This can also be sourced from the `ARM_USE_MSI` environment variable.
+- `use_msi` - (Optional) Should Managed Service Identity authentication be used? This can also be sourced from the `ARM_USE_MSI` environment variable.
 
 ---
 
 When authenticating using a SAS Token associated with the Storage Account - the following fields are also supported:
 
-* `sas_token` - (Optional) The SAS Token used to access the Blob Storage Account. This can also be sourced from the `ARM_SAS_TOKEN` environment variable.
+- `sas_token` - (Optional) The SAS Token used to access the Blob Storage Account. This can also be sourced from the `ARM_SAS_TOKEN` environment variable.
 
 ---
 
 When authenticating using the Storage Account's Access Key - the following fields are also supported:
 
-* `access_key` - (Optional) The Access Key used to access the Blob Storage Account. This can also be sourced from the `ARM_ACCESS_KEY` environment variable.
+- `access_key` - (Optional) The Access Key used to access the Blob Storage Account. This can also be sourced from the `ARM_ACCESS_KEY` environment variable.
 
 ---
 
 When authenticating using AzureAD Authentication - the following fields are also supported:
 
-* `use_azuread_auth` - (Optional) Should AzureAD Authentication be used to access the Blob Storage Account. This can also be sourced from the `ARM_USE_AZUREAD` environment variable.
+- `use_azuread_auth` - (Optional) Should AzureAD Authentication be used to access the Blob Storage Account. This can also be sourced from the `ARM_USE_AZUREAD` environment variable.
 
 -> **Note:** When using AzureAD for Authentication to Storage you also need to ensure the `Storage Blob Data Owner` role is assigned.
 
@@ -251,28 +250,28 @@ When authenticating using AzureAD Authentication - the following fields are also
 
 When authenticating using a Service Principal with a Client Certificate - the following fields are also supported:
 
-* `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
+- `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
 
-* `client_id` - (Optional) The Client ID of the Service Principal. This can also be sourced from the `ARM_CLIENT_ID` environment variable.
+- `client_id` - (Optional) The Client ID of the Service Principal. This can also be sourced from the `ARM_CLIENT_ID` environment variable.
 
-* `client_certificate_password` - (Optional) The password associated with the Client Certificate specified in `client_certificate_path`. This can also be sourced from the `ARM_CLIENT_CERTIFICATE_PASSWORD` environment variable.
+- `client_certificate_password` - (Optional) The password associated with the Client Certificate specified in `client_certificate_path`. This can also be sourced from the `ARM_CLIENT_CERTIFICATE_PASSWORD` environment variable.
 
-* `client_certificate_path` - (Optional) The path to the PFX file used as the Client Certificate when authenticating as a Service Principal. This can also be sourced from the `ARM_CLIENT_CERTIFICATE_PATH` environment variable.
+- `client_certificate_path` - (Optional) The path to the PFX file used as the Client Certificate when authenticating as a Service Principal. This can also be sourced from the `ARM_CLIENT_CERTIFICATE_PATH` environment variable.
 
-* `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
+- `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
 
-* `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.
+- `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.
 
 ---
 
 When authenticating using a Service Principal with a Client Secret - the following fields are also supported:
 
-* `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
+- `resource_group_name` - (Required) The Name of the Resource Group in which the Storage Account exists.
 
-* `client_id` - (Optional) The Client ID of the Service Principal. This can also be sourced from the `ARM_CLIENT_ID` environment variable.
+- `client_id` - (Optional) The Client ID of the Service Principal. This can also be sourced from the `ARM_CLIENT_ID` environment variable.
 
-* `client_secret` - (Optional) The Client Secret of the Service Principal. This can also be sourced from the `ARM_CLIENT_SECRET` environment variable.
+- `client_secret` - (Optional) The Client Secret of the Service Principal. This can also be sourced from the `ARM_CLIENT_SECRET` environment variable.
 
-* `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
+- `subscription_id` - (Optional) The Subscription ID in which the Storage Account exists. This can also be sourced from the `ARM_SUBSCRIPTION_ID` environment variable.
 
-* `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.
+- `tenant_id` - (Optional) The Tenant ID in which the Subscription exists. This can also be sourced from the `ARM_TENANT_ID` environment variable.

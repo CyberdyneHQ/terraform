@@ -48,7 +48,7 @@ because the directory entries themselves are authoritative in that case.
 
 This command supports the following additional option:
 
-* `-platform=OS_ARCH` - Choose which target platform to build a mirror for.
+- `-platform=OS_ARCH` - Choose which target platform to build a mirror for.
   By default Terraform will obtain plugin packages suitable for the platform
   where you run this command. Use this flag multiple times to include packages
   for multiple target systems.

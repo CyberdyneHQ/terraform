@@ -13,8 +13,8 @@ command line, and can expose information for other Terraform configurations to
 use. Output values are similar to return values in programming languages.
 
 > **Hands-on:** Try the [Output Data From
-Terraform](https://learn.hashicorp.com/tutorials/terraform/outputs)
-tutorial on HashiCorp Learn.
+> Terraform](https://learn.hashicorp.com/tutorials/terraform/outputs)
+> tutorial on HashiCorp Learn.
 
 Output values have several uses:
 

@@ -21,17 +21,17 @@ output is printed.
 
 The command-line flags are all optional. The list of available flags are:
 
-* `-json` - If specified, the outputs are formatted as a JSON object, with
-    a key per output. If `NAME` is specified, only the output specified will be
-    returned. This can be piped into tools such as `jq` for further processing.
-* `-raw` - If specified, Terraform will convert the specified output value to a
-    string and print that string directly to the output, without any special
-    formatting. This can be convenient when working with shell scripts, but
-    it only supports string, number, and boolean values. Use `-json` instead
-    for processing complex data types.
-* `-no-color` - If specified, output won't contain any color.
-* `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
-    Ignored when [remote state](/docs/language/state/remote.html) is used.
+- `-json` - If specified, the outputs are formatted as a JSON object, with
+  a key per output. If `NAME` is specified, only the output specified will be
+  returned. This can be piped into tools such as `jq` for further processing.
+- `-raw` - If specified, Terraform will convert the specified output value to a
+  string and print that string directly to the output, without any special
+  formatting. This can be convenient when working with shell scripts, but
+  it only supports string, number, and boolean values. Use `-json` instead
+  for processing complex data types.
+- `-no-color` - If specified, output won't contain any color.
+- `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
+  Ignored when [remote state](/docs/language/state/remote.html) is used.
 
 -> **Note:** When using the `-json` or `-raw` command-line flag, any sensitive
 values in Terraform state will be displayed in plain text. For more information,

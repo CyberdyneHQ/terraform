@@ -3,7 +3,7 @@ layout: "intro"
 page_title: "The Core Terraform Workflow - Guides"
 sidebar_current: "guides-core-workflow"
 description: |-
-  An overview of how individuals, teams, and organizations can use Terraform. 
+  An overview of how individuals, teams, and organizations can use Terraform.
 ---
 
 # The Core Terraform Workflow
@@ -223,7 +223,7 @@ week, for others, many times a day.
 While the above described workflows enable the safe, predictable, and
 reproducible creating or changing of infrastructure, there are multiple
 collaboration points that can be streamlined, especially as teams and
-organizations scale.  We designed Terraform Cloud to support and enhance
+organizations scale. We designed Terraform Cloud to support and enhance
 the core Terraform workflow for anyone collaborating on infrastructure, from
 small teams to large organizations. Let's look at how Terraform Cloud makes
 for a better experience at each step.

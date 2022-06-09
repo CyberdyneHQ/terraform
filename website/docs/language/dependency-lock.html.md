@@ -15,9 +15,9 @@ information here is not relevant to those versions.
 A Terraform configuration may refer to two different kinds of external
 dependency that come from outside of its own codebase:
 
-* [Providers](/docs/language/providers/requirements.html), which are plugins for Terraform
+- [Providers](/docs/language/providers/requirements.html), which are plugins for Terraform
   that extend it with support for interacting with various external systems.
-* [Modules](/docs/language/modules/index.html), which allow
+- [Modules](/docs/language/modules/index.html), which allow
   splitting out groups of Terraform configuration constructs (written in the
   Terraform language) into reusable abstractions.
 
@@ -117,33 +117,33 @@ provider version.
 
 There are two special considerations with the "trust on first use" model:
 
-* If you install a provider from an origin registry which provides checksums
+- If you install a provider from an origin registry which provides checksums
   that are signed with a cryptographic signature, Terraform will treat all
   of the signed checksums as valid as long as one checksum matches. The lock
   file will therefore include checksums for both the package you installed for
   your current platform _and_ any other packages that might be available for
   other platforms.
 
-    In this case, the `terraform init` output will include the fingerprint of
-    the key that signed the checksums, with a message like
-    `(signed by a HashiCorp partner, key ID DC9FC6B1FCE47986)`. You may wish to
-    confirm that you trust the holder of the given key before committing the
-    lock file containing the signed checksums, or to retrieve and verify the
-    full set of available packages for the given provider version.
+  In this case, the `terraform init` output will include the fingerprint of
+  the key that signed the checksums, with a message like
+  `(signed by a HashiCorp partner, key ID DC9FC6B1FCE47986)`. You may wish to
+  confirm that you trust the holder of the given key before committing the
+  lock file containing the signed checksums, or to retrieve and verify the
+  full set of available packages for the given provider version.
 
-* If you install a provider for the first time using an alternative
+- If you install a provider for the first time using an alternative
   installation method, such as a filesystem or network mirror, Terraform will
   not be able to verify the checksums for any platform other than the one
   where you ran `terraform init`, and so it will not record the checksums
   for other platforms and so the configuration will not be usable on any other
   platform.
 
-    To avoid this problem you can pre-populate checksums for a variety of
-    different platforms in your lock file using
-    [the `terraform providers lock` command](/docs/cli/commands/providers/lock.html),
-    which will then allow future calls to `terraform init` to verify that the
-    packages available in your chosen mirror match the official packages from
-    the provider's origin registry.
+  To avoid this problem you can pre-populate checksums for a variety of
+  different platforms in your lock file using
+  [the `terraform providers lock` command](/docs/cli/commands/providers/lock.html),
+  which will then allow future calls to `terraform init` to verify that the
+  packages available in your chosen mirror match the official packages from
+  the provider's origin registry.
 
 ## Understanding Lock File Changes
 
@@ -199,13 +199,13 @@ block in the dependency lock file.
 
 The new lock file entry records several pieces of information:
 
-* `version`: the exact version that Terraform selected based on the version
+- `version`: the exact version that Terraform selected based on the version
   constraints in the configuration.
-* `constraints`: all of the version constraints that Terraform considered when
+- `constraints`: all of the version constraints that Terraform considered when
   making this selection. (Terraform doesn't actually use this information to
   make installation decisions, but includes it to help explain to human readers
   how the previous decision was made.)
-* `hashes`: a number of checksums that are all considered to be valid for
+- `hashes`: a number of checksums that are all considered to be valid for
   packages implementing the selected version of this provider on different
   platforms. The meaning of these hashes is explained more under
   _[New provider package checksums](#new-provider-package-checksums)_ below.
@@ -297,31 +297,31 @@ additional benefit.
 
 The two hashing schemes currently supported are:
 
-* `zh:`: a mnemonic for "zip hash", this is a legacy hash format which is
+- `zh:`: a mnemonic for "zip hash", this is a legacy hash format which is
   part of the Terraform provider registry protocol and is therefore used for
   providers that you install directly from an origin registry.
 
-    This hashing scheme captures a SHA256 hash of each of the official `.zip`
-    packages indexed in the origin registry. This is an effective scheme for
-    verifying the official release packages when installed from a registry, but
-    it's not suitable for verifying packages that come from other
-    [provider installation methods](/docs/cli/config/config-file.html#provider-installation),
-    such as filesystem mirrors using the unpacked directory layout.
+  This hashing scheme captures a SHA256 hash of each of the official `.zip`
+  packages indexed in the origin registry. This is an effective scheme for
+  verifying the official release packages when installed from a registry, but
+  it's not suitable for verifying packages that come from other
+  [provider installation methods](/docs/cli/config/config-file.html#provider-installation),
+  such as filesystem mirrors using the unpacked directory layout.
 
-* `h1:`: a mnemonic for "hash scheme 1", which is the current preferred hashing
+- `h1:`: a mnemonic for "hash scheme 1", which is the current preferred hashing
   scheme.
 
-    Hash scheme 1 is also a SHA256 hash, but is one computed from the _contents_
-    of the provider distribution package, rather than of the `.zip` archive
-    it's contained within. This scheme therefore has the advantage that it can
-    be calculated for an official `.zip` file, an unpacked directory with the
-    same contents, or a recompressed `.zip` file which contains the same files
-    but potentially different metadata or compression schemes.
+  Hash scheme 1 is also a SHA256 hash, but is one computed from the _contents_
+  of the provider distribution package, rather than of the `.zip` archive
+  it's contained within. This scheme therefore has the advantage that it can
+  be calculated for an official `.zip` file, an unpacked directory with the
+  same contents, or a recompressed `.zip` file which contains the same files
+  but potentially different metadata or compression schemes.
 
-    Due to the limited scope of the `zh:` scheme, Terraform will
-    opportunistically add in the corresponding `h1:` checksums as it learns
-    of them, which is what caused the addition of a second `h1:` checksum
-    in the example change shown above.
+  Due to the limited scope of the `zh:` scheme, Terraform will
+  opportunistically add in the corresponding `h1:` checksums as it learns
+  of them, which is what caused the addition of a second `h1:` checksum
+  in the example change shown above.
 
 Terraform will add a new hash to an existing provider only if the hash is
 calculated from a package that _also_ matches one of the existing hashes. In

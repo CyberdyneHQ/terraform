@@ -39,7 +39,7 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options are supported:
 
- * `path` - (Required) The path where to store the state
- * `endpoints` - (Required) A space-separated list of the etcd endpoints
- * `username` - (Optional) The username
- * `password` - (Optional) The password
+- `path` - (Required) The path where to store the state
+- `endpoints` - (Required) A space-separated list of the etcd endpoints
+- `username` - (Optional) The username
+- `password` - (Optional) The password

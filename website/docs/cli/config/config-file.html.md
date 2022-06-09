@@ -16,11 +16,11 @@ which apply across all Terraform working directories. This is separate from
 The configuration can be placed in a single file whose location depends
 on the host operating system:
 
-* On Windows, the file must be named `terraform.rc` and placed
+- On Windows, the file must be named `terraform.rc` and placed
   in the relevant user's `%APPDATA%` directory. The physical location
   of this directory depends on your Windows version and system configuration;
   use `$env:APPDATA` in PowerShell to find its location on your system.
-* On all other systems, the file must be named `.terraformrc` (note
+- On all other systems, the file must be named `.terraformrc` (note
   the leading period) and placed directly in the home directory
   of the relevant user.
 
@@ -208,44 +208,44 @@ public Terraform registry, even when using wildcards. For example,
 
 The following are the two supported installation method types:
 
-* `direct`: request information about the provider directly from its origin
+- `direct`: request information about the provider directly from its origin
   registry and download over the network from the location that registry
   indicates. This method expects no additional arguments.
 
-* `filesystem_mirror`: consult a directory on the local disk for copies of
+- `filesystem_mirror`: consult a directory on the local disk for copies of
   providers. This method requires the additional argument `path` to indicate
   which directory to look in.
 
-    Terraform expects the given directory to contain a nested directory structure
-    where the path segments together provide metadata about the available
-    providers. The following two directory structures are supported:
+  Terraform expects the given directory to contain a nested directory structure
+  where the path segments together provide metadata about the available
+  providers. The following two directory structures are supported:
 
-    * Packed layout: `HOSTNAME/NAMESPACE/TYPE/terraform-provider-TYPE_VERSION_TARGET.zip`
-      is the distribution zip file obtained from the provider's origin registry.
-    * Unpacked layout: `HOSTNAME/NAMESPACE/TYPE/VERSION/TARGET` is a directory
-      containing the result of extracting the provider's distribution zip file.
+  - Packed layout: `HOSTNAME/NAMESPACE/TYPE/terraform-provider-TYPE_VERSION_TARGET.zip`
+    is the distribution zip file obtained from the provider's origin registry.
+  - Unpacked layout: `HOSTNAME/NAMESPACE/TYPE/VERSION/TARGET` is a directory
+    containing the result of extracting the provider's distribution zip file.
 
-    In both layouts, the `VERSION` is a string like `2.0.0` and the `TARGET`
-    specifies a particular target platform using a format like `darwin_amd64`,
-    `linux_arm`, `windows_amd64`, etc.
+  In both layouts, the `VERSION` is a string like `2.0.0` and the `TARGET`
+  specifies a particular target platform using a format like `darwin_amd64`,
+  `linux_arm`, `windows_amd64`, etc.
 
-    If you use the unpacked layout, Terraform will attempt to create a symbolic
-    link to the mirror directory when installing the provider, rather than
-    creating a deep copy of the directory. The packed layout prevents this
-    because Terraform must extract the zip file during installation.
+  If you use the unpacked layout, Terraform will attempt to create a symbolic
+  link to the mirror directory when installing the provider, rather than
+  creating a deep copy of the directory. The packed layout prevents this
+  because Terraform must extract the zip file during installation.
 
-    You can include multiple `filesystem_mirror` blocks in order to specify
-    several different directories to search.
+  You can include multiple `filesystem_mirror` blocks in order to specify
+  several different directories to search.
 
-* `network_mirror`: consult a particular HTTPS server for copies of providers,
+- `network_mirror`: consult a particular HTTPS server for copies of providers,
   regardless of which registry host they belong to. This method requires the
   additional argument `url` to indicate the mirror base URL, which should
   use the `https:` scheme and end with a trailing slash.
 
-    Terraform expects the given URL to be a base URL for an implementation of
-    [the provider network mirror protocol](/docs/internals/provider-network-mirror-protocol.html),
-    which is designed to be relatively easy to implement using typical static
-    website hosting mechanisms.
+  Terraform expects the given URL to be a base URL for an implementation of
+  [the provider network mirror protocol](/docs/internals/provider-network-mirror-protocol.html),
+  which is designed to be relatively easy to implement using typical static
+  website hosting mechanisms.
 
 ~> **Warning:** Don't configure `network_mirror` URLs that you do not trust.
 Provider mirror servers are subject to TLS certificate checks to verify
@@ -270,11 +270,11 @@ method.
 The set of directories Terraform can select as filesystem mirrors depends on
 the operating system where you are running Terraform:
 
-* **Windows:** `%APPDATA%/terraform.d/plugins` and `%APPDATA%/HashiCorp/Terraform/plugins`
-* **Mac OS X:** `$HOME/.terraform.d/plugins`,
+- **Windows:** `%APPDATA%/terraform.d/plugins` and `%APPDATA%/HashiCorp/Terraform/plugins`
+- **Mac OS X:** `$HOME/.terraform.d/plugins`,
   `~/Library/Application Support/io.terraform/plugins`, and
   `/Library/Application Support/io.terraform/plugins`
-* **Linux and other Unix-like systems**:`$HOME/.terraform.d/plugins` and
+- **Linux and other Unix-like systems**:`$HOME/.terraform.d/plugins` and
   `terraform/plugins` located within a valid
   [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
   data directory such as `$XDG_DATA_HOME/terraform/plugins`.
@@ -357,8 +357,7 @@ been placed there. Over time, as plugins are upgraded, the cache directory may
 grow to contain several unused versions which you must delete manually.
 
 -> **Note:** The plugin cache directory is not guaranteed to be concurrency
-safe. The provider installer's behavior in environments with multiple `terraform
-init` calls is undefined.
+safe. The provider installer's behavior in environments with multiple `terraform init` calls is undefined.
 
 ### Development Overrides for Provider Developers
 
@@ -448,7 +447,7 @@ development work.
 The following settings are supported in Terraform 0.12 and earlier but are
 no longer recommended for use:
 
-* `providers` - a configuration block that allows specifying the locations of
+- `providers` - a configuration block that allows specifying the locations of
   specific plugins for each named provider. This mechanism is deprecated
   because it is unable to specify a version number and source for each provider.
   See [Provider Installation](#provider-installation) above for the replacement

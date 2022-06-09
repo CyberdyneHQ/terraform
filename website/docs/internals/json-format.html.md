@@ -43,8 +43,8 @@ The JSON output format consists of the following objects and sub-objects:
 - [Plan Representation](#plan-representation) — The complete top-level object returned by `terraform show -json <PLAN FILE>`.
 - [Values Representation](#values-representation) — A sub-object of both plan and state output that describes current state or planned state.
 - [Configuration Representation](#configuration-representation) — A sub-object of plan output that describes a parsed Terraform configuration.
-    - [Expression Representation](#expression-representation) — A sub-object of a configuration representation that describes an unevaluated expression.
-    - [Block Expressions Representation](#block-expressions-representation) — A sub-object of a configuration representation that describes the expressions nested inside a block.
+  - [Expression Representation](#expression-representation) — A sub-object of a configuration representation that describes an unevaluated expression.
+  - [Block Expressions Representation](#block-expressions-representation) — A sub-object of a configuration representation that describes the expressions nested inside a block.
 - [Change Representation](#change-representation) — A sub-object of plan output that describes planned changes to an object.
 
 ## State Representation

@@ -117,16 +117,16 @@ This operation determines which versions are currently available for a
 particular provider.
 
 | Method | Path                                    | Produces           |
-|--------|-----------------------------------------|--------------------|
+| ------ | --------------------------------------- | ------------------ |
 | `GET`  | `:hostname/:namespace/:type/index.json` | `application/json` |
 
 ### Parameters
 
-* `hostname` (required): the hostname portion of the address of the requested
+- `hostname` (required): the hostname portion of the address of the requested
   provider.
-* `namespace` (required): the namespace portion of the address of the requested
+- `namespace` (required): the namespace portion of the address of the requested
   provider.
-* `type` (required): the type portion of the address of the requested provider.
+- `type` (required): the type portion of the address of the requested provider.
 
 ### Sample Request
 
@@ -175,17 +175,17 @@ version matching the configured version constraints, in order to find a zip
 archive containing the plugin itself.
 
 | Method | Path                                       | Produces           |
-|--------|--------------------------------------------|--------------------|
+| ------ | ------------------------------------------ | ------------------ |
 | `GET`  | `:hostname/:namespace/:type/:version.json` | `application/json` |
 
 ### Parameters
 
-* `hostname` (required): the hostname portion of the address of the requested
+- `hostname` (required): the hostname portion of the address of the requested
   provider.
-* `namespace` (required): the namespace portion of the address of the requested
+- `namespace` (required): the namespace portion of the address of the requested
   provider.
-* `type` (required): the type portion of the address of the requested provider.
-* `version` (required): the version selected to download. This will exactly
+- `type` (required): the type portion of the address of the requested provider.
+- `version` (required): the version selected to download. This will exactly
   match one of the version strings returned from a previous call to
   [List Available Versions](#list-available-versions).
 
@@ -202,15 +202,11 @@ curl 'https://terraform.example.com/providers/registry.terraform.io/hashicorp/ra
   "archives": {
     "darwin_amd64": {
       "url": "terraform-provider-random_2.0.0_darwin_amd64.zip",
-      "hashes": [
-        "h1:4A07+ZFc2wgJwo8YNlQpr1rVlgUDlxXHhPJciaPY5gs="
-      ]
+      "hashes": ["h1:4A07+ZFc2wgJwo8YNlQpr1rVlgUDlxXHhPJciaPY5gs="]
     },
     "linux_amd64": {
       "url": "terraform-provider-random_2.0.0_linux_amd64.zip",
-      "hashes": [
-        "h1:lCJCxf/LIowc2IGS9TPjWDyXY4nOmdGdfcwwDQCOURQ="
-      ]
+      "hashes": ["h1:lCJCxf/LIowc2IGS9TPjWDyXY4nOmdGdfcwwDQCOURQ="]
     }
   }
 }
@@ -228,29 +224,29 @@ with an underscore (`_`).
 Each property value in the `archives` object is itself a nested object with
 the following properties:
 
-* `url` (required): a string specifying the URL from which Terraform should
+- `url` (required): a string specifying the URL from which Terraform should
   download the `.zip` archive containing the requested provider plugin version.
 
-    Terraform resolves the URL relative to the URL from which the current
-    JSON document was returned, so the examples above containing only a
-    filename would cause Terraform to construct a URL like:
+  Terraform resolves the URL relative to the URL from which the current
+  JSON document was returned, so the examples above containing only a
+  filename would cause Terraform to construct a URL like:
 
-    ```
-    https://terraform.example.com/providers/registry.terraform.io/hashicorp/random/terraform-provider-random_2.0.0_darwin_amd64.zip
-    ```
+  ```
+  https://terraform.example.com/providers/registry.terraform.io/hashicorp/random/terraform-provider-random_2.0.0_darwin_amd64.zip
+  ```
 
-* `hashes` (optional): a JSON array of strings containing one or more hash
+- `hashes` (optional): a JSON array of strings containing one or more hash
   values for the indicated archive. These hashes use Terraform's provider
   package hashing algorithm. At present, the easiest way to populate these
   is to construct a mirror's JSON indices using the `terraform providers mirror`
   command, as described in a later section, which will include the calculated
   hashes of each provider.
 
-    If the response includes at least one hash, Terraform will select the hash
-    whose algorithm it considers to be strongest and verify that the downloaded
-    package matches that hash. If the response does not include a `hashes`
-    property then Terraform will install the indicated archive with no
-    verification.
+  If the response includes at least one hash, Terraform will select the hash
+  whose algorithm it considers to be strongest and verify that the downloaded
+  package matches that hash. If the response does not include a `hashes`
+  property then Terraform will install the indicated archive with no
+  verification.
 
 Terraform CLI will only attempt to download versions that it has previously
 seen in response to [List Available Versions](#list-available-versions).

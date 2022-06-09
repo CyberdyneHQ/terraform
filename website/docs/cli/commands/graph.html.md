@@ -12,7 +12,6 @@ representation of either a configuration or execution plan.
 The output is in the DOT format, which can be used by
 [GraphViz](http://www.graphviz.org) to generate charts.
 
-
 ## Usage
 
 Usage: `terraform graph [options]`
@@ -32,17 +31,17 @@ argument.
 
 Options:
 
-* `-plan=tfplan`    - Render graph using the specified plan file instead of the
-                      configuration in the current directory.
+- `-plan=tfplan` - Render graph using the specified plan file instead of the
+  configuration in the current directory.
 
-* `-draw-cycles`    - Highlight any cycles in the graph with colored edges.
-                      This helps when diagnosing cycle errors.
+- `-draw-cycles` - Highlight any cycles in the graph with colored edges.
+  This helps when diagnosing cycle errors.
 
-* `-type=plan`      - Type of graph to output. Can be: `plan`, `plan-destroy`, `apply`,
-                      `validate`, `input`, `refresh`.
+- `-type=plan` - Type of graph to output. Can be: `plan`, `plan-destroy`, `apply`,
+  `validate`, `input`, `refresh`.
 
-* `-module-depth=n` - (deprecated) In prior versions of Terraform, specified the
-                      depth of modules to show in the output.
+- `-module-depth=n` - (deprecated) In prior versions of Terraform, specified the
+  depth of modules to show in the output.
 
 ## Generating Images
 

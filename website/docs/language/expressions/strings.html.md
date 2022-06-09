@@ -2,7 +2,6 @@
 layout: "language"
 page_title: "Strings and Templates - Configuration Language"
 description: "String literals and template sequences interpolate values and manipulate text. Learn about both quoted and heredoc string syntax."
-
 ---
 
 # Strings and Templates
@@ -40,9 +39,9 @@ sequence, with the following characters selecting the escape behavior:
 
 There are also two special escape sequences that do not use backslashes:
 
-| Sequence | Replacement |
-| ---      | ----        |
-| `$${`    | Literal `${`, without beginning an interpolation sequence. |
+| Sequence | Replacement                                                    |
+| -------- | -------------------------------------------------------------- |
+| `$${`    | Literal `${`, without beginning an interpolation sequence.     |
 | `%%{`    | Literal `%{`, without beginning a template directive sequence. |
 
 ## Heredoc Strings
@@ -60,9 +59,9 @@ EOT
 A heredoc string consists of:
 
 - An opening sequence consisting of:
-    - A heredoc marker (`<<` or `<<-` — two less-than signs, with an optional hyphen for indented heredocs)
-    - A delimiter word of your own choosing
-    - A line break
+  - A heredoc marker (`<<` or `<<-` — two less-than signs, with an optional hyphen for indented heredocs)
+  - A delimiter word of your own choosing
+  - A line break
 - The contents of the string, which can span any number of lines
 - The delimiter word you chose, alone on its own line (with indentation allowed for indented heredocs)
 
@@ -132,11 +131,10 @@ expression. Instead, the backslash character is interpreted literally.
 
 Heredocs support two special escape sequences that do not use backslashes:
 
-| Sequence | Replacement |
-| ---      | ----        |
-| `$${`    | Literal `${`, without beginning an interpolation sequence. |
+| Sequence | Replacement                                                    |
+| -------- | -------------------------------------------------------------- |
+| `$${`    | Literal `${`, without beginning an interpolation sequence.     |
 | `%%{`    | Literal `%{`, without beginning a template directive sequence. |
-
 
 ## String Templates
 
@@ -165,30 +163,30 @@ and `for` expressions.
 
 The following directives are supported:
 
-* The `%{if <BOOL>}`/`%{else}`/`%{endif}` directive chooses between two templates based
+- The `%{if <BOOL>}`/`%{else}`/`%{endif}` directive chooses between two templates based
   on the value of a bool expression:
 
-    ```hcl
-    "Hello, %{ if var.name != "" }${var.name}%{ else }unnamed%{ endif }!"
-    ```
+  ```hcl
+  "Hello, %{ if var.name != "" }${var.name}%{ else }unnamed%{ endif }!"
+  ```
 
-    The `else` portion may be omitted, in which case the result is an empty
-    string if the condition expression returns `false`.
+  The `else` portion may be omitted, in which case the result is an empty
+  string if the condition expression returns `false`.
 
-* The `%{for <NAME> in <COLLECTION>}` / `%{endfor}` directive iterates over the
+- The `%{for <NAME> in <COLLECTION>}` / `%{endfor}` directive iterates over the
   elements of a given collection or structural value and evaluates a given
   template once for each element, concatenating the results together:
 
-    ```hcl
-    <<EOT
-    %{ for ip in aws_instance.example.*.private_ip }
-    server ${ip}
-    %{ endfor }
-    EOT
-    ```
+  ```hcl
+  <<EOT
+  %{ for ip in aws_instance.example.*.private_ip }
+  server ${ip}
+  %{ endfor }
+  EOT
+  ```
 
-    The name given immediately after the `for` keyword is used as a temporary
-    variable name which can then be referenced from the nested template.
+  The name given immediately after the `for` keyword is used as a temporary
+  variable name which can then be referenced from the nested template.
 
 ### Whitespace Stripping
 

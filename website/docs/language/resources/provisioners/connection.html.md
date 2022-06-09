@@ -84,57 +84,57 @@ block would create a dependency cycle.
 
 **The following arguments are supported by all connection types:**
 
-* `type` - The connection type that should be used. Valid types are `ssh` and `winrm`.
-           Defaults to `ssh`.
+- `type` - The connection type that should be used. Valid types are `ssh` and `winrm`.
+  Defaults to `ssh`.
 
-* `user` - The user that we should use for the connection.
-           Defaults to `root` when using type `ssh` and defaults to `Administrator` when using type `winrm`.
+- `user` - The user that we should use for the connection.
+  Defaults to `root` when using type `ssh` and defaults to `Administrator` when using type `winrm`.
 
-* `password` - The password we should use for the connection. In some cases this is
+- `password` - The password we should use for the connection. In some cases this is
   specified by the provider.
 
-* `host` - (Required) The address of the resource to connect to.
+- `host` - (Required) The address of the resource to connect to.
 
-* `port` - The port to connect to.
-           Defaults to `22` when using type `ssh` and defaults to `5985` when using type `winrm`.
+- `port` - The port to connect to.
+  Defaults to `22` when using type `ssh` and defaults to `5985` when using type `winrm`.
 
-* `timeout` - The timeout to wait for the connection to become available. Should be provided as a string like `30s` or `5m`.
-              Defaults to 5 minutes.
+- `timeout` - The timeout to wait for the connection to become available. Should be provided as a string like `30s` or `5m`.
+  Defaults to 5 minutes.
 
-* `script_path` - The path used to copy scripts meant for remote execution.
+- `script_path` - The path used to copy scripts meant for remote execution.
 
 **Additional arguments only supported by the `ssh` connection type:**
 
-* `private_key` - The contents of an SSH key to use for the connection. These can
+- `private_key` - The contents of an SSH key to use for the connection. These can
   be loaded from a file on disk using
   [the `file` function](/docs/language/functions/file.html). This takes
   preference over the password if provided.
 
-* `certificate` - The contents of a signed CA Certificate. The certificate argument must be
+- `certificate` - The contents of a signed CA Certificate. The certificate argument must be
   used in conjunction with a `private_key`. These can
   be loaded from a file on disk using the [the `file` function](/docs/language/functions/file.html).
 
-* `agent` - Set to `false` to disable using `ssh-agent` to authenticate. On Windows the
+- `agent` - Set to `false` to disable using `ssh-agent` to authenticate. On Windows the
   only supported SSH authentication agent is
   [Pageant](http://the.earth.li/~sgtatham/putty/0.66/htmldoc/Chapter9.html#pageant).
 
-* `agent_identity` - The preferred identity from the ssh agent for authentication.
+- `agent_identity` - The preferred identity from the ssh agent for authentication.
 
-* `host_key` - The public key from the remote host or the signing CA, used to
+- `host_key` - The public key from the remote host or the signing CA, used to
   verify the connection.
-* `target_platform` - The target platform to connect to. Valid values are `windows` and `unix`. Defaults to `unix` if not set.
+- `target_platform` - The target platform to connect to. Valid values are `windows` and `unix`. Defaults to `unix` if not set.
 
-    If the platform is set to `windows`, the default `script_path` is `c:\windows\temp\terraform_%RAND%.cmd`, assuming [the SSH default shell](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#configuring-the-default-shell-for-openssh-in-windows) is `cmd.exe`. If the SSH default shell is PowerShell, set `script_path` to `"c:/windows/temp/terraform_%RAND%.ps1"`  
+  If the platform is set to `windows`, the default `script_path` is `c:\windows\temp\terraform_%RAND%.cmd`, assuming [the SSH default shell](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#configuring-the-default-shell-for-openssh-in-windows) is `cmd.exe`. If the SSH default shell is PowerShell, set `script_path` to `"c:/windows/temp/terraform_%RAND%.ps1"`
 
 **Additional arguments only supported by the `winrm` connection type:**
 
-* `https` - Set to `true` to connect using HTTPS instead of HTTP.
+- `https` - Set to `true` to connect using HTTPS instead of HTTP.
 
-* `insecure` - Set to `true` to not validate the HTTPS certificate chain.
+- `insecure` - Set to `true` to not validate the HTTPS certificate chain.
 
-* `use_ntlm` - Set to `true` to use NTLM authentication, rather than default (basic authentication), removing the requirement for basic authentication to be enabled within the target guest. Further reading for remote connection authentication can be found [here](https://docs.microsoft.com/en-us/windows/win32/winrm/authentication-for-remote-connections?redirectedfrom=MSDN).
+- `use_ntlm` - Set to `true` to use NTLM authentication, rather than default (basic authentication), removing the requirement for basic authentication to be enabled within the target guest. Further reading for remote connection authentication can be found [here](https://docs.microsoft.com/en-us/windows/win32/winrm/authentication-for-remote-connections?redirectedfrom=MSDN).
 
-* `cacert` - The CA certificate to validate against.
+- `cacert` - The CA certificate to validate against.
 
 <a id="bastion"></a>
 
@@ -143,26 +143,26 @@ block would create a dependency cycle.
 The `ssh` connection also supports the following fields to facilitate connnections via a
 [bastion host](https://en.wikipedia.org/wiki/Bastion_host).
 
-* `bastion_host` - Setting this enables the bastion Host connection. This host
+- `bastion_host` - Setting this enables the bastion Host connection. This host
   will be connected to first, and then the `host` connection will be made from there.
 
-* `bastion_host_key` - The public key from the remote host or the signing CA,
+- `bastion_host_key` - The public key from the remote host or the signing CA,
   used to verify the host connection.
 
-* `bastion_port` - The port to use connect to the bastion host. Defaults to the
+- `bastion_port` - The port to use connect to the bastion host. Defaults to the
   value of the `port` field.
 
-* `bastion_user` - The user for the connection to the bastion host. Defaults to
+- `bastion_user` - The user for the connection to the bastion host. Defaults to
   the value of the `user` field.
 
-* `bastion_password` - The password we should use for the bastion host.
+- `bastion_password` - The password we should use for the bastion host.
   Defaults to the value of the `password` field.
 
-* `bastion_private_key` - The contents of an SSH key file to use for the bastion
+- `bastion_private_key` - The contents of an SSH key file to use for the bastion
   host. These can be loaded from a file on disk using
   [the `file` function](/docs/language/functions/file.html).
   Defaults to the value of the `private_key` field.
 
-* `bastion_certificate` - The contents of a signed CA Certificate. The certificate argument
+- `bastion_certificate` - The contents of a signed CA Certificate. The certificate argument
   must be used in conjunction with a `bastion_private_key`. These can be loaded from
   a file on disk using the [the `file` function](/docs/language/functions/file.html).

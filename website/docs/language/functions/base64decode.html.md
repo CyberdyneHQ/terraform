@@ -39,11 +39,11 @@ Hello World
 
 ## Related Functions
 
-* [`base64encode`](./base64encode.html) performs the opposite operation,
+- [`base64encode`](./base64encode.html) performs the opposite operation,
   encoding the UTF-8 bytes for a string as Base64.
-* [`textdecodebase64`](./textdecodebase64.html) is a more general function that
+- [`textdecodebase64`](./textdecodebase64.html) is a more general function that
   supports character encodings other than UTF-8.
-* [`base64gzip`](./base64gzip.html) applies gzip compression to a string
+- [`base64gzip`](./base64gzip.html) applies gzip compression to a string
   and returns the result with Base64 encoding.
-* [`filebase64`](./filebase64.html) reads a file from the local filesystem
+- [`filebase64`](./filebase64.html) reads a file from the local filesystem
   and returns its raw bytes with Base64 encoding.

@@ -35,7 +35,7 @@ Hello World
 
 ## Related Functions
 
-* [`textencodebase64`](./textencodebase64.html) performs the opposite operation,
+- [`textencodebase64`](./textencodebase64.html) performs the opposite operation,
   applying target encoding and then Base64 to a string.
-* [`base64decode`](./base64decode.html) is effectively a shorthand for
+- [`base64decode`](./base64decode.html) is effectively a shorthand for
   `textdecodebase64` where the character encoding is fixed as `UTF-8`.

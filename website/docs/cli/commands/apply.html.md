@@ -58,8 +58,7 @@ decisions.
 
 ### Plan Options
 
-When run without a saved plan file, `terraform apply` supports all of `terraform
-plan`'s planning modes and planning options. For details, see:
+When run without a saved plan file, `terraform apply` supports all of `terraform plan`'s planning modes and planning options. For details, see:
 
 - [Planning Modes](./plan.html#planning-modes)
 - [Planning Options](./plan.html#planning-options)
@@ -72,17 +71,17 @@ apply command executes and reports on the apply operation. If you are running
 _in addition to_ the planning modes and planning options described for
 [`terraform plan`](./plan.html).
 
-* `-auto-approve` - Skips interactive approval of plan before applying. This
+- `-auto-approve` - Skips interactive approval of plan before applying. This
   option is ignored when you pass a previously-saved plan file, because
   Terraform considers you passing the plan file as the approval and so
   will never prompt in that case.
 
-* `-compact-warnings` - Shows any warning messages in a compact form which
+- `-compact-warnings` - Shows any warning messages in a compact form which
   includes only the summary messages, unless the warnings are accompanied by
   at least one error and thus the warning text might be useful context for
   the errors.
 
-* `-input=false` - Disables all of Terraform's interactive prompts. Note that
+- `-input=false` - Disables all of Terraform's interactive prompts. Note that
   this also prevents Terraform from prompting for interactive approval of a
   plan, so Terraform will conservatively assume that you do not wish to
   apply the plan, causing the operation to fail. If you wish to run Terraform
@@ -90,29 +89,28 @@ _in addition to_ the planning modes and planning options described for
   [Running Terraform in Automation](https://learn.hashicorp.com/tutorials/terraform/automate-terraform?in=terraform/automation&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS) for some
   different approaches.
 
-* `-json` - Enables the [machine readable JSON UI][machine-readable-ui] output.
+- `-json` - Enables the [machine readable JSON UI][machine-readable-ui] output.
   This implies `-input=false`, so the configuration must have no unassigned
   variable values to continue. To enable this flag, you must also either enable
   the `-auto-approve` flag or specify a previously-saved plan.
 
   [machine-readable-ui]: /docs/internals/machine-readable-ui.html
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
+- `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
   instructs Terraform to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.
 
-* `-no-color` - Disables terminal formatting sequences in the output. Use this
+- `-no-color` - Disables terminal formatting sequences in the output. Use this
   if you are running Terraform in a context where its output will be
   rendered by a system that cannot interpret terminal formatting.
 
-* `-parallelism=n` - Limit the number of concurrent operation as Terraform
-  [walks the graph](/docs/internals/graph.html#walking-the-graph). Defaults to
-  10.
+- `-parallelism=n` - Limit the number of concurrent operation as Terraform
+  [walks the graph](/docs/internals/graph.html#walking-the-graph). Defaults to 10.
 
 For configurations using
 [the `local` backend](/docs/language/settings/backends/local.html) only,

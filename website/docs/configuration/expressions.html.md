@@ -25,8 +25,6 @@ This information has moved to
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="references-to-named-values"></a>
 <a id="local-named-values"></a>
 <a id="named-values-and-dependencies"></a>
@@ -44,8 +42,6 @@ This information has moved to
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="arithmetic-operators"></a>
 <a id="equality-operators"></a>
 <a id="comparison-operators"></a>
@@ -61,8 +57,6 @@ This information has moved to
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
 
-
-
 ## Conditional Expressions
 
 The `condition ? true_val : false_val` expression chooses between two
@@ -72,8 +66,6 @@ This information has moved to
 [Conditional Expressions](/docs/language/expressions/conditionals.html).
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="expanding-function-arguments"></a>
 <a id="available-functions"></a>
@@ -87,8 +79,6 @@ This information has moved to
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="for-expressions"></a>
 
 ## `for` Expressions
@@ -100,8 +90,6 @@ This information has moved to
 [For Expressions](/docs/language/expressions/for.html).
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="splat-expressions"></a>
 <a id="legacy-attribute-only-splat-expressions"></a>
@@ -116,8 +104,6 @@ This information has moved to
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="dynamic-blocks"></a>
 <a id="best-practices-for-dynamic-blocks"></a>
 
@@ -130,8 +116,6 @@ This information has moved to
 [Dynamic Blocks](/docs/language/expressions/dynamic-blocks.html).
 
 <div style="height: 30vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="string-literals"></a>
 <a id="string-templates"></a>

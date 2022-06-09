@@ -49,10 +49,10 @@ Each argument in the `required_providers` block enables one provider. The key
 determines the provider's [local name](#local-names) (its unique identifier
 within this module), and the value is an object with the following elements:
 
-* `source` - the global [source address](#source-addresses) for the
+- `source` - the global [source address](#source-addresses) for the
   provider you intend to use, such as `hashicorp/aws`.
 
-* `version` - a [version constraint](#version-constraints) specifying
+- `version` - a [version constraint](#version-constraints) specifying
   which subset of available provider versions the module is compatible with.
 
 -> **Note:** The `name = { source, version }` syntax for `required_providers`
@@ -118,24 +118,24 @@ follows:
 
 `[<HOSTNAME>/]<NAMESPACE>/<TYPE>`
 
-* **Hostname** (optional): The hostname of the Terraform registry that
+- **Hostname** (optional): The hostname of the Terraform registry that
   distributes the provider. If omitted, this defaults to
   `registry.terraform.io`, the hostname of
   [the public Terraform Registry](https://registry.terraform.io/).
 
-* **Namespace:** An organizational namespace within the specified registry.
+- **Namespace:** An organizational namespace within the specified registry.
   For the public Terraform Registry and for Terraform Cloud's private registry,
   this represents the organization that publishes the provider. This field
   may have other meanings for other registry hosts.
 
-* **Type:** A short name for the platform or system the provider manages. Must
+- **Type:** A short name for the platform or system the provider manages. Must
   be unique within a particular namespace on a particular registry host.
 
-    The type is usually the provider's preferred local name. (There are
-    exceptions; for example,
-    [`hashicorp/google-beta`](https://registry.terraform.io/providers/hashicorp/google-beta/latest)
-    is an alternate release channel for `hashicorp/google`, so its preferred
-    local name is `google`. If in doubt, check the provider's documentation.)
+  The type is usually the provider's preferred local name. (There are
+  exceptions; for example,
+  [`hashicorp/google-beta`](https://registry.terraform.io/providers/hashicorp/google-beta/latest)
+  is an alternate release channel for `hashicorp/google`, so its preferred
+  local name is `google`. If in doubt, check the provider's documentation.)
 
 For example,
 [the official HTTP provider](https://registry.terraform.io/providers/hashicorp/http)
@@ -149,7 +149,6 @@ various outputs, like error messages, but in most cases a simplified display
 version is used. This display version omits the source host when it is the
 public registry, so you may see the shortened version `"hashicorp/random"` instead
 of `"registry.terraform.io/hashicorp/random"`.
-
 
 -> **Note:** If you omit the `source` argument when requiring a provider,
 Terraform uses an implied source address of
@@ -400,21 +399,21 @@ When writing a module that is compatible with both Terraform v0.12.26 and
 Terraform v0.13.0 or later, you must follow the following additional rules so
 that both versions will select the same provider to install:
 
-* Use only providers that can be automatically installed by Terraform v0.12.
+- Use only providers that can be automatically installed by Terraform v0.12.
   Third-party providers, such as community providers in the Terraform Registry,
   cannot be selected by Terraform v0.12 because it does not support the
   hierarchical source address namespace.
 
-* Ensure that your chosen local name exactly matches the "type" portion of the
+- Ensure that your chosen local name exactly matches the "type" portion of the
   source address given in the `source` argument, such as both being "aws" in
   the examples above, because Terraform v0.12 will use the local name to
   determine which provider plugin to download and install.
 
-* If the provider belongs to the `hashicorp` namespace, as with the
+- If the provider belongs to the `hashicorp` namespace, as with the
   `hashicorp/aws` provider shown above, omit the `source` argument and allow
   Terraform v0.13 to select the `hashicorp` namespace by default.
 
-* Provider type names must always be written in lowercase. Terraform v0.13
+- Provider type names must always be written in lowercase. Terraform v0.13
   treats provider source addresses as case-insensitive, but Terraform v0.12
   considers its legacy-style provider names to be case-sensitive. Using
   lowercase will ensure that the name is selectable by both Terraform major

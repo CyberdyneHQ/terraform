@@ -98,9 +98,9 @@ to concisely allocate groups of network address blocks:
 
 ## Related Functions
 
-* [`cidrhost`](./cidrhost.html) calculates the IP address for a single host
+- [`cidrhost`](./cidrhost.html) calculates the IP address for a single host
   within a given network address prefix.
-* [`cidrnetmask`](./cidrnetmask.html) converts an IPv4 network prefix in CIDR
+- [`cidrnetmask`](./cidrnetmask.html) converts an IPv4 network prefix in CIDR
   notation into netmask notation.
-* [`cidrsubnet`](./cidrsubnet.html) calculates a single subnet address, allowing
+- [`cidrsubnet`](./cidrsubnet.html) calculates a single subnet address, allowing
   you to specify its network number.

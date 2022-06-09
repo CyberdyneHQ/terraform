@@ -9,21 +9,21 @@ The process includes several different artifacts that are all objects
 conforming to the schema of the resource type in question, representing
 different subsets of the instance for different purposes:
 
-* **Configuration**: Contains only values from the configuration, including
+- **Configuration**: Contains only values from the configuration, including
   unknown values in any case where the argument value is derived from an
   unknown result on another resource. Any attributes not set directly in the
   configuration are null.
 
-* **Prior State**: The full object produced by a previous apply operation, or
+- **Prior State**: The full object produced by a previous apply operation, or
   null if the instance is being created for the first time.
 
-* **Proposed New State**: Terraform Core merges the non-null values from
+- **Proposed New State**: Terraform Core merges the non-null values from
   the configuration with any computed attribute results in the prior state
   to produce a combined object that includes both, to avoid each provider
   having to re-implement that merging logic. Will be null when planning a
   delete operation.
 
-* **Planned New State**: An approximation of the result the provider expects
+- **Planned New State**: An approximation of the result the provider expects
   to produce when applying the requested change. This is usually derived from
   the proposed new state by inserting default attribute values in place of
   null values and overriding any computed attribute values that are expected
@@ -31,7 +31,7 @@ different subsets of the instance for different purposes:
   for attributes whose results cannot be predicted until apply. Will be null
   when planning a delete operation.
 
-* **New State**: The actual result of applying the change, with any unknown
+- **New State**: The actual result of applying the change, with any unknown
   values from the planned new state replaced with final result values. This
   value will be used as the input to plan the next operation.
 
@@ -91,17 +91,17 @@ in the configuration.
 The _planned new state_ returned from the provider must meet the following
 constraints:
 
-* Any attribute that was non-null in the configuration must either preserve
+- Any attribute that was non-null in the configuration must either preserve
   the exact configuration value or return the corresponding attribute value
   from the prior state. (Do the latter if you determine that the change is not
   functionally significant, such as if the value is a JSON string that has
   changed only in the positioning of whitespace.)
 
-* Any attribute that is marked as computed in the schema _and_ is null in the
+- Any attribute that is marked as computed in the schema _and_ is null in the
   configuration may be set by the provider to any arbitrary value of the
   expected type.
 
-* If a computed attribute has any _known_ value in the planned new state, the
+- If a computed attribute has any _known_ value in the planned new state, the
   provider will be required to ensure that it is unchanged in the new state
   returned by `ApplyResourceChange`, or return an error explaining why it
   changed. Set an attribute to an unknown value to indicate that its final
@@ -116,10 +116,10 @@ upstream resources. The second planned new state is compared with the first
 and must meet the following additional constraints along with those listed
 above:
 
-* Any attribute that had a known value in the first planned new state must
+- Any attribute that had a known value in the first planned new state must
   have an identical value in the second.
 
-* Any attribute that had an unknown value in the first planned new state may
+- Any attribute that had an unknown value in the first planned new state may
   either remain unknown in the second or take on any known value of the
   expected type.
 
@@ -142,9 +142,9 @@ remote API supports partial-update operations.
 The new state object returned from the provider must meet the following
 constraints:
 
-* Any attribute that had a known value in the planned new state must have an
+- Any attribute that had a known value in the planned new state must have an
   identical value in the new state.
 
-* Any attribute that had an unknown value in the planned new state must take
+- Any attribute that had an unknown value in the planned new state must take
   on a known value of the expected type in the new state. No unknown values
   are allowed in the new state.

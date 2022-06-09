@@ -71,11 +71,11 @@ data "terraform_remote_state" "network" {
 
 The following configuration options or environment variables are supported:
 
- * `conn_str` - (Required) Postgres connection string; a `postgres://` URL
- * `schema_name` - Name of the automatically-managed Postgres schema, default `terraform_remote_state`.
- * `skip_schema_creation` - If set to `true`, the Postgres schema must already exist. Terraform won't try to create the schema, this is useful when it has already been created by a database administrator.
- * `skip_table_creation` - If set to `true`, the Postgres table must already exist. Terraform won't try to create the table, this is useful when it has already been created by a database administrator.
- * `skip_index_creation` - If set to `true`, the Postgres index must already exist. Terraform won't try to create the index, this is useful when it has already been created by a database administrator.
+- `conn_str` - (Required) Postgres connection string; a `postgres://` URL
+- `schema_name` - Name of the automatically-managed Postgres schema, default `terraform_remote_state`.
+- `skip_schema_creation` - If set to `true`, the Postgres schema must already exist. Terraform won't try to create the schema, this is useful when it has already been created by a database administrator.
+- `skip_table_creation` - If set to `true`, the Postgres table must already exist. Terraform won't try to create the table, this is useful when it has already been created by a database administrator.
+- `skip_index_creation` - If set to `true`, the Postgres index must already exist. Terraform won't try to create the index, this is useful when it has already been created by a database administrator.
 
 ## Technical Design
 
@@ -87,6 +87,6 @@ Locking is supported using [Postgres advisory locks](https://www.postgresql.org/
 
 The **states** table contains:
 
- * a serial integer `id`, used as the key for advisory locks
- * the workspace `name` key as *text* with a unique index
- * the Terraform state `data` as *text*
+- a serial integer `id`, used as the key for advisory locks
+- the workspace `name` key as _text_ with a unique index
+- the Terraform state `data` as _text_

@@ -12,7 +12,7 @@ description: |-
 The `setintersection` function takes multiple sets and produces a single set
 containing only the elements that all of the given sets have in common.
 In other words, it computes the
-[intersection](https://en.wikipedia.org/wiki/Intersection_(set_theory)) of the sets.
+[intersection](<https://en.wikipedia.org/wiki/Intersection_(set_theory)>) of the sets.
 
 ```hcl
 setintersection(sets...)
@@ -32,10 +32,10 @@ the ordering of the given elements is not preserved.
 
 ## Related Functions
 
-* [`contains`](./contains.html) tests whether a given list or set contains
+- [`contains`](./contains.html) tests whether a given list or set contains
   a given element value.
-* [`setproduct`](./setproduct.html) computes the _Cartesian product_ of multiple
+- [`setproduct`](./setproduct.html) computes the _Cartesian product_ of multiple
   sets.
-* [`setsubtract`](./setsubtract.html) computes the _relative complement_ of two sets
-* [`setunion`](./setunion.html) computes the _union_ of
+- [`setsubtract`](./setsubtract.html) computes the _relative complement_ of two sets
+- [`setunion`](./setunion.html) computes the _union_ of
   multiple sets.

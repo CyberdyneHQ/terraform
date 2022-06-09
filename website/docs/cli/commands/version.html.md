@@ -20,8 +20,8 @@ and security checks [unless disabled](/docs/cli/commands/index.html#upgrade-and-
 
 This command has one optional flag:
 
-* `-json` - If specified, the version information is formatted as a JSON object,
-    and no upgrade or security information is included.
+- `-json` - If specified, the version information is formatted as a JSON object,
+  and no upgrade or security information is included.
 
 -> **Note:** Platform information was added to the `version` command in Terraform 0.15.
 

@@ -44,5 +44,5 @@ true
 
 ## Related Functions
 
-* [`jsonencode`](./jsonencode.html) performs the opposite operation, _encoding_
+- [`jsonencode`](./jsonencode.html) performs the opposite operation, _encoding_
   a value as JSON.

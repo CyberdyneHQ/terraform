@@ -10,7 +10,7 @@ description: |-
 # `setsubtract` Function
 
 The `setsubtract` function returns a new set containing the elements from the first set that are not present in the second set. In other words, it computes the
-[relative complement](https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement) of the second set.
+[relative complement](<https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement>) of the second set.
 
 ```hcl
 setsubtract(a, b)
@@ -35,11 +35,10 @@ setsubtract(a, b)
 ]
 ```
 
-
 ## Related Functions
 
-* [`setintersection`](./setintersection.html) computes the _intersection_ of multiple sets
-* [`setproduct`](./setproduct.html) computes the _Cartesian product_ of multiple
+- [`setintersection`](./setintersection.html) computes the _intersection_ of multiple sets
+- [`setproduct`](./setproduct.html) computes the _Cartesian product_ of multiple
   sets.
-* [`setunion`](./setunion.html) computes the _union_ of
+- [`setunion`](./setunion.html) computes the _union_ of
   multiple sets.

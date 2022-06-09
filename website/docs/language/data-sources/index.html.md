@@ -121,7 +121,6 @@ referencing the managed resource values through a `local` value.
 
 ~> **NOTE:** **In Terraform 0.12 and earlier**, due to the data resource behavior of deferring the read until the apply phase when depending on values that are not yet known, using `depends_on` with `data` resources will force the read to always be deferred to the apply phase, and therefore a configuration that uses `depends_on` with a `data` resource can never converge. Due to this behavior, we do not recommend using `depends_on` with data resources.
 
-
 ## Multiple Resource Instances
 
 Data resources support [`count`](/docs/language/meta-arguments/count.html)

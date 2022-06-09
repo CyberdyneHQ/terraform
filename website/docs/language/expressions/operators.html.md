@@ -46,13 +46,13 @@ if automatic conversion is impossible.
 The arithmetic operators all expect number values and produce number values
 as results:
 
-* `a + b` returns the result of adding `a` and `b` together.
-* `a - b` returns the result of subtracting `b` from `a`.
-* `a * b` returns the result of multiplying `a` and `b`.
-* `a / b` returns the result of dividing `a` by `b`.
-* `a % b` returns the remainder of dividing `a` by `b`. This operator is
+- `a + b` returns the result of adding `a` and `b` together.
+- `a - b` returns the result of subtracting `b` from `a`.
+- `a * b` returns the result of multiplying `a` and `b`.
+- `a / b` returns the result of dividing `a` by `b`.
+- `a % b` returns the remainder of dividing `a` by `b`. This operator is
   generally useful only when used with whole numbers.
-* `-a` returns the result of multiplying `a` by `-1`.
+- `-a` returns the result of multiplying `a` by `-1`.
 
 Terraform supports some other less-common numeric operations as
 [functions](function-calls.html). For example, you can calculate exponents
@@ -64,9 +64,9 @@ using
 The equality operators both take two values of any type and produce boolean
 values as results.
 
-* `a == b` returns `true` if `a` and `b` both have the same type and the same
+- `a == b` returns `true` if `a` and `b` both have the same type and the same
   value, or `false` otherwise.
-* `a != b` is the opposite of `a == b`.
+- `a != b` is the opposite of `a == b`.
 
 Because the equality operators require both arguments to be of exactly the
 same type in order to decide equality, we recommend using these operators only
@@ -85,19 +85,19 @@ two values can never match. In this situation it's often clearer to write
 The comparison operators all expect number values and produce boolean values
 as results.
 
-* `a < b` returns `true` if `a` is less than `b`, or `false` otherwise.
-* `a <= b` returns `true` if `a` is less than or equal to `b`, or `false`
+- `a < b` returns `true` if `a` is less than `b`, or `false` otherwise.
+- `a <= b` returns `true` if `a` is less than or equal to `b`, or `false`
   otherwise.
-* `a > b` returns `true` if `a` is greater than `b`, or `false` otherwise.
-* `a >= b` returns `true` if `a` is greater than or equal to `b`, or `false` otherwise.
+- `a > b` returns `true` if `a` is greater than `b`, or `false` otherwise.
+- `a >= b` returns `true` if `a` is greater than or equal to `b`, or `false` otherwise.
 
 ## Logical Operators
 
 The logical operators all expect bool values and produce bool values as results.
 
-* `a || b` returns `true` if either `a` or `b` is `true`, or `false` if both are `false`.
-* `a && b` returns `true` if both `a` and `b` are `true`, or `false` if either one is `false`.
-* `!a` returns `true` if `a` is `false`, and `false` if `a` is `true`.
+- `a || b` returns `true` if either `a` or `b` is `true`, or `false` if both are `false`.
+- `a && b` returns `true` if both `a` and `b` are `true`, or `false` if either one is `false`.
+- `!a` returns `true` if `a` is `false`, and `false` if `a` is `true`.
 
 Terraform does not have an operator for the "exclusive OR" operation. If you
 know that both operators are boolean values then exclusive OR is equivalent

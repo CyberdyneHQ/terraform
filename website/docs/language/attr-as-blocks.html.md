@@ -35,11 +35,11 @@ In Terraform v0.12 and later, the language makes a distinction between
 [argument syntax and nested block syntax](/docs/language/syntax/configuration.html#arguments-and-blocks)
 within blocks:
 
-* Argument syntax sets a named argument for the containing object. If the
+- Argument syntax sets a named argument for the containing object. If the
   attribute has a default value then an explicitly-specified value entirely
   overrides that default.
 
-* Nested block syntax represents a related child object of the container that
+- Nested block syntax represents a related child object of the container that
   has its own set of arguments. Where multiple such objects are possible, multiple
   blocks of the same type can be present. If the nested attributes themselves
   have default values, they are honored for each nested block separately,

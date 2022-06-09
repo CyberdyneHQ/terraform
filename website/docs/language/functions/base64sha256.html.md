@@ -11,7 +11,7 @@ description: |-
 
 `base64sha256` computes the SHA256 hash of a given string and encodes it with
 Base64. This is not equivalent to `base64encode(sha256("test"))` since `sha256()`
-returns hexadecimal representation. 
+returns hexadecimal representation.
 
 The given string is first encoded as UTF-8 and then the SHA256 algorithm is applied
 as defined in [RFC 4634](https://tools.ietf.org/html/rfc4634). The raw hash is
@@ -27,7 +27,7 @@ uU0nuZNNPgilLlLX2n2r+sSE7+N6U4DukIj3rOLvzek=
 
 ## Related Functions
 
-* [`filebase64sha256`](./filebase64sha256.html) calculates the same hash from
+- [`filebase64sha256`](./filebase64sha256.html) calculates the same hash from
   the contents of a file rather than from a string value.
-* [`sha256`](./sha256.html) calculates the same hash but returns the result
+- [`sha256`](./sha256.html) calculates the same hash but returns the result
   in a more-verbose hexadecimal encoding.

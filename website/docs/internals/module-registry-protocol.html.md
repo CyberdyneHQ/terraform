@@ -34,14 +34,14 @@ Terraform CLI itself does not use them.
 Each Terraform module has an associated address. A module address has the
 syntax `hostname/namespace/name/system`, where:
 
-* `hostname` is the hostname of the module registry that serves this module.
-* `namespace` is the name of a namespace, unique on a particular hostname, that
+- `hostname` is the hostname of the module registry that serves this module.
+- `namespace` is the name of a namespace, unique on a particular hostname, that
   can contain one or more modules that are somehow related. On the public
   Terraform Registry the "namespace" represents the organization that is
   packaging and distributing the module.
-* `name` is the module name, which generally names the abstraction that the
+- `name` is the module name, which generally names the abstraction that the
   module is intending to create.
-* `system` is the name of a remote system that the module is primarily written
+- `system` is the name of a remote system that the module is primarily written
   to target. For multi-cloud abstractions, there can be multiple modules with
   addresses that differ only in "system" to reflect provider-specific
   implementations of the abstraction, like
@@ -57,10 +57,10 @@ is optional, and if omitted defaults to `registry.terraform.io/`.
 
 For example:
 
-* `hashicorp/consul/aws` is a shorthand for
+- `hashicorp/consul/aws` is a shorthand for
   `registry.terraform.io/hashicorp/consul/aws`, which is a module on the
   public registry for deploying Consul clusters in Amazon Web Services.
-* `example.com/awesomecorp/consul/happycloud` is a hypothetical module published
+- `example.com/awesomecorp/consul/happycloud` is a hypothetical module published
   on a third-party registry.
 
 If you intend to share a module you've developed for use by all Terraform
@@ -123,9 +123,9 @@ the string "versions".
 This is the primary endpoint for resolving module sources, returning the
 available versions for a given fully-qualified module.
 
-| Method | Path                                  | Produces                   |
-| ------ | ------------------------------------- | -------------------------- |
-| `GET`  | `:namespace/:name/:provider/versions`   | `application/json`         |
+| Method | Path                                  | Produces           |
+| ------ | ------------------------------------- | ------------------ |
+| `GET`  | `:namespace/:name/:provider/versions` | `application/json` |
 
 ### Parameters
 
@@ -158,15 +158,15 @@ matches against any version constraints given in configuration.
 
 ```json
 {
-   "modules": [
-      {
-         "versions": [
-            {"version": "1.0.0"},
-            {"version": "1.1.0"},
-            {"version": "2.0.0"}
-         ]
-      }
-   ]
+  "modules": [
+    {
+      "versions": [
+        { "version": "1.0.0" },
+        { "version": "1.1.0" },
+        { "version": "2.0.0" }
+      ]
+    }
+  ]
 }
 ```
 
@@ -177,9 +177,9 @@ requested namespace, name, and provider
 
 This endpoint downloads the specified version of a module for a single provider.
 
-| Method | Path                                                   | Produces                   |
-| ------ | ------------------------------------------------------ | -------------------------- |
-| `GET`  | `:namespace/:name/:system/:version/download`           | `application/json`         |
+| Method | Path                                         | Produces           |
+| ------ | -------------------------------------------- | ------------------ |
+| `GET`  | `:namespace/:name/:system/:version/download` | `application/json` |
 
 ### Parameters
 
