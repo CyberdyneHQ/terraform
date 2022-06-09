@@ -3,7 +3,6 @@ layout: "docs"
 page_title: "Command: workspace"
 sidebar_current: "docs-commands-workspace-index"
 description: "The workspace command helps you manage workspaces."
-
 ---
 
 # Command: workspace

@@ -8,11 +8,11 @@ to [the main Terraform CLI documentation](https://www.terraform.io/docs/cli/inde
 
 ## Terraform Core Architecture Documents
 
-* [Terraform Core Architecture Summary](./architecture.md): an overview of the
+- [Terraform Core Architecture Summary](./architecture.md): an overview of the
   main components of Terraform Core and how they interact. This is the best
   starting point if you are diving in to this codebase for the first time.
 
-* [Resource Instance Change Lifecycle](./resource-instance-change-lifecycle.md):
+- [Resource Instance Change Lifecycle](./resource-instance-change-lifecycle.md):
   a description of the steps in validating, planning, and applying a change
   to a resource instance, from the perspective of the provider plugin RPC
   operations. This may be useful for understanding the various expectations
@@ -25,17 +25,17 @@ to [the main Terraform CLI documentation](https://www.terraform.io/docs/cli/inde
   instead; it presents similar information from the perspective of the SDK
   API, rather than the plugin wire protocol.)
 
-* [Plugin Protocol](./plugin-protocol/): gRPC/protobuf definitions for the
+- [Plugin Protocol](./plugin-protocol/): gRPC/protobuf definitions for the
   plugin wire protocol and information about its versioning strategy.
 
   This documentation is for SDK developers, and is not necessary reading for
   those implementing a provider using the official SDK.
 
-* [How Terraform Uses Unicode](./unicode.md): an overview of the various
+- [How Terraform Uses Unicode](./unicode.md): an overview of the various
   features of Terraform that rely on Unicode and how to change those features
   to adopt new versions of Unicode.
 
 ## Contribution Guides
 
-* [Maintainer Etiquette](./maintainer-etiquette.md): guidelines and expectations
+- [Maintainer Etiquette](./maintainer-etiquette.md): guidelines and expectations
   for those who serve as Pull Request reviewers, issue triagers, etc.

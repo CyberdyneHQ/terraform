@@ -18,20 +18,20 @@ provider installation during
 [`terraform init`](/docs/cli/commands/init.html), but there are several situations where that
 automatic approach may not be sufficient:
 
-* If you are running Terraform in an environment that uses
+- If you are running Terraform in an environment that uses
   [alternative provider installation methods](/docs/cli/config/config-file.html#provider-installation),
   such as filesystem or network mirrors, normal provider installation will not
   access the origin registry for a provider and therefore Terraform will not
   be able to populate all of the possible package checksums for the selected
   provider versions.
 
-    If you use `terraform lock` to write the official release checksums for a
-    provider into the dependency lock file then future `terraform init` runs
-    will verify the packages available in your selected mirror against the
-    official checksums previously recorded, giving additional certainty that
-    the mirror is serving the provider packages it is claiming to.
+  If you use `terraform lock` to write the official release checksums for a
+  provider into the dependency lock file then future `terraform init` runs
+  will verify the packages available in your selected mirror against the
+  official checksums previously recorded, giving additional certainty that
+  the mirror is serving the provider packages it is claiming to.
 
-* If your team runs Terraform across a number of different platforms (e.g.
+- If your team runs Terraform across a number of different platforms (e.g.
   on both Windows and Linux) and the upstream registry for a provider is unable
   to provide signed checksums using the latest hashing scheme, subsequent runs
   of Terraform on other platforms may
@@ -54,12 +54,12 @@ include a selected version for each provider and all of the package checksums
 that are covered by the provider developer's cryptographic signature.
 
 ~> **Warning:** The `terraform providers lock` command prints information
-   about what it has fetched and whether each package was signed using a
-   cryptographic signature, but it cannot automatically verify that the
-   providers are trustworthy and that they comply with your local system
-   policies or relevant regulations. Review the signing key information
-   in the output to confirm that you trust all of the signers before committing
-   the updated lock file to your version control system.
+about what it has fetched and whether each package was signed using a
+cryptographic signature, but it cannot automatically verify that the
+providers are trustworthy and that they comply with your local system
+policies or relevant regulations. Review the signing key information
+in the output to confirm that you trust all of the signers before committing
+the updated lock file to your version control system.
 
 If you list one or more provider source addresses on the command line then
 `terraform providers lock` will restrict its work only to those providers,
@@ -67,28 +67,28 @@ leaving the lock entries for other providers (if any) unchanged.
 
 You can customize the default behavior using the following additional option:
 
-* `-fs-mirror=PATH` - Direct Terraform to look for provider packages in the
+- `-fs-mirror=PATH` - Direct Terraform to look for provider packages in the
   given local filesystem mirror directory, instead of in upstream registries.
   The given directory must use the usual filesystem mirror directory layout.
 
-* `-net-mirror=URL` - Direct Terraform to look for provider packages in the
+- `-net-mirror=URL` - Direct Terraform to look for provider packages in the
   given network mirror service, instead of in upstream registries. The
   given URL must implement
   [the Terraform provider network mirror protocol](/docs/internals/provider-network-mirror-protocol.html).
 
-* `-platform=OS_ARCH` - Specify a platform you intend to use to work with this
+- `-platform=OS_ARCH` - Specify a platform you intend to use to work with this
   Terraform configuration. Terraform will ensure that the providers are all
   available for the given platform and will save enough package checksums in
   the lock file to support _at least_ the specified platforms.
-  
-    Use this option multiple times to include checksums for multiple target
-    systems.
 
-    Target platform names consist of an operating system and a CPU
-    architecture. For example, `linux_amd64` selects the Linux operating system
-    running on an AMD64 or x86_64 CPU.
+  Use this option multiple times to include checksums for multiple target
+  systems.
 
-    There is more detail on this option in the following section.
+  Target platform names consist of an operating system and a CPU
+  architecture. For example, `linux_amd64` selects the Linux operating system
+  running on an AMD64 or x86_64 CPU.
+
+  There is more detail on this option in the following section.
 
 ## Specifying Target Platforms
 

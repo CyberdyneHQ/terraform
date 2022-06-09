@@ -31,17 +31,17 @@ depending on host operating system.
 
 **For Unix systems**, the following sources are consulted, in order of preference:
 
-* The `HOME` environment variable.
-* The result of running `getent passwd` followed by the Terraform process uid.
-* The result of running `cd && pwd` in `sh`.
+- The `HOME` environment variable.
+- The result of running `getent passwd` followed by the Terraform process uid.
+- The result of running `cd && pwd` in `sh`.
 
 **For Windows systems**, there is not really the concept of a home directory
 in the same sense as on Unix, but the following sources are consulted in
 order of preference:
 
-* The `HOME` environment variable.
-* The `HOMEDRIVE` and `HOMEPATH` environment variables, if both are set.
-* The `USERPROFILE` environment variable.
+- The `HOME` environment variable.
+- The `HOMEDRIVE` and `HOMEPATH` environment variables, if both are set.
+- The `USERPROFILE` environment variable.
 
 The exact rules employed for each operating system may change in future
 releases of Terraform.

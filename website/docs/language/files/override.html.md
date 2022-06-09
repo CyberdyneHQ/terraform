@@ -72,20 +72,20 @@ special constructs within certain blocks are merged in a special way.
 
 The general rule, which applies in most cases, is:
 
-* A top-level block in an override file merges with a block in a normal
+- A top-level block in an override file merges with a block in a normal
   configuration file that has the same block header. The block _header_ is the
   block type and any quoted labels that follow it.
 
-* Within a top-level block, an attribute argument within an override block
+- Within a top-level block, an attribute argument within an override block
   replaces any argument of the same name in the original block.
 
-* Within a top-level block, any nested blocks within an override block replace
+- Within a top-level block, any nested blocks within an override block replace
   _all_ blocks of the same type in the original block. Any block types that
   do not appear in the override block remain from the original block.
 
-* The contents of nested configuration blocks are not merged.
+- The contents of nested configuration blocks are not merged.
 
-* The resulting _merged block_ must still comply with any validation rules
+- The resulting _merged block_ must still comply with any validation rules
   that apply to the given block type.
 
 If more than one override file defines the same top-level block, the overriding

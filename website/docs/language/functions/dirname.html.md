@@ -38,5 +38,5 @@ foo/bar
 
 ## Related Functions
 
-* [`basename`](./basename.html) returns _only_ the last portion of a filesystem
+- [`basename`](./basename.html) returns _only_ the last portion of a filesystem
   path, discarding the portion that would be returned by `dirname`.

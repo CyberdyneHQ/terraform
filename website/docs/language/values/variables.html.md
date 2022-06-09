@@ -112,18 +112,18 @@ allow Terraform to return a helpful error message if the wrong type is used.
 Type constraints are created from a mixture of type keywords and type
 constructors. The supported type keywords are:
 
-* `string`
-* `number`
-* `bool`
+- `string`
+- `number`
+- `bool`
 
 The type constructors allow you to specify complex types such as
 collections:
 
-* `list(<TYPE>)`
-* `set(<TYPE>)`
-* `map(<TYPE>)`
-* `object({<ATTR NAME> = <TYPE>, ... })`
-* `tuple([<TYPE>, ...])`
+- `list(<TYPE>)`
+- `set(<TYPE>)`
+- `map(<TYPE>)`
+- `object({<ATTR NAME> = <TYPE>, ... })`
+- `tuple([<TYPE>, ...])`
 
 The keyword `any` may be used to indicate that any type is acceptable. For
 more information on the meaning and behavior of these different types, as well
@@ -316,7 +316,7 @@ may assign the value `null` to the variable.
 ```
 variable "example" {
   type     = string
-  nullable = false 
+  nullable = false
 }
 ```
 
@@ -333,7 +333,6 @@ The `nullable` argument only controls where the direct value of the variable may
 For variables of collection or structural types, such as lists or objects,
 the caller may still use `null` in nested elements or attributes, as long as
 the collection or structure itself is not null.
-
 
 ## Using Input Variable Values
 
@@ -359,11 +358,11 @@ the module where it was declared.
 When variables are declared in the root module of your configuration, they
 can be set in a number of ways:
 
-* [In a Terraform Cloud workspace](/docs/cloud/workspaces/variables.html).
-* Individually, with the `-var` command line option.
-* In variable definitions (`.tfvars`) files, either specified on the command line
+- [In a Terraform Cloud workspace](/docs/cloud/workspaces/variables.html).
+- Individually, with the `-var` command line option.
+- In variable definitions (`.tfvars`) files, either specified on the command line
   or automatically loaded.
-* As environment variables.
+- As environment variables.
 
 The following sections describe these options in more detail. This section does
 not apply to _child_ modules, where values for input variables are instead
@@ -419,8 +418,8 @@ availability_zone_names = [
 Terraform also automatically loads a number of variable definitions files
 if they are present:
 
-* Files named exactly `terraform.tfvars` or `terraform.tfvars.json`.
-* Any files with names ending in `.auto.tfvars` or `.auto.tfvars.json`.
+- Files named exactly `terraform.tfvars` or `terraform.tfvars.json`.
+- Any files with names ending in `.auto.tfvars` or `.auto.tfvars.json`.
 
 Files whose names end with `.json` are parsed instead as JSON objects, with
 the root object properties corresponding to variable names:
@@ -533,12 +532,12 @@ variable cannot be assigned multiple values within a single source.
 Terraform loads variables in the following order, with later sources taking
 precedence over earlier ones:
 
-* Environment variables
-* The `terraform.tfvars` file, if present.
-* The `terraform.tfvars.json` file, if present.
-* Any `*.auto.tfvars` or `*.auto.tfvars.json` files, processed in lexical order
+- Environment variables
+- The `terraform.tfvars` file, if present.
+- The `terraform.tfvars.json` file, if present.
+- Any `*.auto.tfvars` or `*.auto.tfvars.json` files, processed in lexical order
   of their filenames.
-* Any `-var` and `-var-file` options on the command line, in the order they
+- Any `-var` and `-var-file` options on the command line, in the order they
   are provided. (This includes variables set by a Terraform Cloud
   workspace.)
 

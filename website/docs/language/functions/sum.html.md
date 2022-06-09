@@ -11,7 +11,6 @@ description: |-
 
 `sum` takes a list or set of numbers and returns the sum of those numbers.
 
-
 ## Examples
 
 ```

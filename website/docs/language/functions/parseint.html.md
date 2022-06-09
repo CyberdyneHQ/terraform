@@ -47,5 +47,5 @@ Invalid value for "number" parameter: cannot parse "12" as a base 2 integer.
 
 ## Related Functions
 
-* [`format`](./format.html) can format numbers and other values into strings,
+- [`format`](./format.html) can format numbers and other values into strings,
   with optional zero padding, alignment, etc.

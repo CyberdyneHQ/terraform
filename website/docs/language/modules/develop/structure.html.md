@@ -14,7 +14,7 @@ The standard module structure expects the layout documented below. The list may
 appear long, but everything is optional except for the root module. Most modules
 don't need to do any extra work to follow the standard structure.
 
-* **Root module**. This is the **only required element** for the standard
+- **Root module**. This is the **only required element** for the standard
   module structure. Terraform files must exist in the root directory of
   the repository. This should be the primary entrypoint for the module and is
   expected to be opinionated. For the
@@ -23,7 +23,7 @@ don't need to do any extra work to follow the standard structure.
   however, and we expect that advanced users will use specific _nested modules_
   to more carefully control what they want.
 
-* **README**. The root module and any nested modules should have README
+- **README**. The root module and any nested modules should have README
   files. This file should be named `README` or `README.md`. The latter will
   be treated as markdown. There should be a description of the module and
   what it should be used for. If you want to include an example for how this
@@ -38,12 +38,12 @@ don't need to do any extra work to follow the standard structure.
   absolute URL so the link won't point to the wrong version of a resource in the
   future.
 
-* **LICENSE**. The license under which this module is available. If you are
+- **LICENSE**. The license under which this module is available. If you are
   publishing a module publicly, many organizations will not adopt a module
   unless a clear license is present. We recommend always having a license
   file, even if it is not an open source license.
 
-* **`main.tf`, `variables.tf`, `outputs.tf`**. These are the recommended filenames for
+- **`main.tf`, `variables.tf`, `outputs.tf`**. These are the recommended filenames for
   a minimal module, even if they're empty. `main.tf` should be the primary
   entrypoint. For a simple module, this may be where all the resources are
   created. For a complex module, resource creation may be split into multiple
@@ -51,13 +51,13 @@ don't need to do any extra work to follow the standard structure.
   and `outputs.tf` should contain the declarations for variables and outputs,
   respectively.
 
-* **Variables and outputs should have descriptions.** All variables and
+- **Variables and outputs should have descriptions.** All variables and
   outputs should have one or two sentence descriptions that explain their
   purpose. This is used for documentation. See the documentation for
   [variable configuration](/docs/language/values/variables.html) and
   [output configuration](/docs/language/values/outputs.html) for more details.
 
-* **Nested modules**. Nested modules should exist under the `modules/`
+- **Nested modules**. Nested modules should exist under the `modules/`
   subdirectory. Any nested module with a `README.md` is considered usable
   by an external user. If a README doesn't exist, it is considered for internal
   use only. These are purely advisory; Terraform will not actively deny usage
@@ -78,7 +78,7 @@ don't need to do any extra work to follow the standard structure.
   ideally be [composable](./composition.html) by the caller, rather than
   calling directly to each other and creating a deeply-nested tree of modules.
 
-* **Examples**. Examples of using the module should exist under the
+- **Examples**. Examples of using the module should exist under the
   `examples/` subdirectory at the root of the repository. Each example may have
   a README to explain the goal and usage of the example. Examples for
   submodules should also be placed in the root `examples/` directory.

@@ -24,6 +24,6 @@ Terraform language, see [Type Constraints](/docs/language/expressions/types.html
 
 ## Related Functions
 
-* [`concat`](./concat.html) produces a new list by concatenating together the
+- [`concat`](./concat.html) produces a new list by concatenating together the
   elements from other lists.
-* [`tolist`](./tolist.html) converts a set or tuple value to a list.
+- [`tolist`](./tolist.html) converts a set or tuple value to a list.

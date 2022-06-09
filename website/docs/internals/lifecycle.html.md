@@ -23,31 +23,31 @@ spelunking through the source code.
 
 A resource roughly follows the steps below:
 
-  1. `ValidateResource` is called to do a high-level structural
-     validation of a resource's configuration. The configuration
-     at this point is raw and the interpolations have not been processed.
-     The value of any key is not guaranteed and is just meant to be
-     a quick structural check.
+1. `ValidateResource` is called to do a high-level structural
+   validation of a resource's configuration. The configuration
+   at this point is raw and the interpolations have not been processed.
+   The value of any key is not guaranteed and is just meant to be
+   a quick structural check.
 
-  1. `Diff` is called with the current state and the configuration.
-     The resource provider inspects this and returns a diff, outlining
-     all the changes that need to occur to the resource. The diff includes
-     details such as whether or not the resource is being destroyed, what
-     attribute necessitates the destroy, old values and new values, whether
-     a value is computed, etc. It is up to the resource provider to
-     have this knowledge.
+1. `Diff` is called with the current state and the configuration.
+   The resource provider inspects this and returns a diff, outlining
+   all the changes that need to occur to the resource. The diff includes
+   details such as whether or not the resource is being destroyed, what
+   attribute necessitates the destroy, old values and new values, whether
+   a value is computed, etc. It is up to the resource provider to
+   have this knowledge.
 
-  1. `Apply` is called with the current state and the diff. Apply does
-     not have access to the configuration. This is a safety mechanism
-     that limits the possibility that a provider changes a diff on the
-     fly. `Apply` must apply a diff as prescribed and do nothing else
-     to remain true to the Terraform execution plan. Apply returns the
-     new state of the resource (or nil if the resource was destroyed).
+1. `Apply` is called with the current state and the diff. Apply does
+   not have access to the configuration. This is a safety mechanism
+   that limits the possibility that a provider changes a diff on the
+   fly. `Apply` must apply a diff as prescribed and do nothing else
+   to remain true to the Terraform execution plan. Apply returns the
+   new state of the resource (or nil if the resource was destroyed).
 
-  1. If a resource was just created and did not exist before, and the
-     apply succeeded without error, then the provisioners are executed
-     in sequence. If any provisioner errors, the resource is marked as
-     _tainted_, so that it will be destroyed on the next apply.
+1. If a resource was just created and did not exist before, and the
+   apply succeeded without error, then the provisioners are executed
+   in sequence. If any provisioner errors, the resource is marked as
+   _tainted_, so that it will be destroyed on the next apply.
 
 ## Partial State and Error Handling
 

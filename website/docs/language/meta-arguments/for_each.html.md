@@ -121,7 +121,7 @@ If you transform a value containing sensitive data into an argument to be used i
 In many cases, you can achieve similar results to a function used for this purpose by
 using a `for` expression. For example, if you would like to call `keys(local.map)`, where
 `local.map` is an object with sensitive values (but non-sensitive keys), you can create a
-value to pass to  `for_each` with `toset([for k,v in local.map : k])`.
+value to pass to `for_each` with `toset([for k,v in local.map : k])`.
 
 ## Using Expressions in `for_each`
 
@@ -142,9 +142,9 @@ data structure or combinations of elements from multiple data structures you
 can use Terraform expressions and functions to derive a suitable value.
 For example:
 
-* Transform a multi-level nested structure into a flat list by
+- Transform a multi-level nested structure into a flat list by
   [using nested `for` expressions with the `flatten` function](/docs/language/functions/flatten.html#flattening-nested-structures-for-for_each).
-* Produce an exhaustive list of combinations of elements from two or more
+- Produce an exhaustive list of combinations of elements from two or more
   collections by
   [using the `setproduct` function inside a `for` expression](/docs/language/functions/setproduct.html#finding-combinations-for-for_each).
 

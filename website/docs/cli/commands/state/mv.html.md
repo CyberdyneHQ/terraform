@@ -45,7 +45,7 @@ object and create a new object at the new address, and so `terraform state mv`
 allows you to override that interpretation by pre-emptively attaching the
 existing object to the new address in Terraform.
 
-~> *Warning:* If you are using Terraform in a collaborative environment, you
+~> _Warning:_ If you are using Terraform in a collaborative environment, you
 must ensure that when you are using `terraform state mv` for a code refactoring
 purpose you communicate carefully with your coworkers to ensure that nobody
 makes any other changes between your configuration change and your
@@ -55,14 +55,14 @@ address.
 
 This command also accepts the following options:
 
-* `-dry-run` - Report all of the resource instances that match the given
+- `-dry-run` - Report all of the resource instances that match the given
   address without actually "forgetting" any of them.
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
+- `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
   instructs Terraform to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.

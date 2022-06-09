@@ -45,9 +45,9 @@ sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.rel
 
 The above command line uses the following sub-shell commands:
 
-* `dpkg --print-architecture` to determine your system's primary APT
+- `dpkg --print-architecture` to determine your system's primary APT
   architecture/ABI, such as `amd64`.
-* `lsb_release -cs` to find the distribution release codename for your current
+- `lsb_release -cs` to find the distribution release codename for your current
   system, such as `buster`, `groovy`, or `sid`.
 
 `apt-add-repository` usually automatically runs `apt update` as part of its
@@ -74,14 +74,14 @@ There are no official packages available for other architectures, such as
 The HashiCorp APT server currently contains release repositories for the
 following distribution releases:
 
-* Debian 8 (`jessie`)
-* Debian 9 (`stretch`)
-* Debian 10 (`buster`)
-* Ubuntu 16.04 (`xenial`)
-* Ubuntu 18.04 (`bionic`)
-* Ubuntu 19.10 (`eoam`)
-* Ubuntu 20.04 (`focal`)
-* Ubuntu 20.10 (`groovy`)
+- Debian 8 (`jessie`)
+- Debian 9 (`stretch`)
+- Debian 10 (`buster`)
+- Ubuntu 16.04 (`xenial`)
+- Ubuntu 18.04 (`bionic`)
+- Ubuntu 19.10 (`eoam`)
+- Ubuntu 20.04 (`focal`)
+- Ubuntu 20.10 (`groovy`)
 
 No repositories are available for other Debian or Ubuntu versions or
 any other APT-based Linux distributions. If you add the repository using

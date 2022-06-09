@@ -128,7 +128,7 @@ rather than by using
 [template directives](/docs/language/expressions/strings.html#directives).
 
 ```json
-{"backends":["10.0.0.1:8080","10.0.0.2:8080"]}
+{ "backends": ["10.0.0.1:8080", "10.0.0.2:8080"] }
 ```
 
 If the resulting template is small, you can choose instead to write
@@ -148,5 +148,5 @@ For more information, see the main documentation for
 
 ## Related Functions
 
-* [`file`](./file.html) reads a file from disk and returns its literal contents
+- [`file`](./file.html) reads a file from disk and returns its literal contents
   without any template interpretation.

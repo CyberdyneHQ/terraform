@@ -24,8 +24,6 @@ This information has moved to
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="resource-behavior"></a>
 <a id="accessing-resource-attributes"></a>
 <a id="resource-dependencies"></a>
@@ -37,8 +35,6 @@ This information has moved to
 [Resource Behavior](/docs/language/resources/behavior.html).
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
-
-
 
 ## Resource Meta-Arguments
 
@@ -53,8 +49,6 @@ Each resource meta-argument has moved to its own page:
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="depends_on-explicit-resource-dependencies"></a>
 
 ### `depends_on`
@@ -63,8 +57,6 @@ This information has moved to
 [`depends_on`](/docs/language/meta-arguments/depends_on.html).
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="count-multiple-resource-instances-by-count"></a>
 <a id="count-multiple-resource-instances"></a>
@@ -81,8 +73,6 @@ This information has moved to
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="for_each-multiple-resource-instances-defined-by-a-map-or-set-of-strings"></a>
 <a id="the-each-object"></a>
 <a id="each-key"></a>
@@ -98,8 +88,6 @@ This information has moved to
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="provider-selecting-a-non-default-provider-configuration"></a>
 
 ### `provider`
@@ -108,8 +96,6 @@ This information has moved to
 [`provider`](/docs/language/meta-arguments/resource-provider.html).
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="lifecycle-lifecycle-customizations"></a>
 <a id="prevent_destroy"></a>
@@ -122,8 +108,6 @@ This information has moved to
 [`lifecycle`](/docs/language/meta-arguments/lifecycle.html).
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="provisioner-and-connection-resource-provisioners"></a>
 

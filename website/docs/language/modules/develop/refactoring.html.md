@@ -55,12 +55,12 @@ selecting modules, resources, and resources inside child modules. Below, we
 describe several refactoring use-cases and the appropriate addressing syntax
 for each situation.
 
-* [Renaming a Resource](#renaming-a-resource)
-* [Enabling `count` or `for_each` For a Resource](#enabling-count-or-for_each-for-a-resource)
-* [Renaming a Module Call](#renaming-a-module-call)
-* [Enabling `count` or `for_each` For a Module Call](#enabling-count-or-for_each-for-a-module-call)
-* [Splitting One Module into Multiple](#splitting-one-module-into-multiple)
-* [Removing `moved` blocks](#removing-moved-blocks)
+- [Renaming a Resource](#renaming-a-resource)
+- [Enabling `count` or `for_each` For a Resource](#enabling-count-or-for_each-for-a-resource)
+- [Renaming a Module Call](#renaming-a-module-call)
+- [Enabling `count` or `for_each` For a Module Call](#enabling-count-or-for_each-for-a-module-call)
+- [Splitting One Module into Multiple](#splitting-one-module-into-multiple)
+- [Removing `moved` blocks](#removing-moved-blocks)
 
 ## Renaming a Resource
 
@@ -316,9 +316,9 @@ resource "aws_instance" "c" {
 
 You can split this into two modules as follows:
 
-* `aws_instance.a` now belongs to module "x".
-* `aws_instance.b` also belongs to module "x".
-* `aws_instance.c` belongs module "y".
+- `aws_instance.a` now belongs to module "x".
+- `aws_instance.b` also belongs to module "x".
+- `aws_instance.c` belongs module "y".
 
 To achieve this refactoring without replacing existing objects bound to the
 old resource addresses, you must:
@@ -399,7 +399,7 @@ assumes that all three of these modules are maintained by the same people
 and distributed together in a single
 [module package](../sources.html#modules-in-package-sub-directories).
 
-To reduce [coupling](https://en.wikipedia.org/wiki/Coupling_(computer_programming))
+To reduce [coupling](<https://en.wikipedia.org/wiki/Coupling_(computer_programming)>)
 between separately-packaged modules, Terraform only allows declarations of
 moves between modules in the same package. In other words, Terraform would
 not have allowed moving into `module.x` above if the `source` address of
@@ -426,15 +426,14 @@ moved {
 
 ## Removing `moved` Blocks
 
-Over time, a long-lasting module may accumulate many `moved` blocks. 
+Over time, a long-lasting module may accumulate many `moved` blocks.
 
-Removing a `moved` block is a generally breaking change because any configurations that refer to the old address will plan to delete that existing object instead of move it. We strongly recommend that you retain all historical `moved` blocks from earlier versions of your modules to preserve the upgrade path for users of any previous version. 
+Removing a `moved` block is a generally breaking change because any configurations that refer to the old address will plan to delete that existing object instead of move it. We strongly recommend that you retain all historical `moved` blocks from earlier versions of your modules to preserve the upgrade path for users of any previous version.
 
 If you do decide to remove `moved` blocks, proceed with caution. It can be safe to remove `moved` blocks when you are maintaining private modules within an organization and you are certain that all users have successfully run `terraform apply` with your new module version.
 
 If you need to rename or move the same object twice, we recommend documenting the full history
 using _chained_ `moved` blocks, where the new block refers to the existing block:
-
 
 ```hcl
 moved {

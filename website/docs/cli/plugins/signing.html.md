@@ -12,13 +12,13 @@ description: "Learn about the types of signatures providers can have on the Terr
 
 Terraform providers installed from the Registry are cryptographically signed, and the signature is verified at time of installation. There are three types of provider signatures, each with different trust implications:
 
-* **Signed by HashiCorp** - are built, signed, and supported by HashiCorp.
-* **Signed by Trusted Partners** - are built, signed, and supported by a third party. HashiCorp has
-verified the ownership of the private key and we provide a chain of trust to the CLI to verify this
-programatically.
-* **Self-signed** - are built, signed, and supported by a third party. HashiCorp does not provide a
-verification or chain of trust for the signature. You may obtain and validate fingerprints manually
-if you want to ensure you are using a binary you can trust.
+- **Signed by HashiCorp** - are built, signed, and supported by HashiCorp.
+- **Signed by Trusted Partners** - are built, signed, and supported by a third party. HashiCorp has
+  verified the ownership of the private key and we provide a chain of trust to the CLI to verify this
+  programatically.
+- **Self-signed** - are built, signed, and supported by a third party. HashiCorp does not provide a
+  verification or chain of trust for the signature. You may obtain and validate fingerprints manually
+  if you want to ensure you are using a binary you can trust.
 
 Terraform does **NOT** support fetching and using unsigned binaries, but you can manually install
 unsigned binaries. You should take extreme care when doing so as no programatic authentication is performed.

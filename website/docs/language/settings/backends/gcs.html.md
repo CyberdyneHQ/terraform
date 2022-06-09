@@ -78,30 +78,30 @@ Terraform can impersonate a Google Service Account as described [here](https://c
 
 The following configuration options are supported:
 
- *  `bucket` - (Required) The name of the GCS bucket.  This name must be
-    globally unique.  For more information, see [Bucket Naming
-    Guidelines](https://cloud.google.com/storage/docs/bucketnaming.html#requirements).
- *  `credentials` / `GOOGLE_BACKEND_CREDENTIALS` / `GOOGLE_CREDENTIALS` -
-    (Optional) Local path to Google Cloud Platform account credentials in JSON
-    format.  If unset, [Google Application Default
-    Credentials](https://developers.google.com/identity/protocols/application-default-credentials)
-    are used.  The provided credentials must have Storage Object Admin role on the bucket.
-    **Warning**: if using the Google Cloud Platform provider as well, it will
-    also pick up the `GOOGLE_CREDENTIALS` environment variable.
- * `impersonate_service_account` - (Optional) The service account to impersonate for accessing the State Bucket.
-    You must have `roles/iam.serviceAccountTokenCreator` role on that account for the impersonation to succeed. 
-    If you are using a delegation chain, you can specify that using the `impersonate_service_account_delegates` field.
-    Alternatively, this can be specified using the `GOOGLE_IMPERSONATE_SERVICE_ACCOUNT` environment
-    variable.
- * `impersonate_service_account_delegates` - (Optional) The delegation chain for an impersonating a service account as described [here](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-delegated).
- * `access_token` - (Optional) A temporary [OAuth 2.0 access token] obtained
-   from the Google Authorization server, i.e. the `Authorization: Bearer` token
-   used to authenticate HTTP requests to GCP APIs. This is an alternative to
-   `credentials`. If both are specified, `access_token` will be used over the
-   `credentials` field.
- *  `prefix` - (Optional) GCS prefix inside the bucket. Named states for
-    workspaces are stored in an object called `<prefix>/<name>.tfstate`.
- *  `encryption_key` / `GOOGLE_ENCRYPTION_KEY` - (Optional) A 32 byte base64
-    encoded 'customer supplied encryption key' used to encrypt all state. For
-    more information see [Customer Supplied Encryption
-    Keys](https://cloud.google.com/storage/docs/encryption#customer-supplied).
+- `bucket` - (Required) The name of the GCS bucket. This name must be
+  globally unique. For more information, see [Bucket Naming
+  Guidelines](https://cloud.google.com/storage/docs/bucketnaming.html#requirements).
+- `credentials` / `GOOGLE_BACKEND_CREDENTIALS` / `GOOGLE_CREDENTIALS` -
+  (Optional) Local path to Google Cloud Platform account credentials in JSON
+  format. If unset, [Google Application Default
+  Credentials](https://developers.google.com/identity/protocols/application-default-credentials)
+  are used. The provided credentials must have Storage Object Admin role on the bucket.
+  **Warning**: if using the Google Cloud Platform provider as well, it will
+  also pick up the `GOOGLE_CREDENTIALS` environment variable.
+- `impersonate_service_account` - (Optional) The service account to impersonate for accessing the State Bucket.
+  You must have `roles/iam.serviceAccountTokenCreator` role on that account for the impersonation to succeed.
+  If you are using a delegation chain, you can specify that using the `impersonate_service_account_delegates` field.
+  Alternatively, this can be specified using the `GOOGLE_IMPERSONATE_SERVICE_ACCOUNT` environment
+  variable.
+- `impersonate_service_account_delegates` - (Optional) The delegation chain for an impersonating a service account as described [here](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-delegated).
+- `access_token` - (Optional) A temporary [OAuth 2.0 access token] obtained
+  from the Google Authorization server, i.e. the `Authorization: Bearer` token
+  used to authenticate HTTP requests to GCP APIs. This is an alternative to
+  `credentials`. If both are specified, `access_token` will be used over the
+  `credentials` field.
+- `prefix` - (Optional) GCS prefix inside the bucket. Named states for
+  workspaces are stored in an object called `<prefix>/<name>.tfstate`.
+- `encryption_key` / `GOOGLE_ENCRYPTION_KEY` - (Optional) A 32 byte base64
+  encoded 'customer supplied encryption key' used to encrypt all state. For
+  more information see [Customer Supplied Encryption
+  Keys](https://cloud.google.com/storage/docs/encryption#customer-supplied).

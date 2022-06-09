@@ -38,6 +38,6 @@ baz.txt
 
 ## Related Functions
 
-* [`dirname`](./dirname.html) returns all of the segments of a filesystem path
+- [`dirname`](./dirname.html) returns all of the segments of a filesystem path
   _except_ the last, discarding the portion that would be returned by
   `basename`.

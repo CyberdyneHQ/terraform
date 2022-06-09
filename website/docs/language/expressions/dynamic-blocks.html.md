@@ -1,9 +1,8 @@
 ---
 layout: "language"
 page_title: "Dynamic Blocks - Configuration Language"
-description: "Dynamic blocks automatically construct multi-level, nested block structures. Learn to configure dynamic blocks and understand their behavior." 
+description: "Dynamic blocks automatically construct multi-level, nested block structures. Learn to configure dynamic blocks and understand their behavior."
 ---
-
 
 # `dynamic` Blocks
 
@@ -68,10 +67,10 @@ collection.
 
 The iterator object (`setting` in the example above) has two attributes:
 
-* `key` is the map key or list element index for the current element. If the
+- `key` is the map key or list element index for the current element. If the
   `for_each` expression produces a _set_ value then `key` is identical to
   `value` and should not be used.
-* `value` is the value of the current element.
+- `value` is the value of the current element.
 
 A `dynamic` block can only generate arguments that belong to the resource type,
 data source, provider or provisioner being configured. It is _not_ possible

@@ -49,5 +49,5 @@ The `jsonencode` command outputs a minified representation of the input.
 
 ## Related Functions
 
-* [`jsondecode`](./jsondecode.html) performs the opposite operation, _decoding_
+- [`jsondecode`](./jsondecode.html) performs the opposite operation, _decoding_
   a JSON string to obtain its represented value.

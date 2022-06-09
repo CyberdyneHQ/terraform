@@ -41,7 +41,7 @@ parameter) and `NAME` (second parameter). The combination of the type
 and name must be unique.
 
 Within the block (the `{ }`) is configuration for the resource. The
-configuration is dependent on the type. Consult the [provider's documentation](https://registry.terraform.io/browse/providers) for details. 
+configuration is dependent on the type. Consult the [provider's documentation](https://registry.terraform.io/browse/providers) for details.
 
 details.
 
@@ -53,7 +53,7 @@ There are **meta-parameters** available to all resources:
   apply to all resources. For details on using variables in conjunction with
   count, see [Using Variables with `count`](#using-variables-with-count) below.
 
-    -> Modules don't currently support the `count` parameter.
+  -> Modules don't currently support the `count` parameter.
 
 - `depends_on` (list of strings) - Explicit dependencies that this resource has.
   These dependencies will be created before this resource. For syntax and other
@@ -68,7 +68,7 @@ There are **meta-parameters** available to all resources:
 - `lifecycle` (configuration block) - Customizes the lifecycle behavior of the
   resource. The specific options are documented below.
 
-    The `lifecycle` block allows the following keys to be set:
+  The `lifecycle` block allows the following keys to be set:
 
   - `create_before_destroy` (bool) - This flag is used to ensure the replacement
     of a resource is created before the original instance is destroyed. As an
@@ -126,7 +126,7 @@ resource "aws_db_instance" "timeout_example" {
 Individual Resources must opt-in to providing configurable Timeouts, and
 attempting to configure the timeout for a Resource that does not support
 Timeouts, or overwriting a specific action that the Resource does not specify as
-an option, will result in an error. Valid units of time are  `s`, `m`, `h`.
+an option, will result in an error. Valid units of time are `s`, `m`, `h`.
 
 ### Explicit Dependencies
 

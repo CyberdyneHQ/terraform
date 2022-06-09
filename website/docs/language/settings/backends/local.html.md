@@ -39,9 +39,9 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options are supported:
 
- * `path` - (Optional) The path to the `tfstate` file. This defaults to
-   "terraform.tfstate" relative to the root module by default.
- * `workspace_dir` - (Optional) The path to non-default workspaces.
+- `path` - (Optional) The path to the `tfstate` file. This defaults to
+  "terraform.tfstate" relative to the root module by default.
+- `workspace_dir` - (Optional) The path to non-default workspaces.
 
 ## Command Line Arguments
 
@@ -53,22 +53,23 @@ the local backend by not specifying a backend at all, most commands that either
 read or write state snapshots from the backend accept the following
 additional arguments:
 
-* `-state=FILENAME` - overrides the state filename when _reading_ the prior
+- `-state=FILENAME` - overrides the state filename when _reading_ the prior
   state snapshot.
-* `-state-out=FILENAME` - overrides the state filename when _writing_ new state
+- `-state-out=FILENAME` - overrides the state filename when _writing_ new state
   snapshots.
 
-    If you use `-state` without also using `-state-out` then Terraform will
-    use the `-state` filename for both `-state` and `-state-out`, which means
-    Terraform will overwrite the input file if it creates a new state snapshot.
-* `-backup=FILENAME` - overrides the default filename that the local backend
+  If you use `-state` without also using `-state-out` then Terraform will
+  use the `-state` filename for both `-state` and `-state-out`, which means
+  Terraform will overwrite the input file if it creates a new state snapshot.
+
+- `-backup=FILENAME` - overrides the default filename that the local backend
   would normally choose dynamically to create backup files when it writes new
   state.
 
-    If you use `-state` without also using `-backup` then Terraform will use
-    the `-state` filename as a filename prefix for generating a backup filename.
-    You can use `-backup=-` (that is, set the filename to just the ASCII
-    dash character) to disable the creation of backup files altogether.
+  If you use `-state` without also using `-backup` then Terraform will use
+  the `-state` filename as a filename prefix for generating a backup filename.
+  You can use `-backup=-` (that is, set the filename to just the ASCII
+  dash character) to disable the creation of backup files altogether.
 
 These three options are preserved for backward-compatibility with earlier
 workflows that predated the introduction of built-in remote state, where

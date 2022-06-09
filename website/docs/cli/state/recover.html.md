@@ -22,4 +22,3 @@ your state data.
   [the `terraform state push` command](/docs/cli/commands/state/push.html) can
   directly read and write entire state files from and to the configured backend.
   You might need this for obtaining or restoring a state backup.
-
