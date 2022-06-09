@@ -37,5 +37,5 @@ taken only once the plan is being applied.
 
 ## Related Functions
 
-* [`formatdate`](./formatdate.html) can convert the resulting timestamp to
+- [`formatdate`](./formatdate.html) can convert the resulting timestamp to
   other date and time formats.

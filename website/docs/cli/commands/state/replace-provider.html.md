@@ -25,13 +25,13 @@ of this command, backups are required.
 
 This command also accepts the following options:
 
-* `-auto-approve` - Skip interactive approval.
+- `-auto-approve` - Skip interactive approval.
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=0s` - Duration to retry a state lock.
+- `-lock-timeout=0s` - Duration to retry a state lock.
 
 For configurations using
 [the `remote` backend](/docs/language/settings/backends/remote.html)
@@ -43,7 +43,6 @@ For configurations using
 [the `local` state rm](/docs/language/settings/backends/local.html) only,
 `terraform state replace-provider` also accepts the legacy options
 [`-state`, `-state-out`, and `-backup`](/docs/language/settings/backends/local.html#command-line-arguments).
-
 
 ## Example
 

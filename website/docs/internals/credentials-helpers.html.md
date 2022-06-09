@@ -51,9 +51,9 @@ Terraform runs the helper program with each of the arguments given in `args`,
 followed by an _verb_ and then the hostname that the verb will apply to.
 The current set of verbs are:
 
-* `get`: retrieve the credentials for the given hostname
-* `store`: store new credentials for the given hostname
-* `forget`: delete any stored credentials for the given hostname
+- `get`: retrieve the credentials for the given hostname
+- `store`: store new credentials for the given hostname
+- `forget`: delete any stored credentials for the given hostname
 
 To represent credentials, the credentials helper protocol uses a JSON object
 whose contents correspond with the contents of

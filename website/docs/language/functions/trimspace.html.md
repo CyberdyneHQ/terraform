@@ -25,5 +25,5 @@ hello
 
 ## Related Functions
 
-* [`chomp`](./chomp.html) removes just line ending characters from the _end_ of
+- [`chomp`](./chomp.html) removes just line ending characters from the _end_ of
   a string.

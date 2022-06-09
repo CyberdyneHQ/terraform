@@ -48,25 +48,25 @@ providing it directly, but most cloud computing platforms provide mechanisms
 to pass data to instances at the time of their creation such that the data
 is immediately available on system boot. For example:
 
-* Alibaba Cloud: `user_data` on
+- Alibaba Cloud: `user_data` on
   [`alicloud_instance`](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/instance)
   or [`alicloud_launch_template`](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/launch_template).
-* Amazon EC2: `user_data` or `user_data_base64` on
+- Amazon EC2: `user_data` or `user_data_base64` on
   [`aws_instance`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance),
   [`aws_launch_template`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template),
   and [`aws_launch_configuration`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration).
-* Amazon Lightsail: `user_data` on
+- Amazon Lightsail: `user_data` on
   [`aws_lightsail_instance`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lightsail_instance).
-* Microsoft Azure: `custom_data` on
+- Microsoft Azure: `custom_data` on
   [`azurerm_virtual_machine`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine)
   or [`azurerm_virtual_machine_scale_set`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_scale_set).
-* Google Cloud Platform: `metadata` on
+- Google Cloud Platform: `metadata` on
   [`google_compute_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance)
   or [`google_compute_instance_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance_group).
-* Oracle Cloud Infrastructure: `metadata` or `extended_metadata` on
+- Oracle Cloud Infrastructure: `metadata` or `extended_metadata` on
   [`oci_core_instance`](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_instance)
   or [`oci_core_instance_configuration`](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_instance_configuration).
-* VMware vSphere: Attach a virtual CDROM to
+- VMware vSphere: Attach a virtual CDROM to
   [`vsphere_virtual_machine`](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/virtual_machine)
   using the `cdrom` block, containing a file called `user-data.txt`.
 
@@ -246,10 +246,10 @@ configurations are removed along with it and thus the destroy provisioner
 won't run. To work around this, a multi-step process can be used to safely
 remove a resource with a destroy-time provisioner:
 
-* Update the resource configuration to include `count = 0`.
-* Apply the configuration to destroy any existing instances of the resource, including running the destroy provisioner.
-* Remove the resource block entirely from configuration, along with its `provisioner` blocks.
-* Apply again, at which point no further action should be taken since the resources were already destroyed.
+- Update the resource configuration to include `count = 0`.
+- Apply the configuration to destroy any existing instances of the resource, including running the destroy provisioner.
+- Remove the resource block entirely from configuration, along with its `provisioner` blocks.
+- Apply again, at which point no further action should be taken since the resources were already destroyed.
 
 This limitation may be addressed in future versions of Terraform. For now,
 destroy-time provisioners must be used sparingly and with care.
@@ -291,7 +291,7 @@ allowed values are:
 - `continue` - Ignore the error and continue with creation or destruction.
 
 - `fail` - Raise an error and stop applying (the default behavior). If this is a creation provisioner,
-    taint the resource.
+  taint the resource.
 
 Example:
 

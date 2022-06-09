@@ -100,11 +100,11 @@ will be read or written in the given directory instead.
 There are two exceptions where Terraform will use the original working directory
 even when you specify `-chdir=...`:
 
-* Settings in the [CLI Configuration](/docs/cli/config/config-file.html) are not for a specific
+- Settings in the [CLI Configuration](/docs/cli/config/config-file.html) are not for a specific
   subcommand and Terraform processes them before acting on the `-chdir`
   option.
 
-* In case you need to use files from the original working directory as part
+- In case you need to use files from the original working directory as part
   of your configuration, a reference to `path.cwd` in the configuration will
   produce the original working directory instead of the overridden working
   directory. Use `path.root` to get the root module directory.
@@ -157,11 +157,11 @@ Alternatively, settings in
 disable checkpoint features. The following checkpoint-related settings are
 supported in this file:
 
-* `disable_checkpoint` - set to `true` to disable checkpoint calls
+- `disable_checkpoint` - set to `true` to disable checkpoint calls
   entirely. This is similar to the `CHECKPOINT_DISABLE` environment variable
   described above.
 
-* `disable_checkpoint_signature` - set to `true` to disable the use of an
+- `disable_checkpoint_signature` - set to `true` to disable the use of an
   anonymous signature in checkpoint requests. This allows Terraform to check
   for security bulletins but does not send the anonymous signature in these
   requests.

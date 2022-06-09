@@ -28,4 +28,4 @@ returned from [`keys`](./keys.html).
 
 ## Related Functions
 
-* [`keys`](./keys.html) returns a list of the _keys_ from a map.
+- [`keys`](./keys.html) returns a list of the _keys_ from a map.

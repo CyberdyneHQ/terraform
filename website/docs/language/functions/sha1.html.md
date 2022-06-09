@@ -29,5 +29,5 @@ relevant literature to understand the security implications.
 
 ## Related Functions
 
-* [`filesha1`](./filesha1.html) calculates the same hash from
+- [`filesha1`](./filesha1.html) calculates the same hash from
   the contents of a file rather than from a string value.

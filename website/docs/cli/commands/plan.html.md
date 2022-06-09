@@ -11,11 +11,11 @@ The `terraform plan` command creates an execution plan, which lets you preview
 the changes that Terraform plans to make to your infrastructure. By default,
 when Terraform creates a plan it:
 
-* Reads the current state of any already-existing remote objects to make sure
+- Reads the current state of any already-existing remote objects to make sure
   that the Terraform state is up-to-date.
-* Compares the current configuration to the prior state and noting any
+- Compares the current configuration to the prior state and noting any
   differences.
-* Proposes a set of change actions that should, if applied, make the remote
+- Proposes a set of change actions that should, if applied, make the remote
   objects match the configuration.
 
 > **Hands-on:** Try the [Terraform: Get Started](https://learn.hashicorp.com/collections/terraform/aws-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS) collection on HashiCorp Learn.
@@ -68,16 +68,16 @@ additional options for routine work.
 
 The remaining sections on this page describe the various options:
 
-* **[Planning Modes](#planning-modes)**: There are some special alternative
+- **[Planning Modes](#planning-modes)**: There are some special alternative
   planning modes that you can use for some special situations where your goal
   is not just to change the remote system to match your configuration.
-* **[Planning Options](#planning-options)**: Alongside the special planning
+- **[Planning Options](#planning-options)**: Alongside the special planning
   modes, there are also some options you can set in order to customize the
   planning process for unusual needs.
-    * **[Resource Targeting](#resource-targeting)** is one particular
-      special planning option that has some important caveats associated
-      with it.
-* **[Other Options](#other-options)**: These change the behavior of the planning
+  - **[Resource Targeting](#resource-targeting)** is one particular
+    special planning option that has some important caveats associated
+    with it.
+- **[Other Options](#other-options)**: These change the behavior of the planning
   command itself, rather than customizing the content of the generated plan.
 
 ## Planning Modes
@@ -89,21 +89,21 @@ your configuration.
 Terraform has two alternative planning modes, each of which creates a plan with
 a different intended outcome:
 
-* **Destroy mode:** creates a plan whose goal is to destroy all remote objects
+- **Destroy mode:** creates a plan whose goal is to destroy all remote objects
   that currently exist, leaving an empty Terraform state. This can be useful
   for situations like transient development environments, where the managed
   objects cease to be useful once the development task is complete.
 
-    Activate destroy mode using the `-destroy` command line option.
+  Activate destroy mode using the `-destroy` command line option.
 
-* **Refresh-only mode:** creates a plan whose goal is only to update the
+- **Refresh-only mode:** creates a plan whose goal is only to update the
   Terraform state and any root module output values to match changes made to
   remote objects outside of Terraform. This can be useful if you've
   intentionally changed one or more remote objects outside of the usual
   workflow (e.g. while responding to an incident) and you now need to reconcile
   Terraform's records with those changes.
 
-    Activate refresh-only mode using the `-refresh-only` command line option.
+  Activate refresh-only mode using the `-refresh-only` command line option.
 
 In situations where we need to discuss the default planning mode that Terraform
 uses when none of the alternative modes are selected, we refer to it as
@@ -137,51 +137,51 @@ options in this section, along with the planning mode selection options in
 the previous section, are also available with the same meanings on
 `terraform apply`.
 
-* `-refresh=false` - Disables the default behavior of synchronizing the
+- `-refresh=false` - Disables the default behavior of synchronizing the
   Terraform state with remote objects before checking for configuration changes.
 
-    This option can potentially make the planning operation faster by reducing
-    the number of remote API requests, but it comes at the expense of having
-    Terraform not take into account any changes that might've happened outside
-    of Terraform, and thus the resulting plan may not be complete or correct.
+  This option can potentially make the planning operation faster by reducing
+  the number of remote API requests, but it comes at the expense of having
+  Terraform not take into account any changes that might've happened outside
+  of Terraform, and thus the resulting plan may not be complete or correct.
 
-    This option is not available in the "refresh only" planning mode, because
-    it would effectively disable the entirety of the planning operation in that
-    case.
+  This option is not available in the "refresh only" planning mode, because
+  it would effectively disable the entirety of the planning operation in that
+  case.
 
-* `-replace=ADDRESS` - Instructs Terraform to plan to replace the single
+- `-replace=ADDRESS` - Instructs Terraform to plan to replace the single
   resource instance with the given address. If the given instance would
   normally have caused only an "update" action, or no action at all, then
   Terraform will choose a "replace" action instead.
 
-    You can use this option if you have learned that a particular remote object
-    has become degraded in some way. If you are using immutable infrastructure
-    patterns then you may wish to respond to that by replacing the
-    malfunctioning object with a new object that has the same configuration.
+  You can use this option if you have learned that a particular remote object
+  has become degraded in some way. If you are using immutable infrastructure
+  patterns then you may wish to respond to that by replacing the
+  malfunctioning object with a new object that has the same configuration.
 
-    This option is allowed only in the normal planning mode, so this option
-    is incompatible with the `-destroy` option.
+  This option is allowed only in the normal planning mode, so this option
+  is incompatible with the `-destroy` option.
 
-    The `-replace=...` option is available only from Terraform v0.15.2 onwards.
-    For earlier versions, you can achieve a similar effect (with some caveats)
-    using [`terraform taint`](./taint.html).
+  The `-replace=...` option is available only from Terraform v0.15.2 onwards.
+  For earlier versions, you can achieve a similar effect (with some caveats)
+  using [`terraform taint`](./taint.html).
 
-* `-target=ADDRESS` - Instructs Terraform to focus its planning efforts only
+- `-target=ADDRESS` - Instructs Terraform to focus its planning efforts only
   on resource instances which match the given address and on any objects that
   those instances depend on.
 
-    This command is for exceptional use only. See
-    [Resource Targeting](#resource-targeting)
-    below for more information.
+  This command is for exceptional use only. See
+  [Resource Targeting](#resource-targeting)
+  below for more information.
 
-* `-var 'NAME=VALUE'` - Sets a value for a single
+- `-var 'NAME=VALUE'` - Sets a value for a single
   [input variable](/docs/language/values/variables.html) declared in the
   root module of the configuration. Use this option multiple times to set
   more than one variable. For more information see
   [Input Variables on the Command Line](#input-variables-on-the-command-line),
   below.
 
-* `-var-file=FILENAME` - Sets values for potentially many
+- `-var-file=FILENAME` - Sets values for potentially many
   [input variables](/docs/language/values/variables.html) declared in the
   root module of the configuration, using definitions from a
   ["tfvars" file](/docs/language/values/variables.html#variable-definitions-tfvars-files).
@@ -264,7 +264,6 @@ variables. For more information on the various methods for setting root module
 input variables, see
 [Assigning Values to Root Module Variables](/docs/language/values/variables.html#assigning-values-to-root-module-variables).
 
-
 ### Resource Targeting
 
 > **Hands-on:** Try the [Target resources](https://learn.hashicorp.com/tutorials/terraform/resource-targeting?in=terraform/state&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS) tutorial on HashiCorp Learn.
@@ -274,19 +273,19 @@ subset of resources.
 You can use [resource address syntax](/docs/cli/state/resource-addressing.html)
 to specify the constraint. Terraform interprets the resource address as follows:
 
-* If the given address identifies one specific resource instance, Terraform
+- If the given address identifies one specific resource instance, Terraform
   will select that instance alone. For resources with either `count` or
   `for_each` set, a resource instance address must include the instance index
   part, like `aws_instance.example[0]`.
 
-* If the given address identifies a resource as a whole, Terraform will select
+- If the given address identifies a resource as a whole, Terraform will select
   all of the instances of that resource. For resources with either `count`
   or `for_each` set, this means selecting _all_ instance indexes currently
   associated with that resource. For single-instance resources (without
   either `count` or `for_each`), the resource address and the resource instance
   address are identical, so this possibility does not apply.
 
-* If the given address identifies an entire module instance, Terraform will
+- If the given address identifies an entire module instance, Terraform will
   select all instances of all resources that belong to that module instance
   and all of its child module instances.
 
@@ -296,7 +295,7 @@ that those selections depend on either directly or indirectly.
 
 This targeting capability is provided for exceptional circumstances, such
 as recovering from mistakes or working around Terraform limitations. It
-is *not recommended* to use `-target` for routine operations, since this can
+is _not recommended_ to use `-target` for routine operations, since this can
 lead to undetected configuration drift and confusion about how the true state
 of resources relates to configuration.
 
@@ -318,62 +317,63 @@ for that command.
 
 The available options are:
 
-* `-compact-warnings` - Shows any warning messages in a compact form which
+- `-compact-warnings` - Shows any warning messages in a compact form which
   includes only the summary messages, unless the warnings are accompanied by
   at least one error and thus the warning text might be useful context for
   the errors.
 
-* `-detailed-exitcode` - Returns a detailed exit code when the command exits.
+- `-detailed-exitcode` - Returns a detailed exit code when the command exits.
   When provided, this argument changes the exit codes and their meanings to
   provide more granular information about what the resulting plan contains:
-  * 0 = Succeeded with empty diff (no changes)
-  * 1 = Error
-  * 2 = Succeeded with non-empty diff (changes present)
 
-* `-input=false` - Disables Terraform's default behavior of prompting for
+  - 0 = Succeeded with empty diff (no changes)
+  - 1 = Error
+  - 2 = Succeeded with non-empty diff (changes present)
+
+- `-input=false` - Disables Terraform's default behavior of prompting for
   input for root module input variables that have not otherwise been assigned
   a value. This option is particularly useful when running Terraform in
   non-interactive automation systems.
 
-* `-json` - Enables the [machine readable JSON UI][machine-readable-ui] output.
+- `-json` - Enables the [machine readable JSON UI][machine-readable-ui] output.
   This implies `-input=false`, so the configuration must have no unassigned
   variable values to continue.
 
   [machine-readable-ui]: /docs/internals/machine-readable-ui.html
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
+- `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
   instructs Terraform to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.
 
-* `-no-color` - Disables terminal formatting sequences in the output. Use this
+- `-no-color` - Disables terminal formatting sequences in the output. Use this
   if you are running Terraform in a context where its output will be
   rendered by a system that cannot interpret terminal formatting.
 
-* `-out=FILENAME` - Writes the generated plan to the given filename in an
+- `-out=FILENAME` - Writes the generated plan to the given filename in an
   opaque file format that you can later pass to `terraform apply` to execute
   the planned changes, and to some other Terraform commands that can work with
   saved plan files.
 
-    Terraform will allow any filename for the plan file, but a typical
-    convention is to name it `tfplan`. **Do not** name the file with a suffix
-    that Terraform recognizes as another file format; if you use a `.tf` suffix
-    then Terraform will try to interpret the file as a configuration source
-    file, which will then cause syntax errors for subsequent commands.
+  Terraform will allow any filename for the plan file, but a typical
+  convention is to name it `tfplan`. **Do not** name the file with a suffix
+  that Terraform recognizes as another file format; if you use a `.tf` suffix
+  then Terraform will try to interpret the file as a configuration source
+  file, which will then cause syntax errors for subsequent commands.
 
-    The generated file is not in any standard format intended for consumption
-    by other software, but the file _does_ contain your full configuration,
-    all of the values associated with planned changes, and all of the plan
-    options including the input variables. If your plan includes any sort of
-    sensitive data, even if obscured in Terraform's terminal output, it will
-    be saved in cleartext in the plan file. You should therefore treat any
-    saved plan files as potentially-sensitive artifacts.
+  The generated file is not in any standard format intended for consumption
+  by other software, but the file _does_ contain your full configuration,
+  all of the values associated with planned changes, and all of the plan
+  options including the input variables. If your plan includes any sort of
+  sensitive data, even if obscured in Terraform's terminal output, it will
+  be saved in cleartext in the plan file. You should therefore treat any
+  saved plan files as potentially-sensitive artifacts.
 
-* `-parallelism=n` - Limit the number of concurrent operations as Terraform
+- `-parallelism=n` - Limit the number of concurrent operations as Terraform
   [walks the graph](/docs/internals/graph.html#walking-the-graph). Defaults
   to 10.
 

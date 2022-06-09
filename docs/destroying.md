@@ -9,7 +9,7 @@ and document some of the more complicated aspects of resource destruction.
 
 The graph diagrams here will continue to use the inverted graph structure used
 internally by Terraform, where edges represent dependencies rather than order
-of operations. 
+of operations.
 
 ## Simple Resource Creation
 
@@ -19,6 +19,7 @@ the dependencies for each resource. In this example, `A` has no dependencies,
 `B` depends on `A`, and `C` depends on `B`, and transitively depends on `A`.
 
 ![Simple Resource Creation](./images/simple_create.png)
+
 <!--
 digraph create {
     subgraph nodes {
@@ -33,6 +34,7 @@ digraph create {
 -->
 
 Order of operations:
+
 1. `A` is created
 1. `B` is created
 1. `C` is created
@@ -44,6 +46,7 @@ resource. The ordering here is exactly the same as one would expect for
 creation.
 
 ![Simple Resource Updates](./images/simple_update.png)
+
 <!--
 digraph update {
     subgraph nodes {
@@ -58,6 +61,7 @@ digraph update {
 -->
 
 Order of operations:
+
 1. `A` is created
 1. `B` is created
 1. `C` is created
@@ -71,6 +75,7 @@ continue to use the inverted edges showing dependencies for destroy, so the
 operational ordering is still opposite the flow of the arrows.
 
 ![Simple Resource Destruction](./images/simple_destroy.png)
+
 <!--
 digraph destroy {
     subgraph nodes {
@@ -85,6 +90,7 @@ digraph destroy {
 -->
 
 Order of operations:
+
 1. `C` is destroyed
 1. `B` is destroyed
 1. `A` is Destroyed
@@ -98,6 +104,7 @@ In this first example, we simultaneously replace both `A` and `B`. Here `B` is
 destroyed before `A`, then `A` is recreated before `B`.
 
 ![Replace All](./images/replace_all.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -121,16 +128,17 @@ digraph replacement {
 -->
 
 Order of operations:
+
 1. `B` is destroyed
 1. `A` is destroyed
 1. `A` is created
 1. `B` is created
 
-
 This second example replaces only `A`, while updating `B`. Resource `B` is only
 updated once `A` has been destroyed and recreated.
 
 ![Replace Dependency](./images/replace_one.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -150,10 +158,10 @@ digraph replacement {
 -->
 
 Order of operations:
+
 1. `A` is destroyed
 1. `A` is created
 1. `B` is updated
-
 
 While the dependency edge from `B update` to `A destroy` isn't necessary in
 these examples, it is shown here as an implementation detail which will be
@@ -167,6 +175,7 @@ operations from the full replacement example above, by replacing `A create`
 with `A update` and removing the unused nodes.
 
 ![Replace All](./images/destroy_then_update.png)
+
 <!--
 digraph destroy_then_update {
     subgraph update {
@@ -181,6 +190,7 @@ digraph destroy_then_update {
     a -> b_d;
 }
 -->
+
 ## Create Before Destroy
 
 Currently, the only user-controllable method for changing the ordering of
@@ -193,6 +203,7 @@ Taking the previous replacement examples, we can change the behavior of `A` to
 be that of `create_before_destroy`.
 
 ![Replace all, dependency is create_before_destroy](./images/replace_all_cbd_dep.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -215,19 +226,19 @@ digraph replacement {
 }
 -->
 
-
 Order of operations:
+
 1. `B` is destroyed
 2. `A` is created
-1. `B` is created
-1. `A` is destroyed
+3. `B` is created
+4. `A` is destroyed
 
 Note that in this first example, the creation of `B` is inserted in between the
 creation of `A` and the destruction of `A`. This becomes more important in the
 update example below.
 
-
 ![Replace dependency, dependency is create_before_destroy](./images/replace_dep_cbd_dep.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -247,6 +258,7 @@ digraph replacement {
 -->
 
 Order of operations:
+
 1. `A` is created
 1. `B` is updated
 1. `A` is destroyed
@@ -267,6 +279,7 @@ reduced versions of this example still adhere to the same ordering rules, such
 as when the dependency is only being removed:
 
 ![Update a destroyed create_before_destroy dependency](./images/update_destroy_cbd.png)
+
 <!--
 digraph update {
     subgraph create {
@@ -283,6 +296,7 @@ digraph update {
 -->
 
 Order of operations:
+
 1. `B` is updated
 1. `A` is destroyed
 
@@ -300,6 +314,7 @@ has `create_before_destroy` while `A` does not. If we only invert the ordering
 for `B`, we can see that results in a cycle.
 
 ![Incorrect create_before_destroy replacement](./images/replace_cbd_incorrect.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -327,6 +342,7 @@ with `create_before_destroy` must in turn be handled in the same manner.
 Reversing the incoming edges to `A destroy` resolves the problem:
 
 ![Correct create_before_destroy replacement](./images/replace_all_cbd.png)
+
 <!--
 digraph replacement {
     subgraph create {
@@ -350,6 +366,7 @@ digraph replacement {
 -->
 
 Order of operations:
+
 1. `A` is created
 1. `B` is created
 1. `B` is destroyed

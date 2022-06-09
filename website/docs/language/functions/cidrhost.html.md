@@ -52,5 +52,5 @@ fd00:fd12:3456:7890::22
 
 ## Related Functions
 
-* [`cidrsubnet`](./cidrsubnet.html) calculates a subnet address under a given
+- [`cidrsubnet`](./cidrsubnet.html) calculates a subnet address under a given
   network address prefix.

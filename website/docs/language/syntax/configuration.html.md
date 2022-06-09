@@ -106,9 +106,9 @@ include the ASCII hyphen character `-`.
 
 The Terraform language supports three different syntaxes for comments:
 
-* `#` begins a single-line comment, ending at the end of the line.
-* `//` also begins a single-line comment, as an alternative to `#`.
-* `/*` and `*/` are start and end delimiters for a comment that might span
+- `#` begins a single-line comment, ending at the end of the line.
+- `//` also begins a single-line comment, as an alternative to `#`.
+- `/*` and `*/` are start and end delimiters for a comment that might span
   over multiple lines.
 
 The `#` single-line comment style is the default comment style and should be

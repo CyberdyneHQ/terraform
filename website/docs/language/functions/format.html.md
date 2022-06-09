@@ -119,7 +119,7 @@ zero is the same as not including them at all.
 
 ## Related Functions
 
-* [`formatdate`](./formatdate.html) is a specialized formatting function for
+- [`formatdate`](./formatdate.html) is a specialized formatting function for
   human-readable timestamps.
-* [`formatlist`](./formatlist.html) uses the same specification syntax to
+- [`formatlist`](./formatlist.html) uses the same specification syntax to
   produce a list of strings.

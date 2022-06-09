@@ -48,7 +48,7 @@ header. For example, `provider "aws"` above is a configuration for the
 `aws` provider.
 
 Within the block body (between `{ }`) is configuration for the provider.
-The configuration is dependent on the type. Consult the [provider's documentation](https://registry.terraform.io/browse/providers) for details. 
+The configuration is dependent on the type. Consult the [provider's documentation](https://registry.terraform.io/browse/providers) for details.
 in each provider's documentation.
 
 The arguments `alias` and `version`, if present, are special arguments
@@ -126,11 +126,11 @@ The `version` attribute value may either be a single explicit version or
 a version constraint expression. Constraint expressions use the following
 syntax to specify a _range_ of versions that are acceptable:
 
-* `>= 1.2.0`: version 1.2.0 or newer
-* `<= 1.2.0`: version 1.2.0 or older
-* `~> 1.2.0`: any non-beta version `>= 1.2.0` and `< 1.3.0`, e.g. `1.2.X`
-* `~> 1.2`: any non-beta version `>= 1.2.0` and `< 2.0.0`, e.g. `1.X.Y`
-* `>= 1.0.0, <= 2.0.0`: any version between 1.0.0 and 2.0.0 inclusive
+- `>= 1.2.0`: version 1.2.0 or newer
+- `<= 1.2.0`: version 1.2.0 or older
+- `~> 1.2.0`: any non-beta version `>= 1.2.0` and `< 1.3.0`, e.g. `1.2.X`
+- `~> 1.2`: any non-beta version `>= 1.2.0` and `< 2.0.0`, e.g. `1.X.Y`
+- `>= 1.0.0, <= 2.0.0`: any version between 1.0.0 and 2.0.0 inclusive
 
 When `terraform init` is re-run with providers already installed, it will
 use an already-installed provider that meets the constraints in preference
@@ -228,10 +228,10 @@ Install third-party providers by placing their plugin executables in the user
 plugins directory. The user plugins directory is in one of the following
 locations, depending on the host operating system:
 
-Operating system  | User plugins directory
-------------------|-----------------------
-Windows           | `%APPDATA%\terraform.d\plugins`
-All other systems | `~/.terraform.d/plugins`
+| Operating system  | User plugins directory          |
+| ----------------- | ------------------------------- |
+| Windows           | `%APPDATA%\terraform.d\plugins` |
+| All other systems | `~/.terraform.d/plugins`        |
 
 Once a plugin is installed, `terraform init` can initialize it normally.
 
@@ -268,18 +268,18 @@ other subdirectories.
 Terraform's OS and architecture strings are the standard ones used by the Go
 language. The following are the most common:
 
-* `darwin_amd64`
-* `freebsd_386`
-* `freebsd_amd64`
-* `freebsd_arm`
-* `linux_386`
-* `linux_amd64`
-* `linux_arm`
-* `openbsd_386`
-* `openbsd_amd64`
-* `solaris_amd64`
-* `windows_386`
-* `windows_amd64`
+- `darwin_amd64`
+- `freebsd_386`
+- `freebsd_amd64`
+- `freebsd_arm`
+- `linux_386`
+- `linux_amd64`
+- `linux_arm`
+- `openbsd_386`
+- `openbsd_amd64`
+- `solaris_amd64`
+- `windows_386`
+- `windows_amd64`
 
 ## Provider Plugin Cache
 
@@ -335,7 +335,7 @@ When possible, Terraform will use hardlinks or symlinks to avoid storing
 a separate copy of a cached plugin in multiple directories. At present, this
 is not supported on Windows and instead a copy is always created.
 
-The plugin cache directory must *not* be the third-party plugin directory
+The plugin cache directory must _not_ be the third-party plugin directory
 or any other directory Terraform searches for pre-installed plugins, since
 the cache management logic conflicts with the normal plugin discovery logic
 when operating on the same directory.

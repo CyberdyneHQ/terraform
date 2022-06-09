@@ -38,17 +38,17 @@ default values given in the defaults object.
 The interpretation of attributes in the `defaults` argument depends on what
 type an attribute has in the `input_value`:
 
-* **Primitive types** (`string`, `number`, `bool`): if a default value is given
+- **Primitive types** (`string`, `number`, `bool`): if a default value is given
   then it will be used only if the `input_value`'s attribute of the same
   name has the value `null`. The default value's type must match the input
   value's type.
-* **Structural types** (`object` and `tuple` types): Terraform will recursively
+- **Structural types** (`object` and `tuple` types): Terraform will recursively
   visit all of the attributes or elements of the nested value and repeat the
   same defaults-merging logic one level deeper. The default value's type must
   be of the same kind as the input value's type, and a default value for an
   object type must only contain attribute names that appear in the input
   value's type.
-* **Collection types** (`list`, `map`, and `set` types): Terraform will visit
+- **Collection types** (`list`, `map`, and `set` types): Terraform will visit
   each of the collection elements in turn and apply defaults to them. In this
   case the default value is only a single value to be applied to _all_ elements
   of the collection, so it must have a type compatible with the collection's

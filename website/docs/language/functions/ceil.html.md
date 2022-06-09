@@ -23,5 +23,5 @@ given value, which may be a fraction.
 
 ## Related Functions
 
-* [`floor`](./floor.html), which rounds to the nearest whole number _less than_
+- [`floor`](./floor.html), which rounds to the nearest whole number _less than_
   or equal.

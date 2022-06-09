@@ -22,5 +22,5 @@ This function uses Unicode's definition of letters and of upper- and lowercase.
 
 ## Related Functions
 
-* [`upper`](./upper.html) converts _all_ letters in a string to uppercase.
-* [`lower`](./lower.html) converts all letters in a string to lowercase.
+- [`upper`](./upper.html) converts _all_ letters in a string to uppercase.
+- [`lower`](./lower.html) converts all letters in a string to lowercase.

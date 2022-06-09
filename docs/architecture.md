@@ -40,14 +40,14 @@ object that describes an action to be taken.
 
 An _operation_ consists of:
 
-* The action to be taken (e.g. "plan", "apply").
-* The name of the [workspace](https://www.terraform.io/docs/state/workspaces.html)
+- The action to be taken (e.g. "plan", "apply").
+- The name of the [workspace](https://www.terraform.io/docs/state/workspaces.html)
   where the action will be taken.
-* Root module input variables to use for the action.
-* For the "plan" operation, a path to the directory containing the configuration's root module.
-* For the "apply" operation, the plan to apply.
-* Various other less-common options/settings such as `-target` addresses, the
-"force" flag, etc.
+- Root module input variables to use for the action.
+- For the "plan" operation, a path to the directory containing the configuration's root module.
+- For the "apply" operation, the plan to apply.
+- Various other less-common options/settings such as `-target` addresses, the
+  "force" flag, etc.
 
 The operation is then passed to the currently-selected
 [backend](https://www.terraform.io/docs/backends/index.html). Each backend name
@@ -72,9 +72,9 @@ can be executed.
 
 A _backend_ has a number of responsibilities in Terraform:
 
-* Execute operations (e.g. plan, apply)
-* Store state
-* Store workspace-defined variables (in the future; not yet implemented)
+- Execute operations (e.g. plan, apply)
+- Store state
+- Store workspace-defined variables (in the future; not yet implemented)
 
 As described above, the `local.Local` implementation -- named `local` from the
 user's standpoint -- is the only backend which implements _all_ functionality.
@@ -173,7 +173,7 @@ to represent the necessary steps for that operation and the dependency
 relationships between them.
 
 In most cases, the
-[vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory)) of Terraform's
+[vertices](<https://en.wikipedia.org/wiki/Vertex_(graph_theory)>) of Terraform's
 graphs each represent a specific object in the configuration, or something
 derived from those configuration objects. For example, each `resource` block
 in the configuration has one corresponding
@@ -199,18 +199,18 @@ Implementations of this interface just take a graph and mutate it in any
 way needed, and so the set of available transforms is quite varied. Some
 important examples include:
 
-* [`ConfigTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ConfigTransformer),
+- [`ConfigTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ConfigTransformer),
   which creates a graph vertex for each `resource` block in the configuration.
 
-* [`StateTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#StateTransformer),
+- [`StateTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#StateTransformer),
   which creates a graph vertex for each resource instance currently tracked
   in the state.
 
-* [`ReferenceTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ReferenceTransformer),
+- [`ReferenceTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ReferenceTransformer),
   which analyses the configuration to find dependencies between resources and
   other objects and creates any necessary "happens after" edges for these.
 
-* [`ProviderTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ProviderTransformer),
+- [`ProviderTransformer`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#ProviderTransformer),
   which associates each resource or resource instance with exactly one
   provider configuration (implementing
   [the inheritance rules](https://www.terraform.io/docs/language/modules/develop/providers.html))
@@ -240,7 +240,7 @@ However, the "interesting" Terraform walk functionality is implemented in
 which implements a small set of higher-level operations that are performed
 during the graph walk:
 
-* `EnterPath` is called once for each module in the configuration, taking a
+- `EnterPath` is called once for each module in the configuration, taking a
   module address and returning a
   [`terraform.EvalContext`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#EvalContext)
   that tracks objects within that module. `terraform.Context` is the _global_
@@ -266,24 +266,24 @@ for a particular vertex type.
 For example, evaluation of a vertex representing a resource instance during
 a plan operation would include the following high-level steps:
 
-* Retrieve the resource's associated provider from the `EvalContext`. This
+- Retrieve the resource's associated provider from the `EvalContext`. This
   should already be initialized earlier by the provider's own graph vertex,
   due to the "happens after" edge between the resource node and the provider
   node.
 
-* Retrieve from the state the portion relevant to the specific resource
+- Retrieve from the state the portion relevant to the specific resource
   instance being evaluated.
 
-* Evaluate the attribute expressions given for the resource in configuration.
+- Evaluate the attribute expressions given for the resource in configuration.
   This often involves retrieving the state of _other_ resource instances so
   that their values can be copied or transformed into the current instance's
   attributes, which is coordinated by the `EvalContext`.
 
-* Pass the current instance state and the resource configuration to the
+- Pass the current instance state and the resource configuration to the
   provider, asking the provider to produce an _instance diff_ representing the
   differences between the state and the configuration.
 
-* Save the instance diff as part of the plan that is being constructed by
+- Save the instance diff as part of the plan that is being constructed by
   this operation.
 
 Each execution step for a vertex is an implementation of
@@ -303,11 +303,11 @@ In order to be executed, a vertex must implement
 which has a single `Execute` method that handles. There are numerous `Execute`
 implementations with different behaviors, but some prominent examples are:
 
-* [NodePlannableResource.Execute](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#NodePlannableResourceInstance.Execute), which handles the `plan` operation.
+- [NodePlannableResource.Execute](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#NodePlannableResourceInstance.Execute), which handles the `plan` operation.
 
-* [`NodeApplyableResourceInstance.Execute`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#NodeApplyableResourceInstance.Execute), which handles the main `apply` operation.
+- [`NodeApplyableResourceInstance.Execute`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#NodeApplyableResourceInstance.Execute), which handles the main `apply` operation.
 
-* [`NodeDestroyResourceInstance.Execute`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#EvalWriteState), which handles the main `destroy` operation.
+- [`NodeDestroyResourceInstance.Execute`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/terraform#EvalWriteState), which handles the main `destroy` operation.
 
 A vertex must complete successfully before the graph walk will begin evaluation
 for other vertices that have "happens after" edges. Evaluation can fail with one
@@ -324,25 +324,25 @@ processed by the configuration loader.
 The high-level process for expression evaluation is:
 
 1. Analyze the configuration expressions to see which other objects they refer
-  to. For example, the expression `aws_instance.example[1]` refers to one of
-  the instances created by a `resource "aws_instance" "example"` block in
-  configuration. This analysis is performed by
-  [`lang.References`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#References),
-  or more often one of the helper wrappers around it:
-  [`lang.ReferencesInBlock`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#ReferencesInBlock)
-  or
-  [`lang.ReferencesInExpr`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#ReferencesInExpr)
+   to. For example, the expression `aws_instance.example[1]` refers to one of
+   the instances created by a `resource "aws_instance" "example"` block in
+   configuration. This analysis is performed by
+   [`lang.References`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#References),
+   or more often one of the helper wrappers around it:
+   [`lang.ReferencesInBlock`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#ReferencesInBlock)
+   or
+   [`lang.ReferencesInExpr`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#ReferencesInExpr)
 
 1. Retrieve from the state the data for the objects that are referred to and
-  create a lookup table of the values from these objects that the
-  HCL evaluation code can refer to.
+   create a lookup table of the values from these objects that the
+   HCL evaluation code can refer to.
 
 1. Prepare the table of built-in functions so that HCL evaluation can refer to
-  them.
+   them.
 
 1. Ask HCL to evaluate each attribute's expression (a
-  [`hcl.Expression`](https://pkg.go.dev/github.com/hashicorp/hcl/v2/#Expression)
-  object) against the data and function lookup tables.
+   [`hcl.Expression`](https://pkg.go.dev/github.com/hashicorp/hcl/v2/#Expression)
+   object) against the data and function lookup tables.
 
 In practice, steps 2 through 4 are usually run all together using one
 of the methods on [`lang.Scope`](https://pkg.go.dev/github.com/hashicorp/terraform/internal/lang#Scope);

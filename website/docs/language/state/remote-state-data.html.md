@@ -37,20 +37,20 @@ To share data explicitly between configurations, you can use pairs of managed
 resource types and data sources in various providers, including (but not
 limited to) the following:
 
-| System | Publish with... | Read with... |
-|--|--|--|
-| Alibaba Cloud DNS<br><small>(for IP addresses and hostnames)</small> | [`alicloud_alidns_record` resource type](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/alidns_record) | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs) |
-| Amazon Route53<br><small>(for IP addresses and hostnames)</small> | [`aws_route53_record` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs) |
-| Amazon S3 | [`aws_s3_bucket_object` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object) | [`aws_s3_bucket_object` data source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket_object) |
-| Amazon SSM Parameter Store | [`aws_ssm_parameter` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | [`aws_ssm_parameter` data source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) |
-| Azure Automation | [`azurerm_automation_variable_string` resource type](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/automation_variable_string) | [`azurerm_automation_variable_string` data source](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/automation_variable_string) |
-| Azure DNS<br><small>(for IP addresses and hostnames)</small> | [`azurerm_dns_a_record` resource type](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_a_record), etc | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs) |
-| Google Cloud DNS<br><small>(for IP addresses and hostnames)</small> | [`google_dns_record_set` resource type](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs) |
-| Google Cloud Storage | [`google_storage_bucket_object`  resource type](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_object) | [`google_storage_bucket_object` data source](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/storage_bucket_object) and [`http` data source](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) |
-| HashiCorp Consul | [`consul_key_prefix` resource type](https://registry.terraform.io/providers/hashicorp/consul/latest/docs/resources/key_prefix) | [`consul_key_prefix` data source](https://registry.terraform.io/providers/hashicorp/consul/latest/docs/data-sources/key_prefix) |
-| HashiCorp Terraform Cloud | Normal `outputs` terraform block | [`tfe_outputs` data source](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/outputs) |
-| Kubernetes | [`kubernetes_config_map` resource type](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | [`kubernetes_config_map` data source](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/data-sources/config_map) |
-| OCI Object Storage | [`oci_objectstorage_bucket` resource type](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/objectstorage_object) | [`oci_objectstorage_bucket` data source](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/objectstorage_object) |
+| System                                                               | Publish with...                                                                                                                                                  | Read with...                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alibaba Cloud DNS<br><small>(for IP addresses and hostnames)</small> | [`alicloud_alidns_record` resource type](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/alidns_record)                            | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs)                                                                                                                                                       |
+| Amazon Route53<br><small>(for IP addresses and hostnames)</small>    | [`aws_route53_record` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record)                                 | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs)                                                                                                                                                       |
+| Amazon S3                                                            | [`aws_s3_bucket_object` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object)                             | [`aws_s3_bucket_object` data source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/s3_bucket_object)                                                                                                                                |
+| Amazon SSM Parameter Store                                           | [`aws_ssm_parameter` resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter)                                   | [`aws_ssm_parameter` data source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter)                                                                                                                                      |
+| Azure Automation                                                     | [`azurerm_automation_variable_string` resource type](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/automation_variable_string) | [`azurerm_automation_variable_string` data source](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/automation_variable_string)                                                                                                    |
+| Azure DNS<br><small>(for IP addresses and hostnames)</small>         | [`azurerm_dns_a_record` resource type](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_a_record), etc                        | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs)                                                                                                                                                       |
+| Google Cloud DNS<br><small>(for IP addresses and hostnames)</small>  | [`google_dns_record_set` resource type](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set)                           | Normal DNS lookups, or [the `dns` provider](https://registry.terraform.io/providers/hashicorp/dns/latest/docs)                                                                                                                                                       |
+| Google Cloud Storage                                                 | [`google_storage_bucket_object` resource type](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_object)             | [`google_storage_bucket_object` data source](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/storage_bucket_object) and [`http` data source](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) |
+| HashiCorp Consul                                                     | [`consul_key_prefix` resource type](https://registry.terraform.io/providers/hashicorp/consul/latest/docs/resources/key_prefix)                                   | [`consul_key_prefix` data source](https://registry.terraform.io/providers/hashicorp/consul/latest/docs/data-sources/key_prefix)                                                                                                                                      |
+| HashiCorp Terraform Cloud                                            | Normal `outputs` terraform block                                                                                                                                 | [`tfe_outputs` data source](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/outputs)                                                                                                                                                  |
+| Kubernetes                                                           | [`kubernetes_config_map` resource type](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)                           | [`kubernetes_config_map` data source](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/data-sources/config_map)                                                                                                                              |
+| OCI Object Storage                                                   | [`oci_objectstorage_bucket` resource type](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/objectstorage_object)                     | [`oci_objectstorage_bucket` data source](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/objectstorage_object)                                                                                                                        |
 
 -> These are some common options from the Official Terraform providers, but
 there are too many configuration storage options for us to list them all
@@ -66,18 +66,18 @@ systems within your compute instances. For that reason, we recommend selecting
 a configuration store that your other infrastructure could potentially make
 use of. For example:
 
-* If you wish to share IP addresses and hostnames, you could publish them as
-normal DNS `A`, `AAAA`, `CNAME`, and `SRV` records in a private DNS zone and
-then configure your other infrastructure to refer to that zone so you can
-find infrastructure objects via your system's built-in DNS resolver.
-* If you use HashiCorp Consul then publishing data to the Consul key/value
-store or Consul service catalog can make that data also accessible via
-[Consul Template](https://github.com/hashicorp/consul-template)
-or the
-[HashiCorp Nomad](https://www.nomadproject.io/docs/job-specification/template)
-`template` stanza.
-* If you use Kubernetes then you can
-[make Config Maps available to your Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/).
+- If you wish to share IP addresses and hostnames, you could publish them as
+  normal DNS `A`, `AAAA`, `CNAME`, and `SRV` records in a private DNS zone and
+  then configure your other infrastructure to refer to that zone so you can
+  find infrastructure objects via your system's built-in DNS resolver.
+- If you use HashiCorp Consul then publishing data to the Consul key/value
+  store or Consul service catalog can make that data also accessible via
+  [Consul Template](https://github.com/hashicorp/consul-template)
+  or the
+  [HashiCorp Nomad](https://www.nomadproject.io/docs/job-specification/template)
+  `template` stanza.
+- If you use Kubernetes then you can
+  [make Config Maps available to your Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/).
 
 Some of the data stores listed above are specifically designed for storing
 small configuration values, while others are generic blob storage systems. For
@@ -156,31 +156,32 @@ resource "aws_instance" "foo" {
 
 The following arguments are supported:
 
-* `backend` - (Required) The remote backend to use.
-* `workspace` - (Optional) The Terraform workspace to use, if the backend
+- `backend` - (Required) The remote backend to use.
+- `workspace` - (Optional) The Terraform workspace to use, if the backend
   supports workspaces.
-* `config` - (Optional; object) The configuration of the remote backend.
+- `config` - (Optional; object) The configuration of the remote backend.
   Although this argument is listed as optional, most backends require
   some configuration.
 
-    The `config` object can use any arguments that would be valid in the
-    equivalent `terraform { backend "<TYPE>" { ... } }` block. See
-    [the documentation of your chosen backend](/docs/language/settings/backends/index.html)
-    for details.
+  The `config` object can use any arguments that would be valid in the
+  equivalent `terraform { backend "<TYPE>" { ... } }` block. See
+  [the documentation of your chosen backend](/docs/language/settings/backends/index.html)
+  for details.
 
-    -> **Note:** If the backend configuration requires a nested block, specify
-    it here as a normal attribute with an object value. (For example,
-    `workspaces = { ... }` instead of `workspaces { ... }`.)
-* `defaults` - (Optional; object) Default values for outputs, in case the state
+  -> **Note:** If the backend configuration requires a nested block, specify
+  it here as a normal attribute with an object value. (For example,
+  `workspaces = { ... }` instead of `workspaces { ... }`.)
+
+- `defaults` - (Optional; object) Default values for outputs, in case the state
   file is empty or lacks a required output.
 
 ## Attributes Reference
 
 In addition to the above, the following attributes are exported:
 
-* (v0.12+) `outputs` - An object containing every root-level
+- (v0.12+) `outputs` - An object containing every root-level
   [output](/docs/language/values/outputs.html) in the remote state.
-* (<= v0.11) `<OUTPUT NAME>` - Each root-level [output](/docs/language/values/outputs.html)
+- (<= v0.11) `<OUTPUT NAME>` - Each root-level [output](/docs/language/values/outputs.html)
   in the remote state appears as a top level attribute on the data source.
 
 ## Root Outputs Only

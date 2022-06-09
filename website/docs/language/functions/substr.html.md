@@ -31,7 +31,7 @@ bytes:
 ```
 
 The offset index may be negative, in which case it is relative to the end of
-the given string.  The length may be -1, in which case the remainder of the
+the given string. The length may be -1, in which case the remainder of the
 string after the given offset will be returned.
 
 ```

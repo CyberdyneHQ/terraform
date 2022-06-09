@@ -165,9 +165,9 @@ For more information on CIDR notation and subnetting, see
 
 ## Related Functions
 
-* [`cidrhost`](./cidrhost.html) calculates the IP address for a single host
+- [`cidrhost`](./cidrhost.html) calculates the IP address for a single host
   within a given network address prefix.
-* [`cidrnetmask`](./cidrnetmask.html) converts an IPv4 network prefix in CIDR
+- [`cidrnetmask`](./cidrnetmask.html) converts an IPv4 network prefix in CIDR
   notation into netmask notation.
-* [`cidrsubnets`](./cidrsubnets.html) can allocate multiple consecutive
+- [`cidrsubnets`](./cidrsubnets.html) can allocate multiple consecutive
   addresses under a prefix at once, numbering them automatically.

@@ -116,14 +116,14 @@ to mark the reference as for a data resource.
 
 ### Filesystem and Workspace Info
 
-* `path.module` is the filesystem path of the module where the expression
+- `path.module` is the filesystem path of the module where the expression
   is placed.
-* `path.root` is the filesystem path of the root module of the configuration.
-* `path.cwd` is the filesystem path of the current working directory. In
+- `path.root` is the filesystem path of the root module of the configuration.
+- `path.cwd` is the filesystem path of the current working directory. In
   normal use of Terraform this is the same as `path.root`, but some advanced
   uses of Terraform run it from a directory other than the root module
   directory, causing these paths to be different.
-* `terraform.workspace` is the name of the currently selected
+- `terraform.workspace` is the name of the currently selected
   [workspace](/docs/language/state/workspaces.html).
 
 Use the values in this section carefully, because they include information
@@ -220,39 +220,39 @@ and also lists a number of attributes that are _exported_ by this resource
 type. All of these different resource type schema constructs are available
 for use in references, as follows:
 
-* The `ami` argument set in the configuration can be used elsewhere with
+- The `ami` argument set in the configuration can be used elsewhere with
   the reference expression `aws_instance.example.ami`.
-* The `id` attribute exported by this resource type can be read using the
+- The `id` attribute exported by this resource type can be read using the
   same syntax, giving `aws_instance.example.id`.
-* The arguments of the `ebs_block_device` nested blocks can be accessed using
+- The arguments of the `ebs_block_device` nested blocks can be accessed using
   a [splat expression](./splat.html). For example, to obtain a list of
   all of the `device_name` values, use
   `aws_instance.example.ebs_block_device[*].device_name`.
-* The nested blocks in this particular resource type do not have any exported
+- The nested blocks in this particular resource type do not have any exported
   attributes, but if `ebs_block_device` were to have a documented `id`
   attribute then a list of them could be accessed similarly as
   `aws_instance.example.ebs_block_device[*].id`.
-* Sometimes nested blocks are defined as taking a logical key to identify each
+- Sometimes nested blocks are defined as taking a logical key to identify each
   block, which serves a similar purpose as the resource's own name by providing
   a convenient way to refer to that single block in expressions. If `aws_instance`
   had a hypothetical nested block type `device` that accepted such a key, it
   would look like this in configuration:
 
-    ```hcl
-      device "foo" {
-        size = 2
-      }
-      device "bar" {
-        size = 4
-      }
-    ```
+  ```hcl
+    device "foo" {
+      size = 2
+    }
+    device "bar" {
+      size = 4
+    }
+  ```
 
-    Arguments inside blocks with _keys_ can be accessed using index syntax, such
-    as `aws_instance.example.device["foo"].size`.
+  Arguments inside blocks with _keys_ can be accessed using index syntax, such
+  as `aws_instance.example.device["foo"].size`.
 
-    To obtain a map of values of a particular argument for _labelled_ nested
-    block types, use a [`for` expression](./for.html):
-    `{for k, device in aws_instance.example.device : k => device.size}`.
+  To obtain a map of values of a particular argument for _labelled_ nested
+  block types, use a [`for` expression](./for.html):
+  `{for k, device in aws_instance.example.device : k => device.size}`.
 
 When a resource has the
 [`count`](/docs/language/meta-arguments/count.html)
@@ -260,9 +260,9 @@ argument set, the resource itself becomes a _list_ of instance objects rather th
 a single object. In that case, access the attributes of the instances using
 either [splat expressions](./splat.html) or index syntax:
 
-* `aws_instance.example[*].id` returns a list of all of the ids of each of the
+- `aws_instance.example[*].id` returns a list of all of the ids of each of the
   instances.
-* `aws_instance.example[0].id` returns just the id of the first instance.
+- `aws_instance.example[0].id` returns just the id of the first instance.
 
 When a resource has the
 [`for_each`](/docs/language/meta-arguments/for_each.html)
@@ -270,13 +270,13 @@ argument set, the resource itself becomes a _map_ of instance objects rather tha
 a single object, and attributes of instances must be specified by key, or can
 be accessed using a [`for` expression](./for.html).
 
-* `aws_instance.example["a"].id` returns the id of the "a"-keyed resource.
-* `[for value in aws_instance.example: value.id]` returns a list of all of the ids
+- `aws_instance.example["a"].id` returns the id of the "a"-keyed resource.
+- `[for value in aws_instance.example: value.id]` returns a list of all of the ids
   of each of the instances.
 
 Note that unlike `count`, splat expressions are _not_ directly applicable to resources managed with `for_each`, as splat expressions must act on a list value. However, you can use the `values()` function to extract the instances as a list and use that list value in a splat expression:
 
-* `values(aws_instance.example)[*].id`
+- `values(aws_instance.example)[*].id`
 
 ### Sensitive Resource Attributes
 
@@ -326,24 +326,24 @@ an unknown value as the result.
 However, there are some situations where unknown values _do_ have a significant
 effect:
 
-* The `count` meta-argument for resources cannot be unknown, since it must
+- The `count` meta-argument for resources cannot be unknown, since it must
   be evaluated during the plan phase to determine how many instances are to
   be created.
 
-* If unknown values are used in the configuration of a data resource, that
+- If unknown values are used in the configuration of a data resource, that
   data resource cannot be read during the plan phase and so it will be deferred
   until the apply phase. In this case, the results of the data resource will
   _also_ be unknown values.
 
-* If an unknown value is assigned to an argument inside a `module` block,
+- If an unknown value is assigned to an argument inside a `module` block,
   any references to the corresponding input variable within the child module
   will use that unknown value.
 
-* If an unknown value is used in the `value` argument of an output value,
+- If an unknown value is used in the `value` argument of an output value,
   any references to that output value in the parent module will use that
   unknown value.
 
-* Terraform will attempt to validate that unknown values are of suitable
+- Terraform will attempt to validate that unknown values are of suitable
   types where possible, but incorrect use of such values may not be detected
   until the apply phase, causing the apply to fail.
 

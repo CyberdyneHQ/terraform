@@ -17,11 +17,11 @@ platform for describing and managing infrastructure.
 In this release we're defining a number of Terraform behaviors that we intend
 to remain compatible with throughout the 1.x releases:
 
-* A large subset of Terraform language features.
-* A more conservative subset of the Terraform CLI workflow commands.
-* The wire protocol for communication between Terraform Core and Terraform
+- A large subset of Terraform language features.
+- A more conservative subset of the Terraform CLI workflow commands.
+- The wire protocol for communication between Terraform Core and Terraform
   providers.
-* The wire protocols for installation of Terraform providers and external
+- The wire protocols for installation of Terraform providers and external
   Terraform modules.
 
 Our intention is that Terraform modules written for Terraform v1.0 will
@@ -68,23 +68,23 @@ The following top-level blocks and their defined "meta-arguments" (that is,
 arguments defined by Terraform Core rather than by external plugins such as
 providers) will retain their current functionality:
 
-* [`resource`](/docs/language/resources/) and
+- [`resource`](/docs/language/resources/) and
   [`data`](/docs/language/data-sources/) blocks to
   declare resources, including their nested block types `lifecycle`,
   `connection`, and `provisioner`, and their meta-argument `provider`.
-* [`module`](/docs/language/modules/syntax.html) blocks to call other modules,
+- [`module`](/docs/language/modules/syntax.html) blocks to call other modules,
   and its meta-argument `providers`.
-* The [`count`](/docs/language/meta-arguments/count.html),
+- The [`count`](/docs/language/meta-arguments/count.html),
   [`for_each`](/docs/language/meta-arguments/for_each.html), and
   [`depends_on`](/docs/language/meta-arguments/depends_on.html) meta-arguments
   in `resource`, `data`, and `module` blocks.
-* [`provider`](/docs/language/providers/configuration.html) blocks to configure
+- [`provider`](/docs/language/providers/configuration.html) blocks to configure
   providers, and the `alias` meta-argument.
-* [`variable`](/docs/language/values/variables.html#declaring-an-input-variable),
+- [`variable`](/docs/language/values/variables.html#declaring-an-input-variable),
   [`output`](/docs/language/values/outputs.html#declaring-an-output-value), and
   [`locals`](/docs/language/values/locals.html#declaring-a-local-value) blocks
   for declaring the various kinds of named values in a module.
-* [`terraform`](/docs/language/settings/) blocks, including the nested
+- [`terraform`](/docs/language/settings/) blocks, including the nested
   [`required_version`](/docs/language/settings/index.html#specifying-a-required-terraform-version)
   and
   [`required_providers`](/docs/language/providers/requirements.html#requiring-providers)
@@ -102,37 +102,38 @@ whose behavior may change as part of future changes to the workspace model.
 We intend to retain broad compatibility with Terraform language features, with
 a few specific caveats:
 
-* We consider a configuration to be valid if Terraform can create and apply
+- We consider a configuration to be valid if Terraform can create and apply
   a plan for it without reporting any errors.
-  
-    A configuration that currently produces errors might generate different
-    errors or exhibit other non-error behaviors in a future version of
-    Terraform. A configuration that generates errors during the apply phase
-    might generate similar errors at an earlier phase in future, because
-    we generally consider it better to detect errors in as early a phase as
-    possible.
 
-    Generally-speaking, the compatibility promises described in this document
-    apply only to valid configurations. Handling of invalid configurations is
-    always subject to change in future Terraform releases.
-* If the actual behavior of a feature differs from what we explicitly
+  A configuration that currently produces errors might generate different
+  errors or exhibit other non-error behaviors in a future version of
+  Terraform. A configuration that generates errors during the apply phase
+  might generate similar errors at an earlier phase in future, because
+  we generally consider it better to detect errors in as early a phase as
+  possible.
+
+  Generally-speaking, the compatibility promises described in this document
+  apply only to valid configurations. Handling of invalid configurations is
+  always subject to change in future Terraform releases.
+
+- If the actual behavior of a feature differs from what we explicitly
   documented as the feature's behavior, we will usually treat that as a bug
   and change the feature to match the documentation, although we will avoid
   making such changes if they seem likely to cause broad compatibility problems.
   We cannot promise to always remain "bug-compatible" with previous releases,
   but we will consider such fixes carefully to minimize their impact.
-* Any experimental features may change or may be removed entirely from future
+- Any experimental features may change or may be removed entirely from future
   releases. Terraform always produces a warning when an experimental language
   feature is active, to make you aware of that risk. We don't recommend using
   experimental features in production modules.
-* We will introduce new language features, and if you start using them then
+- We will introduce new language features, and if you start using them then
   your configuration won't work with prior Terraform versions that didn't
   support those features yet.
-* Terraform Providers are separate plugins which can change independently of
+- Terraform Providers are separate plugins which can change independently of
   Terraform Core and are therefore not subject to these compatibility promises.
   If you upgrade any of the providers you are using then you might need to
   change provider or resource configurations related to those providers.
-* A small number of features remain deprecated with explicit warnings in
+- A small number of features remain deprecated with explicit warnings in
   Terraform v1.0. Those deprecation cycles will end in a future v1.x release,
   at which point we will remove the corresponding features.
 
@@ -286,8 +287,9 @@ For historical reasons, all supported state storage backends are included as
 part of Terraform CLI but not all are supported directly by the Terraform
 Team. Only the following backends maintained by the Terraform team are subject
 to compatibility promises:
-* `local` (the default, when you are not using remote state)
-* `http`
+
+- `local` (the default, when you are not using remote state)
+- `http`
 
 The other state storage backends are maintained by external teams via
 contributions to the Terraform CLI codebase, and so their expected
@@ -337,9 +339,9 @@ Throughout the v1.x series we will continue to produce official releases for
 the following platforms, and make changes as necessary to support new
 releases of these operating systems:
 
-* macOS on x64 CPUs (`darwin_amd64`)
-* Windows on x64 CPUs (`windows_amd64`)
-* Linux on x64, 32-bit ARMv6, and 64-bit ARMv8 (`linux_amd64`, `linux_arm`, and `linux_arm64` respectively)
+- macOS on x64 CPUs (`darwin_amd64`)
+- Windows on x64 CPUs (`windows_amd64`)
+- Linux on x64, 32-bit ARMv6, and 64-bit ARMv8 (`linux_amd64`, `linux_arm`, and `linux_arm64` respectively)
 
 Over time we may require newer versions of these operating systems. For
 example, subsequent Terraform releases in the v1.x series might end support
@@ -388,100 +390,100 @@ As noted above, compatibility with external software is limited to
 explicitly-machine-readable output (`-json` and `-raw` modes) and exit codes.
 Any natural-language output from these commands might change in later releases.
 
-* [`init`](/docs/cli/commands/init.html)
-  * `-backend=false`
-  * `-backend-config=FILE`
-  * `-backend-config="KEY=VALUE"`
-  * `-force-copy`
-  * `-get=false`
-  * `-input=false`
-  * `-migrate-state`
-  * `-no-color`
-  * `-plugin-dir=DIR`
-  * `-reconfigure`
-  * `-upgrade`
-* [`validate`](/docs/cli/commands/validate.html)
-  * `-json`
-  * `-no-color`
-* [`plan`](/docs/cli/commands/plan.html)
-  * `-compact-warnings`
-  * `-destroy`
-  * `-detailed-exitcode`
-  * `-lock=false`
-  * `-lock-timeout=DURATION`
-  * `-input=false`
-  * `-json`
-  * `-no-color`
-  * `-out=FILE`
-  * `-parallelism=N`
-  * `-refresh=false`
-  * `-refresh-only`
-  * `-replace=ADDRESS`
-  * `-target=ADDRESS`
-  * `-var 'NAME=VALUE'`
-  * `-var-file=FILE`
-* [`apply`](/docs/cli/commands/apply.html)
-  * `-auto-approve`
-  * `-compact-warnings`
-  * `-lock=false`
-  * `-lock-timeout=DURATION`
-  * `-input=false`
-  * `-json`
-  * `-no-color`
-  * `-parallelism=N`
-  * `-refresh=false`
-  * `-refresh-only`
-  * `-replace=ADDRESS`
-  * `-target=ADDRESS`
-  * `-var 'NAME=VALUE'`
-  * `-var-file=FILE`
-* [`show`](/docs/cli/commands/show.html)
-  * `-no-color`
-  * `-json`
-  * (both with and without a plan file)
-* [`providers`](/docs/cli/commands/providers.html) (with no subcommand)
-* [`providers lock`](/docs/cli/commands/providers/lock.html)
-  * `-fs-mirror=PATH`
-  * `-net-mirror=URL`
-  * `-platform=OS_ARCH`
-* [`providers mirror`](/docs/cli/commands/providers/mirror.html)
-  * `-platform=OS_ARCH`
-* [`providers schema`](/docs/cli/commands/providers/schema.html)
-  * `-json`
-* [`fmt`](/docs/cli/commands/fmt.html)
-  * `-list=false`
-  * `-write=false`
-  * `-diff`
-  * `-recursive`
-  * `-check`
-* [`version`](/docs/cli/commands/version.html)
-  * `-json`
-* [`output`](/docs/cli/commands/output.html)
-  * `-no-color`
-  * `-json`
-  * `-raw`
-* [`taint`](/docs/cli/commands/taint.html)
-  * `-allow-missing`
-  * `-lock=false`
-  * `-lock-timeout=DURATION`
-  * `-ignore-remote-version`
-* [`untaint`](/docs/cli/commands/untaint.html)
-  * `-allow-missing`
-  * `-lock=false`
-  * `-lock-timeout=DURATION`
-  * `-ignore-remote-version`
-* [`force-unlock`](/docs/cli/commands/force-unlock.html)
-  * `-force`
-* [`state list`](/docs/cli/commands/state/list.html)
-  * `-id=ID`
-* [`state pull`](/docs/cli/commands/state/pull.html)
-* [`state push`](/docs/cli/commands/state/push.html)
-  * `-force`
-  * `-lock=false`
-  * `-lock-timeout=DURATION`
-* [`state show`](/docs/cli/commands/state/show.html)
-  * `-ignore-remote-version`
-* [`login`](/docs/cli/commands/login.html)
+- [`init`](/docs/cli/commands/init.html)
+  - `-backend=false`
+  - `-backend-config=FILE`
+  - `-backend-config="KEY=VALUE"`
+  - `-force-copy`
+  - `-get=false`
+  - `-input=false`
+  - `-migrate-state`
+  - `-no-color`
+  - `-plugin-dir=DIR`
+  - `-reconfigure`
+  - `-upgrade`
+- [`validate`](/docs/cli/commands/validate.html)
+  - `-json`
+  - `-no-color`
+- [`plan`](/docs/cli/commands/plan.html)
+  - `-compact-warnings`
+  - `-destroy`
+  - `-detailed-exitcode`
+  - `-lock=false`
+  - `-lock-timeout=DURATION`
+  - `-input=false`
+  - `-json`
+  - `-no-color`
+  - `-out=FILE`
+  - `-parallelism=N`
+  - `-refresh=false`
+  - `-refresh-only`
+  - `-replace=ADDRESS`
+  - `-target=ADDRESS`
+  - `-var 'NAME=VALUE'`
+  - `-var-file=FILE`
+- [`apply`](/docs/cli/commands/apply.html)
+  - `-auto-approve`
+  - `-compact-warnings`
+  - `-lock=false`
+  - `-lock-timeout=DURATION`
+  - `-input=false`
+  - `-json`
+  - `-no-color`
+  - `-parallelism=N`
+  - `-refresh=false`
+  - `-refresh-only`
+  - `-replace=ADDRESS`
+  - `-target=ADDRESS`
+  - `-var 'NAME=VALUE'`
+  - `-var-file=FILE`
+- [`show`](/docs/cli/commands/show.html)
+  - `-no-color`
+  - `-json`
+  - (both with and without a plan file)
+- [`providers`](/docs/cli/commands/providers.html) (with no subcommand)
+- [`providers lock`](/docs/cli/commands/providers/lock.html)
+  - `-fs-mirror=PATH`
+  - `-net-mirror=URL`
+  - `-platform=OS_ARCH`
+- [`providers mirror`](/docs/cli/commands/providers/mirror.html)
+  - `-platform=OS_ARCH`
+- [`providers schema`](/docs/cli/commands/providers/schema.html)
+  - `-json`
+- [`fmt`](/docs/cli/commands/fmt.html)
+  - `-list=false`
+  - `-write=false`
+  - `-diff`
+  - `-recursive`
+  - `-check`
+- [`version`](/docs/cli/commands/version.html)
+  - `-json`
+- [`output`](/docs/cli/commands/output.html)
+  - `-no-color`
+  - `-json`
+  - `-raw`
+- [`taint`](/docs/cli/commands/taint.html)
+  - `-allow-missing`
+  - `-lock=false`
+  - `-lock-timeout=DURATION`
+  - `-ignore-remote-version`
+- [`untaint`](/docs/cli/commands/untaint.html)
+  - `-allow-missing`
+  - `-lock=false`
+  - `-lock-timeout=DURATION`
+  - `-ignore-remote-version`
+- [`force-unlock`](/docs/cli/commands/force-unlock.html)
+  - `-force`
+- [`state list`](/docs/cli/commands/state/list.html)
+  - `-id=ID`
+- [`state pull`](/docs/cli/commands/state/pull.html)
+- [`state push`](/docs/cli/commands/state/push.html)
+  - `-force`
+  - `-lock=false`
+  - `-lock-timeout=DURATION`
+- [`state show`](/docs/cli/commands/state/show.html)
+  - `-ignore-remote-version`
+- [`login`](/docs/cli/commands/login.html)
 
 For commands or options not in the above list, we will still avoid breaking
 changes where possible, but can't promise full compatibility throughout the
@@ -506,17 +508,17 @@ as long as they remain supported, we don't recommend using them as part of
 any automation unless you are willing to potentially update that automation
 when upgrading to a later v1.x release.
 
-* `destroy` (consider `terraform apply -destroy` instead)
-* `console`
-* `get` (consider `terraform init` instead)
-* `graph`
-* `import`
-* `push`
-* `refresh` (consider `terraform apply -refresh-only` instead)
-* `state mv`
-* `state replace-provider`
-* `state rm`
-* all subcommands of `workspace` (and its deprecated alias `env`)
+- `destroy` (consider `terraform apply -destroy` instead)
+- `console`
+- `get` (consider `terraform init` instead)
+- `graph`
+- `import`
+- `push`
+- `refresh` (consider `terraform apply -refresh-only` instead)
+- `state mv`
+- `state replace-provider`
+- `state rm`
+- all subcommands of `workspace` (and its deprecated alias `env`)
 
 While we do intend to retain support for the main use-cases associated with
 these commands in future releases, we cannot promise to retain the exact
@@ -603,10 +605,10 @@ continue to develop Terraform.
 For that reason, there are some situations where we may still need to make
 changes that may impact existing modules or automation:
 
-* Security problems: We may become aware of a design problem that has an
+- Security problems: We may become aware of a design problem that has an
   important security impact. Depending on our determination of the associated
   risk, we may choose to break compatibility to achieve a more secure system.
-* External Dependencies: Terraform's behavior depends on interfaces provided
+- External Dependencies: Terraform's behavior depends on interfaces provided
   by external codebases, including your chosen operating system and including
   some remote network services for situations such as module and provider
   installation. These external systems can change outside of our control,
@@ -614,13 +616,13 @@ changes that may impact existing modules or automation:
   features depend on. In that case, if there is no suitable replacement
   mechanism then we may need to change Terraform's design to work within the
   new constraints.
-* Opt-in Compatibility Breaks: The design of a language new feature may require
+- Opt-in Compatibility Breaks: The design of a language new feature may require
   changing the behavior or configuration representation of an existing feature.
   If so, we will typically make the new feature opt-in only in order to avoid
   breaking existing modules, but if you change your module to opt in to the
   new feature then you may also then be required to change other parts of your
   configuration to work with the new language design.
-* Bugs in New Features: If we introduce a new feature to Terraform and the
+- Bugs in New Features: If we introduce a new feature to Terraform and the
   initial implementation has problems that cause it to not match the documented
   design intent at release, we may make a follow-up release that corrects
   the implementation to match the documented design, even if that represents
@@ -628,7 +630,7 @@ changes that may impact existing modules or automation:
   However, once a feature is well-established and in common use we will usually
   defer to the implemented behavior and instead change the documentation to
   reflect it.
-* Regressions in Existing Features: If we learn that a new Terraform release
+- Regressions in Existing Features: If we learn that a new Terraform release
   includes a regression for an existing feature that wasn't detected during
   the development and prerelease periods, and that learning comes promptly
   after the new release, we will typically restore the previous behavior at
@@ -636,14 +638,14 @@ changes that may impact existing modules or automation:
   of the new release, under the assumption that more users will have systems
   affected by the regression than will have systems depending on the
   newly-introduced behavior.
-* Late-reported regressions: As described in the previous section, if we
+- Late-reported regressions: As described in the previous section, if we
   learn that there was an unintentional regression of a rarely-used feature or
   combination of features in a much earlier release then restoring the previous
   behavior may appear as a regression to later adopters. If we believe that
   fixing the regression would affect more users than the regression itself
   affects then we may choose to accept the regression as the new promised
   behavior.
-* Situations we cannot anticipate: Although we've made an effort to consider
+- Situations we cannot anticipate: Although we've made an effort to consider
   various specific exceptional situations here, Terraform and its development
   process are not isolated from broader context, and so we must consider that
   there may be situations that we cannot possibly anticipate that would affect

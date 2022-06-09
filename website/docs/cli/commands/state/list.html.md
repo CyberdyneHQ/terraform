@@ -29,9 +29,9 @@ in [resource addressing format](/docs/cli/state/resource-addressing.html).
 
 The command-line flags are all optional. The list of available flags are:
 
-* `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
+- `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
   Ignored when [remote state](/docs/language/state/remote.html) is used.
-* `-id=id` - ID of resources to show. Ignored when unset.
+- `-id=id` - ID of resources to show. Ignored when unset.
 
 ## Example: All Resources
 

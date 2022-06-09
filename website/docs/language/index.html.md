@@ -2,7 +2,6 @@
 layout: "language"
 page_title: "Overview - Configuration Language"
 description: "You can use the Terraform language to write configuration files that tell Terraform how to manage a collection of infrastructure."
-
 ---
 
 # Terraform Language Documentation

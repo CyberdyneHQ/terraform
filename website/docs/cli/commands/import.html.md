@@ -40,36 +40,36 @@ behavior. For more information on this assumption, see
 
 The command-line flags are all optional. The list of available flags are:
 
-* `-config=path` - Path to directory of Terraform configuration files that
+- `-config=path` - Path to directory of Terraform configuration files that
   configure the provider for import. This defaults to your working directory.
   If this directory contains no Terraform configuration files, the provider
   must be configured via manual input or environmental variables.
 
-* `-input=true` - Whether to ask for input for provider configuration.
+- `-input=true` - Whether to ask for input for provider configuration.
 
-* `-lock=false` - Don't hold a state lock during the operation. This is
-   dangerous if others might concurrently run commands against the same
-   workspace.
+- `-lock=false` - Don't hold a state lock during the operation. This is
+  dangerous if others might concurrently run commands against the same
+  workspace.
 
-* `-lock-timeout=0s` - Duration to retry a state lock.
+- `-lock-timeout=0s` - Duration to retry a state lock.
 
-* `-no-color` - If specified, output won't contain any color.
+- `-no-color` - If specified, output won't contain any color.
 
-* `-parallelism=n` - Limit the number of concurrent operation as Terraform
+- `-parallelism=n` - Limit the number of concurrent operation as Terraform
   [walks the graph](/docs/internals/graph.html#walking-the-graph). Defaults
   to 10.
 
-* `-provider=provider` - **Deprecated** Override the provider configuration to
-use when importing the object. By default, Terraform uses the provider specified
-in the configuration for the target resource, and that is the best behavior in most cases.
+- `-provider=provider` - **Deprecated** Override the provider configuration to
+  use when importing the object. By default, Terraform uses the provider specified
+  in the configuration for the target resource, and that is the best behavior in most cases.
 
-* `-var 'foo=bar'` - Set a variable in the Terraform configuration. This flag
+- `-var 'foo=bar'` - Set a variable in the Terraform configuration. This flag
   can be set multiple times. Variable values are interpreted as
   [literal expressions](/docs/language/expressions/types.html) in the
   Terraform language, so list and map values can be specified via this flag.
   This is only useful with the `-config` flag.
 
-* `-var-file=foo` - Set variables in the Terraform configuration from
+- `-var-file=foo` - Set variables in the Terraform configuration from
   a [variable file](/docs/language/values/variables.html#variable-definitions-tfvars-files). If
   a `terraform.tfvars` or any `.auto.tfvars` files are present in the current
   directory, they will be automatically loaded. `terraform.tfvars` is loaded

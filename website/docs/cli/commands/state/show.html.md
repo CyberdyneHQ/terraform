@@ -25,7 +25,7 @@ in [resource addressing format](/docs/cli/state/resource-addressing.html).
 
 The command-line flags are all optional. The list of available flags are:
 
-* `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
+- `-state=path` - Path to the state file. Defaults to "terraform.tfstate".
   Ignored when [remote state](/docs/language/state/remote.html) is used.
 
 The output of `terraform state show` is intended for human consumption, not

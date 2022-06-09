@@ -72,5 +72,5 @@ A local value with the name "nonexist" has not been declared.
 
 ## Related Functions
 
-* [`try`](./try.html), which tries evaluating a sequence of expressions and
+- [`try`](./try.html), which tries evaluating a sequence of expressions and
   returns the result of the first one that succeeds.

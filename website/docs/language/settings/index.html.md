@@ -38,7 +38,7 @@ Configuration](/docs/language/settings/backends/configuration.html).
 
 ## Specifying a Required Terraform Version
 
-> **Hands-on:** Try the [Manage Terraform Versions](https://learn.hashicorp.com/tutorials/terraform/versions?in=terraform/configuration-language)  or [Manage Terraform Versions in Terraform Cloud](https://learn.hashicorp.com/tutorials/terraform/cloud-versions?in=terraform/cloud) tutorials on HashiCorp Learn.
+> **Hands-on:** Try the [Manage Terraform Versions](https://learn.hashicorp.com/tutorials/terraform/versions?in=terraform/configuration-language) or [Manage Terraform Versions in Terraform Cloud](https://learn.hashicorp.com/tutorials/terraform/cloud-versions?in=terraform/cloud) tutorials on HashiCorp Learn.
 
 The `required_version` setting accepts a [version constraint
 string,](/docs/language/expressions/version-constraints.html) which specifies which versions of Terraform

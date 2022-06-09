@@ -27,5 +27,5 @@ foo
 
 ## Related Functions
 
-* [`split`](./split.html) performs the opposite operation: producing a list
+- [`split`](./split.html) performs the opposite operation: producing a list
   by separating a single string using a given delimiter.

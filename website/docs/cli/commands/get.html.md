@@ -20,7 +20,7 @@ repository.
 
 The `get` command supports the following option:
 
-* `-update` - If specified, modules that are already downloaded will be
-   checked for updates and the updates will be downloaded if present.
+- `-update` - If specified, modules that are already downloaded will be
+  checked for updates and the updates will be downloaded if present.
 
-* `-no-color` - Disable text coloring in the output.
+- `-no-color` - Disable text coloring in the output.

@@ -104,6 +104,6 @@ the associations between the subnets and their containing networks.
 
 ## Related Functions
 
-* [`setproduct`](./setproduct.html) finds all of the combinations of multiple
+- [`setproduct`](./setproduct.html) finds all of the combinations of multiple
   lists or sets of values, which can also be useful when preparing collections
   for use with `for_each` constructs.

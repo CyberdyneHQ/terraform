@@ -22,8 +22,6 @@ This information has moved to
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
 
-
-
 <a id="multiple-instances-of-a-module"></a>
 
 ## Multiple Instances with `count` and `for_each`
@@ -33,8 +31,6 @@ This information has moved to
 [`for_each`](/docs/language/meta-arguments/for_each.html).
 
 <div style="height: 100vh; margin: 0; padding: 0;"></div>
-
-
 
 <a id="providers-within-modules"></a>
 <a id="provider-version-constraints-in-modules"></a>

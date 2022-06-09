@@ -27,6 +27,6 @@ Terraform language, see [Type Constraints](/docs/language/expressions/types.html
 
 ## Related Functions
 
-* [`tomap`](./tomap.html) converts an object value to a map.
-* [`zipmap`](./zipmap.html) constructs a map dynamically, by taking keys from
+- [`tomap`](./tomap.html) converts an object value to a map.
+- [`zipmap`](./zipmap.html) constructs a map dynamically, by taking keys from
   one list and values from another list.

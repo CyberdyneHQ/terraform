@@ -25,7 +25,7 @@ helloworld
 
 ## Related Functions
 
-* [`trim`](./trim.html) removes characters at the start and end of a string.
-* [`trimsuffix`](./trimsuffix.html) removes a word from the end of a string.
-* [`trimspace`](./trimspace.html) removes all types of whitespace from
+- [`trim`](./trim.html) removes characters at the start and end of a string.
+- [`trimsuffix`](./trimsuffix.html) removes a word from the end of a string.
+- [`trimspace`](./trimspace.html) removes all types of whitespace from
   both the start and the end of a string.

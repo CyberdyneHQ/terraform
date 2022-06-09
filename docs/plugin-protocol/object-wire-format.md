@@ -72,24 +72,24 @@ The following table describes the type-specific mapping rules. Along with those
 type-specific rules there are two special rules that override the mappings
 in the table below, regardless of type:
 
-* A null value is represented as a MessagePack nil value.
-* An unknown value (that is, a placeholder for a value that will be decided
+- A null value is represented as a MessagePack nil value.
+- An unknown value (that is, a placeholder for a value that will be decided
   only during the apply operation) is represented as a
   [MessagePack extension](https://github.com/msgpack/msgpack/blob/master/spec.md#extension-types)
   value whose type identifier is zero and whose value is unspecified and
   meaningless.
 
-| `type` Pattern | MessagePack Representation |
-|---|---|
-| `"string"` | A MessagePack string containing the Unicode characters from the string value serialized as normalized UTF-8. |
-| `"number"` | Either MessagePack integer, MessagePack float, or MessagePack string representing the number. If a number is represented as a string then the string contains a decimal representation of the number which may have a larger mantissa than can be represented by a 64-bit float. |
-| `"bool"` | A MessagePack boolean value corresponding to the value. |
-| `["list",T]` | A MessagePack array with the same number of elements as the list value, each of which is represented by the result of applying these same mapping rules to the nested type `T`. |
-| `["set",T]` | Identical in representation to `["list",T]`, but the order of elements is undefined because Terraform sets are unordered. |
-| `["map",T]` | A MessagePack map with one key-value pair per element of the map value, where the element key is serialized as the map key (always a MessagePack string) and the element value is represented by a value constructed by applying these same mapping rules to the nested type `T`. |
-| `["object",ATTRS]` | A MessagePack map with one key-value pair per attribute defined in the `ATTRS` object. The attribute name is serialized as the map key (always a MessagePack string) and the attribute value is represented by a value constructed by applying these same mapping rules to each attribute's own type. |
-| `["tuple",TYPES]` | A MessagePack array with one element per element described by the `TYPES` array. The element values are constructed by applying these same mapping rules to the corresponding element of `TYPES`. |
-| `"dynamic"` | A MessagePack array with exactly two elements. The first element is a MessagePack binary value containing a JSON-serialized type constraint in the same format described in this table. The second element is the result of applying these same mapping rules to the value with the type given in the first element. This special type constraint represents values whose types will be decided only at runtime. |
+| `type` Pattern     | MessagePack Representation                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"string"`         | A MessagePack string containing the Unicode characters from the string value serialized as normalized UTF-8.                                                                                                                                                                                                                                                                                                     |
+| `"number"`         | Either MessagePack integer, MessagePack float, or MessagePack string representing the number. If a number is represented as a string then the string contains a decimal representation of the number which may have a larger mantissa than can be represented by a 64-bit float.                                                                                                                                 |
+| `"bool"`           | A MessagePack boolean value corresponding to the value.                                                                                                                                                                                                                                                                                                                                                          |
+| `["list",T]`       | A MessagePack array with the same number of elements as the list value, each of which is represented by the result of applying these same mapping rules to the nested type `T`.                                                                                                                                                                                                                                  |
+| `["set",T]`        | Identical in representation to `["list",T]`, but the order of elements is undefined because Terraform sets are unordered.                                                                                                                                                                                                                                                                                        |
+| `["map",T]`        | A MessagePack map with one key-value pair per element of the map value, where the element key is serialized as the map key (always a MessagePack string) and the element value is represented by a value constructed by applying these same mapping rules to the nested type `T`.                                                                                                                                |
+| `["object",ATTRS]` | A MessagePack map with one key-value pair per attribute defined in the `ATTRS` object. The attribute name is serialized as the map key (always a MessagePack string) and the attribute value is represented by a value constructed by applying these same mapping rules to each attribute's own type.                                                                                                            |
+| `["tuple",TYPES]`  | A MessagePack array with one element per element described by the `TYPES` array. The element values are constructed by applying these same mapping rules to the corresponding element of `TYPES`.                                                                                                                                                                                                                |
+| `"dynamic"`        | A MessagePack array with exactly two elements. The first element is a MessagePack binary value containing a JSON-serialized type constraint in the same format described in this table. The second element is the result of applying these same mapping rules to the value with the type given in the first element. This special type constraint represents values whose types will be decided only at runtime. |
 
 ### `Schema.NestedBlock` Mapping Rules for MessagePack
 
@@ -110,13 +110,13 @@ the nested block type. For all `nesting` values other than `MAP`, blocks may
 not have any labels. For the `nesting` value `MAP`, blocks must have exactly
 one label, which is a string we'll call a _block label_ in the table below.
 
-| `nesting` Value | MessagePack Representation |
-|---|---|
-| `SINGLE` | The block value of the single block of this type, or nil if there is no block of that type. |
-| `LIST` | A MessagePack array of all of the block values, preserving the order of definition of the blocks in the configuration. |
-| `SET` | A MessagePack array of all of the block values in no particular order. |
-| `MAP` | A MessagePack map with one key-value pair per block value, where the key is the block label and the value is the block value. |
-| `GROUP` | The same as with `SINGLE`, except that if there is no block of that type Terraform will synthesize a block value by pretending that all of the declared attributes are null and that there are zero blocks of each declared block type. |
+| `nesting` Value | MessagePack Representation                                                                                                                                                                                                              |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SINGLE`        | The block value of the single block of this type, or nil if there is no block of that type.                                                                                                                                             |
+| `LIST`          | A MessagePack array of all of the block values, preserving the order of definition of the blocks in the configuration.                                                                                                                  |
+| `SET`           | A MessagePack array of all of the block values in no particular order.                                                                                                                                                                  |
+| `MAP`           | A MessagePack map with one key-value pair per block value, where the key is the block label and the value is the block value.                                                                                                           |
+| `GROUP`         | The same as with `SINGLE`, except that if there is no block of that type Terraform will synthesize a block value by pretending that all of the declared attributes are null and that there are zero blocks of each declared block type. |
 
 For the `LIST` and `SET` nesting modes, Terraform guarantees that the
 MessagePack array will have a number of elements between the `min_items` and
@@ -164,19 +164,19 @@ The following table describes the type-specific mapping rules. Along with those
 type-specific rules there is one special rule that overrides the rules in the
 table regardless of type:
 
-* A null value is always represented as JSON `null`.
+- A null value is always represented as JSON `null`.
 
-| `type` Pattern | JSON Representation |
-|---|---|
-| `"string"` | A JSON string containing the Unicode characters from the string value. |
-| `"number"` | A JSON number representing the number value. Terraform numbers are arbitrary-precision floating point, so the value may have a larger mantissa than can be represented by a 64-bit float. |
-| `"bool"` | Either JSON `true` or JSON `false`, depending on the boolean value. |
-| `["list",T]` | A JSON array with the same number of elements as the list value, each of which is represented by the result of applying these same mapping rules to the nested type `T`. |
-| `["set",T]` | Identical in representation to `["list",T]`, but the order of elements is undefined because Terraform sets are unordered. |
-| `["map",T]` | A JSON object with one property per element of the map value, where the element key is serialized as the property name string and the element value is represented by a property value constructed by applying these same mapping rules to the nested type `T`. |
-| `["object",ATTRS]` | A JSON object with one property per attribute defined in the `ATTRS` object. The attribute name is serialized as the property name string and the attribute value is represented by a property value constructed by applying these same mapping rules to each attribute's own type. |
-| `["tuple",TYPES]` | A JSON array with one element per element described by the `TYPES` array. The element values are constructed by applying these same mapping rules to the corresponding element of `TYPES`. |
-| `"dynamic"` | A JSON object with two properties: `"type"` specifying one of the `type` patterns described in this table in-band, giving the exact runtime type of the value, and `"value"` specifying the result of applying these same mapping rules to the table for the specified runtime type. This special type constraint represents values whose types will be decided only at runtime. |
+| `type` Pattern     | JSON Representation                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"string"`         | A JSON string containing the Unicode characters from the string value.                                                                                                                                                                                                                                                                                                           |
+| `"number"`         | A JSON number representing the number value. Terraform numbers are arbitrary-precision floating point, so the value may have a larger mantissa than can be represented by a 64-bit float.                                                                                                                                                                                        |
+| `"bool"`           | Either JSON `true` or JSON `false`, depending on the boolean value.                                                                                                                                                                                                                                                                                                              |
+| `["list",T]`       | A JSON array with the same number of elements as the list value, each of which is represented by the result of applying these same mapping rules to the nested type `T`.                                                                                                                                                                                                         |
+| `["set",T]`        | Identical in representation to `["list",T]`, but the order of elements is undefined because Terraform sets are unordered.                                                                                                                                                                                                                                                        |
+| `["map",T]`        | A JSON object with one property per element of the map value, where the element key is serialized as the property name string and the element value is represented by a property value constructed by applying these same mapping rules to the nested type `T`.                                                                                                                  |
+| `["object",ATTRS]` | A JSON object with one property per attribute defined in the `ATTRS` object. The attribute name is serialized as the property name string and the attribute value is represented by a property value constructed by applying these same mapping rules to each attribute's own type.                                                                                              |
+| `["tuple",TYPES]`  | A JSON array with one element per element described by the `TYPES` array. The element values are constructed by applying these same mapping rules to the corresponding element of `TYPES`.                                                                                                                                                                                       |
+| `"dynamic"`        | A JSON object with two properties: `"type"` specifying one of the `type` patterns described in this table in-band, giving the exact runtime type of the value, and `"value"` specifying the result of applying these same mapping rules to the table for the specified runtime type. This special type constraint represents values whose types will be decided only at runtime. |
 
 ### `Schema.NestedBlock` Mapping Rules for JSON
 
@@ -197,13 +197,13 @@ the nested block type. For all `nesting` values other than `MAP`, blocks may
 not have any labels. For the `nesting` value `MAP`, blocks must have exactly
 one label, which is a string we'll call a _block label_ in the table below.
 
-| `nesting` Value | JSON Representation |
-|---|---|
-| `SINGLE` | The block value of the single block of this type, or `null` if there is no block of that type. |
-| `LIST` | A JSON array of all of the block values, preserving the order of definition of the blocks in the configuration. |
-| `SET` | A JSON array of all of the block values in no particular order. |
-| `MAP` | A JSON object with one property per block value, where the property name is the block label and the value is the block value. |
-| `GROUP` | The same as with `SINGLE`, except that if there is no block of that type Terraform will synthesize a block value by pretending that all of the declared attributes are null and that there are zero blocks of each declared block type. |
+| `nesting` Value | JSON Representation                                                                                                                                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SINGLE`        | The block value of the single block of this type, or `null` if there is no block of that type.                                                                                                                                          |
+| `LIST`          | A JSON array of all of the block values, preserving the order of definition of the blocks in the configuration.                                                                                                                         |
+| `SET`           | A JSON array of all of the block values in no particular order.                                                                                                                                                                         |
+| `MAP`           | A JSON object with one property per block value, where the property name is the block label and the value is the block value.                                                                                                           |
+| `GROUP`         | The same as with `SINGLE`, except that if there is no block of that type Terraform will synthesize a block value by pretending that all of the declared attributes are null and that there are zero blocks of each declared block type. |
 
 For the `LIST` and `SET` nesting modes, Terraform guarantees that the JSON
 array will have a number of elements between the `min_items` and `max_items`

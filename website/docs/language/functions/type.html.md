@@ -3,7 +3,7 @@ layout: "language"
 page_title: "type - Functions - Configuration Language"
 sidebar_current: "docs-funcs-conversion-type"
 description: |-
-  The type function returns the type of a given value. 
+  The type function returns the type of a given value.
 ---
 
 # `type` Function
@@ -20,7 +20,7 @@ This is a special function which is only available in the `terraform console` co
 
 ## Examples
 
-Here we have a conditional `output` which prints either the value of `var.list` or a local named `default_list`: 
+Here we have a conditional `output` which prints either the value of `var.list` or a local named `default_list`:
 
 ```hcl
 variable "list" {

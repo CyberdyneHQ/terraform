@@ -52,8 +52,8 @@ data "terraform_remote_state" "foo" {
 
 The following configuration options / environment variables are supported:
 
- * `username` / `ARTIFACTORY_USERNAME` (Required) - The username
- * `password` / `ARTIFACTORY_PASSWORD` (Required) - The password
- * `url` / `ARTIFACTORY_URL` (Required) - The URL. Note that this is the base url to artifactory not the full repo and subpath.
- * `repo` (Required) - The repository name
- * `subpath` (Required) - Path within the repository
+- `username` / `ARTIFACTORY_USERNAME` (Required) - The username
+- `password` / `ARTIFACTORY_PASSWORD` (Required) - The password
+- `url` / `ARTIFACTORY_URL` (Required) - The URL. Note that this is the base url to artifactory not the full repo and subpath.
+- `repo` (Required) - The repository name
+- `subpath` (Required) - Path within the repository

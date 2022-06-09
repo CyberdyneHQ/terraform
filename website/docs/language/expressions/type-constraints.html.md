@@ -18,8 +18,8 @@ modules and resources.
 Type constraints are expressed using a mixture of _type keywords_ and
 function-like constructs called _type constructors._
 
-* Type keywords are unquoted symbols that represent a static type.
-* Type constructors are unquoted symbols followed by a pair of
+- Type keywords are unquoted symbols that represent a static type.
+- Type constructors are unquoted symbols followed by a pair of
   parentheses, which contain an argument that specifies more information about
   the type. Without its argument, a type constructor does not fully
   represent a type; instead, it represents a _kind_ of similar types.
@@ -35,11 +35,11 @@ A _primitive_ type is a simple type that isn't made from any other types. All
 primitive types in Terraform are represented by a type keyword. The available
 primitive types are:
 
-* `string`: a sequence of Unicode characters representing some text, such
+- `string`: a sequence of Unicode characters representing some text, such
   as `"hello"`.
-* `number`: a numeric value. The `number` type can represent both whole
+- `number`: a numeric value. The `number` type can represent both whole
   numbers like `15` and fractional values such as `6.283185`.
-* `bool`: either `true` or `false`. `bool` values can be used in conditional
+- `bool`: either `true` or `false`. `bool` values can be used in conditional
   logic.
 
 ### Conversion of Primitive Types
@@ -48,9 +48,9 @@ The Terraform language will automatically convert `number` and `bool` values
 to `string` values when needed, and vice-versa as long as the string contains
 a valid representation of a number or boolean value.
 
-* `true` converts to `"true"`, and vice-versa
-* `false` converts to `"false"`, and vice-versa
-* `15` converts to `"15"`, and vice-versa
+- `true` converts to `"true"`, and vice-versa
+- `false` converts to `"false"`, and vice-versa
+- `15` converts to `"15"`, and vice-versa
 
 ## Complex Types
 
@@ -75,31 +75,33 @@ collection must always be of the same type.
 
 The three kinds of collection type in the Terraform language are:
 
-* `list(...)`: a sequence of values identified by consecutive whole numbers
+- `list(...)`: a sequence of values identified by consecutive whole numbers
   starting with zero.
 
-    The keyword `list` is a shorthand for `list(any)`, which accepts any
-    element type as long as every element is the same type. This is for
-    compatibility with older configurations; for new code, we recommend using
-    the full form.
-* `map(...)`: a collection of values where each is identified by a string label.
+  The keyword `list` is a shorthand for `list(any)`, which accepts any
+  element type as long as every element is the same type. This is for
+  compatibility with older configurations; for new code, we recommend using
+  the full form.
 
-    The keyword `map` is a shorthand for `map(any)`, which accepts any
-    element type as long as every element is the same type. This is for
-    compatibility with older configurations; for new code, we recommend using
-    the full form.
+- `map(...)`: a collection of values where each is identified by a string label.
 
-    Maps can be made with braces ({}) and colons (:) or equals signs (=):
-    { "foo": "bar", "bar": "baz" } OR { foo = "bar", bar = "baz" }. Quotes
-    may be omitted on keys, unless the key starts with a number, in which
-    case quotes are required. Commas are required between key/value pairs
-    for single line maps. A newline between key/value pairs is sufficient
-    in multi-line maps.
+  The keyword `map` is a shorthand for `map(any)`, which accepts any
+  element type as long as every element is the same type. This is for
+  compatibility with older configurations; for new code, we recommend using
+  the full form.
 
-    Note: although colons are valid delimiters between keys and values,
-    they are currently ignored by `terraform fmt` (whereas `terraform fmt`
-    will attempt vertically align equals signs).
-* `set(...)`: a collection of unique values that do not have any secondary
+  Maps can be made with braces ({}) and colons (:) or equals signs (=):
+  { "foo": "bar", "bar": "baz" } OR { foo = "bar", bar = "baz" }. Quotes
+  may be omitted on keys, unless the key starts with a number, in which
+  case quotes are required. Commas are required between key/value pairs
+  for single line maps. A newline between key/value pairs is sufficient
+  in multi-line maps.
+
+  Note: although colons are valid delimiters between keys and values,
+  they are currently ignored by `terraform fmt` (whereas `terraform fmt`
+  will attempt vertically align equals signs).
+
+- `set(...)`: a collection of unique values that do not have any secondary
   identifiers or ordering.
 
 ### Structural Types
@@ -110,22 +112,23 @@ argument, to specify which types are allowed for which elements.
 
 The two kinds of structural type in the Terraform language are:
 
-* `object(...)`: a collection of named attributes that each have their own type.
+- `object(...)`: a collection of named attributes that each have their own type.
 
-    The schema for object types is `{ <KEY> = <TYPE>, <KEY> = <TYPE>, ... }` — a
-    pair of curly braces containing a comma-separated series of `<KEY> = <TYPE>`
-    pairs. Values that match the object type must contain _all_ of the specified
-    keys, and the value for each key must match its specified type. (Values with
-    _additional_ keys can still match an object type, but the extra attributes
-    are discarded during type conversion.)
-* `tuple(...)`: a sequence of elements identified by consecutive whole
+  The schema for object types is `{ <KEY> = <TYPE>, <KEY> = <TYPE>, ... }` — a
+  pair of curly braces containing a comma-separated series of `<KEY> = <TYPE>`
+  pairs. Values that match the object type must contain _all_ of the specified
+  keys, and the value for each key must match its specified type. (Values with
+  _additional_ keys can still match an object type, but the extra attributes
+  are discarded during type conversion.)
+
+- `tuple(...)`: a sequence of elements identified by consecutive whole
   numbers starting with zero, where each element has its own type.
 
-    The schema for tuple types is `[<TYPE>, <TYPE>, ...]` — a pair of square
-    brackets containing a comma-separated series of types. Values that match the
-    tuple type must have _exactly_ the same number of elements (no more and no
-    fewer), and the value in each position must match the specified type for
-    that position.
+  The schema for tuple types is `[<TYPE>, <TYPE>, ...]` — a pair of square
+  brackets containing a comma-separated series of types. Values that match the
+  tuple type must have _exactly_ the same number of elements (no more and no
+  fewer), and the value in each position must match the specified type for
+  that position.
 
 For example: an object type of `object({ name=string, age=number })` would match
 a value like the following:
@@ -170,25 +173,25 @@ used interchangeably within the Terraform language, and most of Terraform's
 documentation glosses over the differences between the kinds of complex type.
 This is due to two conversion behaviors:
 
-* Whenever possible, Terraform converts values between similar kinds of complex
+- Whenever possible, Terraform converts values between similar kinds of complex
   types if the provided value is not the exact type requested. "Similar kinds"
   is defined as follows:
-    * Objects and maps are similar.
-        * A map (or a larger object) can be converted to an object if it has
-          _at least_ the keys required by the object schema. Any additional
-          attributes are discarded during conversion, which means map -> object
-          -> map conversions can be lossy.
-    * Tuples and lists are similar.
-        * A list can only be converted to a tuple if it has _exactly_ the
-          required number of elements.
-    * Sets are _almost_ similar to both tuples and lists:
-        * When a list or tuple is converted to a set, duplicate values are
-          discarded and the ordering of elements is lost.
-        * When a `set` is converted to a list or tuple, the elements will be
-          in an arbitrary order. If the set's elements were strings, they will
-          be in lexicographical order; sets of other element types do not
-          guarantee any particular order of elements.
-* Whenever possible, Terraform converts _element values_ within a complex type,
+  - Objects and maps are similar.
+    - A map (or a larger object) can be converted to an object if it has
+      _at least_ the keys required by the object schema. Any additional
+      attributes are discarded during conversion, which means map -> object
+      -> map conversions can be lossy.
+  - Tuples and lists are similar.
+    - A list can only be converted to a tuple if it has _exactly_ the
+      required number of elements.
+  - Sets are _almost_ similar to both tuples and lists:
+    - When a list or tuple is converted to a set, duplicate values are
+      discarded and the ordering of elements is lost.
+    - When a `set` is converted to a list or tuple, the elements will be
+      in an arbitrary order. If the set's elements were strings, they will
+      be in lexicographical order; sets of other element types do not
+      guarantee any particular order of elements.
+- Whenever possible, Terraform converts _element values_ within a complex type,
   either by converting complex-typed elements recursively or as described above
   in [Conversion of Primitive Types](#conversion-of-primitive-types).
 
@@ -222,11 +225,11 @@ make the result valid.
 If the given value were `["a", "b", "c"]` -- whose physical type is
 `tuple([string, string, string])`, Terraform analyzes this as follows:
 
-* Tuple types and list types are _similar_ per the previous section, so the
+- Tuple types and list types are _similar_ per the previous section, so the
   tuple-to-list conversion rule applies.
-* All of the elements in the tuple are strings, so the type constraint
+- All of the elements in the tuple are strings, so the type constraint
   `string` would be valid for all of the list elements.
-* Therefore in this case the `any` argument is replaced with `string`,
+- Therefore in this case the `any` argument is replaced with `string`,
   and the final concrete value type is `list(string)`.
 
 All of the elements of a collection must have the same type, so conversion
@@ -234,11 +237,11 @@ to `list(any)` requires that all of the given elements must be convertible
 to a common type. This implies some other behaviors that result from the
 conversion rules described in earlier sections.
 
-* If the given value were instead `["a", 1, "b"]` then Terraform would still
+- If the given value were instead `["a", 1, "b"]` then Terraform would still
   select `list(string)`, because of the primitive type conversion rules, and
   the resulting value would be `["a", "1", "b"]` due to the string conversion
   implied by that type constraint.
-* If the given value were instead `["a", [], "b"]` then the value cannot
+- If the given value were instead `["a", [], "b"]` then the value cannot
   conform to the type constraint: there is no single type that both a string
   and an empty tuple can convert to. Terraform would reject this value,
   complaining that all elements must have the same type.

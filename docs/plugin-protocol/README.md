@@ -7,7 +7,7 @@ Most providers are not written directly against this protocol. Instead, prefer
 to use an SDK that implements this protocol and write the provider against
 the SDK's API.
 
-----
+---
 
 **If you want to write a plugin for Terraform, please refer to
 [Extending Terraform](https://www.terraform.io/docs/extend/index.html) instead.**
@@ -15,7 +15,7 @@ the SDK's API.
 This documentation is for those who are developing _Terraform SDKs_, rather
 than those implementing plugins.
 
-----
+---
 
 From Terraform v0.12.0 onwards, Terraform's plugin protocol is built on
 [gRPC](https://grpc.io/). This directory contains `.proto` definitions of
@@ -114,7 +114,7 @@ Select it with the following version constraint:
 
 ```
 Provider "aws" v3.0.0 is not compatible with Terraform v0.12.0.
-Provider version v2.34.0 is the latest compatible version. Select 
+Provider version v2.34.0 is the latest compatible version. Select
 it with the following constraint:
 
     version = "~> 2.34.0"

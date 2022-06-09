@@ -16,8 +16,8 @@ string.
 trim(string, str_character_set)
 ```
 
-Every occurrence of a character in the second argument is removed from the start 
-and end of the string specified in the first argument. 
+Every occurrence of a character in the second argument is removed from the start
+and end of the string specified in the first argument.
 
 ## Examples
 
@@ -34,7 +34,7 @@ and end of the string specified in the first argument.
 
 ## Related Functions
 
-* [`trimprefix`](./trimprefix.html) removes a word from the start of a string.
-* [`trimsuffix`](./trimsuffix.html) removes a word from the end of a string.
-* [`trimspace`](./trimspace.html) removes all types of whitespace from
+- [`trimprefix`](./trimprefix.html) removes a word from the start of a string.
+- [`trimsuffix`](./trimsuffix.html) removes a word from the end of a string.
+- [`trimspace`](./trimspace.html) removes all types of whitespace from
   both the start and the end of a string.

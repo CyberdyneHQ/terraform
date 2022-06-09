@@ -45,32 +45,32 @@ names only in English.
 
 The specification may contain the following sequences:
 
-| Sequence  | Result                                                                   |
-| --------- | ------------------------------------------------------------------------ |
-| `YYYY`    | Four (or more) digit year, like "2006".                                  |
-| `YY`      | The year modulo 100, zero padded to at least two digits, like "06".      |
-| `MMMM`    | English month name unabbreviated, like "January".                        |
-| `MMM`     | English month name abbreviated to three letters, like "Jan".             |
-| `MM`      | Month number zero-padded to two digits, like "01" for January.           |
-| `M`       | Month number with no padding, like "1" for January.                      |
-| `DD`      | Day of month number zero-padded to two digits, like "02".                |
-| `D`       | Day of month number with no padding, like "2".                           |
-| `EEEE`    | English day of week name unabbreviated, like "Monday".                   |
-| `EEE`     | English day of week name abbreviated to three letters, like "Mon".       |
-| `hh`      | 24-hour number zero-padded to two digits, like "02".                     |
-| `h`       | 24-hour number unpadded, like "2".                                       |
-| `HH`      | 12-hour number zero-padded to two digits, like "02".                     |
-| `H`       | 12-hour number unpadded, like "2".                                       |
-| `AA`      | Hour AM/PM marker in uppercase, like "AM".                               |
-| `aa`      | Hour AM/PM marker in lowercase, like "am".                               |
-| `mm`      | Minute within hour zero-padded to two digits, like "05".                 |
-| `m`       | Minute within hour unpadded, like "5".                                   |
-| `ss`      | Second within minute zero-padded to two digits, like "09".               |
-| `s`       | Second within minute, like "9".                                          |
-| `ZZZZZ`   | Timezone offset with colon separating hours and minutes, like "-08:00".  |
-| `ZZZZ`    | Timezone offset with just sign and digit, like "-0800".                  |
-| `ZZZ`     | Like `ZZZZ` but with a special case "UTC" for UTC.                       |
-| `Z`       | Like `ZZZZZ` but with a special case "Z" for UTC.                        |
+| Sequence | Result                                                                  |
+| -------- | ----------------------------------------------------------------------- |
+| `YYYY`   | Four (or more) digit year, like "2006".                                 |
+| `YY`     | The year modulo 100, zero padded to at least two digits, like "06".     |
+| `MMMM`   | English month name unabbreviated, like "January".                       |
+| `MMM`    | English month name abbreviated to three letters, like "Jan".            |
+| `MM`     | Month number zero-padded to two digits, like "01" for January.          |
+| `M`      | Month number with no padding, like "1" for January.                     |
+| `DD`     | Day of month number zero-padded to two digits, like "02".               |
+| `D`      | Day of month number with no padding, like "2".                          |
+| `EEEE`   | English day of week name unabbreviated, like "Monday".                  |
+| `EEE`    | English day of week name abbreviated to three letters, like "Mon".      |
+| `hh`     | 24-hour number zero-padded to two digits, like "02".                    |
+| `h`      | 24-hour number unpadded, like "2".                                      |
+| `HH`     | 12-hour number zero-padded to two digits, like "02".                    |
+| `H`      | 12-hour number unpadded, like "2".                                      |
+| `AA`     | Hour AM/PM marker in uppercase, like "AM".                              |
+| `aa`     | Hour AM/PM marker in lowercase, like "am".                              |
+| `mm`     | Minute within hour zero-padded to two digits, like "05".                |
+| `m`      | Minute within hour unpadded, like "5".                                  |
+| `ss`     | Second within minute zero-padded to two digits, like "09".              |
+| `s`      | Second within minute, like "9".                                         |
+| `ZZZZZ`  | Timezone offset with colon separating hours and minutes, like "-08:00". |
+| `ZZZZ`   | Timezone offset with just sign and digit, like "-0800".                 |
+| `ZZZ`    | Like `ZZZZ` but with a special case "UTC" for UTC.                      |
+| `Z`      | Like `ZZZZZ` but with a special case "Z" for UTC.                       |
 
 Any non-letter characters, such as punctuation, are reproduced verbatim in the
 output. To include literal letters in the format string, enclose them in single
@@ -102,7 +102,7 @@ configuration as needed:
 
 ## Related Functions
 
-* [`format`](./format.html) is a more general formatting function for arbitrary
+- [`format`](./format.html) is a more general formatting function for arbitrary
   data.
-* [`timestamp`](./timestamp.html) returns the current date and time in a format
+- [`timestamp`](./timestamp.html) returns the current date and time in a format
   suitable for input to `formatdate`.

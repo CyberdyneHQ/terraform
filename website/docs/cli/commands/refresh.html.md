@@ -14,7 +14,7 @@ description: |-
 The `terraform refresh` command reads the current settings from all managed
 remote objects and updates the Terraform state to match.
 
-~> *Warning:* This command is deprecated, because its default behavior is
+~> _Warning:_ This command is deprecated, because its default behavior is
 unsafe if you have misconfigured credentials for any of your providers.
 See below for more information and recommended alternatives.
 

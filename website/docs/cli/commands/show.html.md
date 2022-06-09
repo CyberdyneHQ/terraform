@@ -46,8 +46,8 @@ snapshot.
 
 This command accepts the following options:
 
-* `-no-color` - Disables output with coloring
+- `-no-color` - Disables output with coloring
 
-* `-json` - Displays machine-readable output from a state or plan file
+- `-json` - Displays machine-readable output from a state or plan file
 
 -> JSON output via the `-json` option requires **Terraform v0.12 or later**.

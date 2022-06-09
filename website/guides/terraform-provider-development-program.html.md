@@ -15,7 +15,6 @@ The Verified badge helps users easily identify and discover integrations develop
 
 -> **Building your own provider?** If you're building your own provider and aren't interested in having HashiCorp officially verify and regularly monitor your provider, please refer to the [Call APIs with Terraform Providers](https://learn.hashicorp.com/collections/terraform/providers?utm_source=WEBSITEhttps://www.terraform.io/docs/extend/writing-custom-providers.htmlutm_medium=WEB_IOhttps://www.terraform.io/docs/extend/writing-custom-providers.htmlutm_offer=ARTICLE_PAGEhttps://www.terraform.io/docs/extend/writing-custom-providers.htmlutm_content=DOCS) collection on HashiCorp Learn and the [Extending Terraform](https://www.terraform.io/docs/extend/index.html) section of the documentation.
 
-
 ## What is a Terraform Provider?
 
 Terraform is used to create, manage, and interact with infrastructure resources of any kind. Examples of resources include physical machines, VMs, network switches, containers, etc. Almost any infrastructure noun can be represented as a resource in Terraform.
@@ -55,9 +54,7 @@ All providers integrate into and operate with Terraform exactly the same way. Th
 </table>
 <p></p>
 
-
 -> **Note:** This document focuses on the "Verified" Tier in the table above. Community contributors interested in contributing to existing providers or building new providers should refer to the [Publishing a Provider](https://www.terraform.io/docs/registry/providers/publishing.html) section of our documentation.
-
 
 ## Provider Development Process
 
@@ -77,19 +74,18 @@ Please begin by completing our HashiCorp Technology Partner application: https:/
 
 Terraform has a large and active ecosystem of partners that may have already started working on the same provider. We'll do our best to connect similar parties to avoid duplicate efforts, and prepare for a successful and impactful launch of the integration. Once you have applied, a member of the HashiCorp Alliances team will be in touch, and will ask for your organization to sign our Technology Partner Agreement.
 
-
 ### 2. Prepare
 
 Detailed instructions for preparing a provider for publishing are available in our Registry documentation. Please see [Preparing your Provider](https://www.terraform.io/docs/registry/providers/publishing.html#preparing-your-provider). In order to provide a consistent and quality experience for users, please make sure detailed documentation for your provider is included. You can find more information on how to build and structure [provider documentation here](https://www.terraform.io/docs/registry/providers/docs.html).
 
 We’ve found the provider development process to be fairly straightforward and simple when you pay close attention and follow the resources below. If you have not developed a provider before and are looking for some help in developing one, you may choose to leverage one of the following development agencies which have developed Terraform providers in the past and are familiar with the requirements and process:
 
-| Partner            | Email                        | Website              |
-|--------------------|:-----------------------------|:---------------------|
-| Crest Data Systems | malhar@crestdatasys.com      | www.crestdatasys.com |
-| DigitalOnUs        | hashicorp@digitalonus.com    | www.digitalonus.com  |
-| Akava              | bd@akava.io                  | www.akava.io         |
-| OpenCredo          | hashicorp@opencredo.com      | www.opencredo.com    |
+| Partner            | Email                     | Website              |
+| ------------------ | :------------------------ | :------------------- |
+| Crest Data Systems | malhar@crestdatasys.com   | www.crestdatasys.com |
+| DigitalOnUs        | hashicorp@digitalonus.com | www.digitalonus.com  |
+| Akava              | bd@akava.io               | www.akava.io         |
+| OpenCredo          | hashicorp@opencredo.com   | www.opencredo.com    |
 
 -> **Important:** All Terraform providers listed as Verified must contain one of the following open source licenses:
 
@@ -109,7 +105,6 @@ We’ve found the provider development process to be fairly straightforward and 
 - Microsoft Public License (MS-PL)
 - MIT
 
-
 ### 3. Verify
 
 At this stage, it is expected that the provider is fully developed, all tests and documentation are in place, and your provider is ready for publishing. In this step, HashiCorp will verify the source and authenticity of the namespace being used to publish the provider by signing your GPG key with a trust signature.
@@ -126,7 +121,7 @@ $ gpg --armor --export "{Key ID or email address}"
 
 ### 4. Publish
 
-Once the verification step is complete please follow the steps on [Publishing a Provider](https://www.terraform.io/docs/registry/providers/publishing.html).  This step does not require additional involvement from HashiCorp as publishing is a fully self-service process in the [Terraform Registry](https://registry.terraform.io).
+Once the verification step is complete please follow the steps on [Publishing a Provider](https://www.terraform.io/docs/registry/providers/publishing.html). This step does not require additional involvement from HashiCorp as publishing is a fully self-service process in the [Terraform Registry](https://registry.terraform.io).
 
 Once completed, your provider should be visible in the Terraform Registry and usable in Terraform. Please confirm that everything looks good, and that documentation is rendering properly.
 

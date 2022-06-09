@@ -54,6 +54,6 @@ resource "null_resource" "cluster" {
 In addition to meta-arguments supported by all resources, `null_resource`
 supports the following specific arguments:
 
- * `triggers` - A map of values which should cause this set of provisioners to
-   re-run. Values are meant to be interpolated references to variables or
-   attributes of other resources.
+- `triggers` - A map of values which should cause this set of provisioners to
+  re-run. Values are meant to be interpolated references to variables or
+  attributes of other resources.

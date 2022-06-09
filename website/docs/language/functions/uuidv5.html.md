@@ -25,12 +25,12 @@ Name-based UUID namespaces are themselves UUIDs, but for readability this
 function accepts some keywords as aliases for the namespaces that were
 assigned by RFC 4122:
 
-| Keyword | Namespace ID | Name format |
-| ------- | ------------ | ----------- |
-| `"dns"` | `6ba7b810-9dad-11d1-80b4-00c04fd430c8` | A fully-qualified DNS domain name. |
-| `"url"` | `6ba7b811-9dad-11d1-80b4-00c04fd430c8` | Any valid URL as defined in [RFC 3986](https://tools.ietf.org/html/rfc3986). |
-| `"oid"` | `6ba7b812-9dad-11d1-80b4-00c04fd430c8` | An [ISO/IEC object identifier](https://oidref.com/) |
-| `"x500"` | `6ba7b814-9dad-11d1-80b4-00c04fd430c8` | [X.500 Distinguished Name](https://tools.ietf.org/html/rfc1779) |
+| Keyword  | Namespace ID                           | Name format                                                                  |
+| -------- | -------------------------------------- | ---------------------------------------------------------------------------- |
+| `"dns"`  | `6ba7b810-9dad-11d1-80b4-00c04fd430c8` | A fully-qualified DNS domain name.                                           |
+| `"url"`  | `6ba7b811-9dad-11d1-80b4-00c04fd430c8` | Any valid URL as defined in [RFC 3986](https://tools.ietf.org/html/rfc3986). |
+| `"oid"`  | `6ba7b812-9dad-11d1-80b4-00c04fd430c8` | An [ISO/IEC object identifier](https://oidref.com/)                          |
+| `"x500"` | `6ba7b814-9dad-11d1-80b4-00c04fd430c8` | [X.500 Distinguished Name](https://tools.ietf.org/html/rfc1779)              |
 
 To use any other namespace not included in the above table, pass its assigned
 namespace ID directly in the first argument in the usual UUID string format.
@@ -78,4 +78,4 @@ defined it.
 
 ## Related Functions
 
-* [`uuid`](./uuid.html), which generates pseudorandom UUIDs.
+- [`uuid`](./uuid.html), which generates pseudorandom UUIDs.

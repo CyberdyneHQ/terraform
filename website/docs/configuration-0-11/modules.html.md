@@ -115,11 +115,11 @@ The `version` attribute value may either be a single explicit version or
 a version constraint expression. Constraint expressions use the following
 syntax to specify a _range_ of versions that are acceptable:
 
-* `>= 1.2.0`: version 1.2.0 or newer
-* `<= 1.2.0`: version 1.2.0 or older
-* `~> 1.2.0`: any non-beta version `>= 1.2.0` and `< 1.3.0`, e.g. `1.2.X`
-* `~> 1.2`: any non-beta version `>= 1.2.0` and `< 2.0.0`, e.g. `1.X.Y`
-* `>= 1.0.0, <= 2.0.0`: any version between 1.0.0 and 2.0.0 inclusive
+- `>= 1.2.0`: version 1.2.0 or newer
+- `<= 1.2.0`: version 1.2.0 or older
+- `~> 1.2.0`: any non-beta version `>= 1.2.0` and `< 1.3.0`, e.g. `1.2.X`
+- `~> 1.2`: any non-beta version `>= 1.2.0` and `< 2.0.0`, e.g. `1.X.Y`
+- `>= 1.0.0, <= 2.0.0`: any version between 1.0.0 and 2.0.0 inclusive
 
 When depending on third-party modules, references to specific versions are
 recommended since this ensures that updates only happen when convenient to you.
@@ -143,12 +143,12 @@ Along with the `source` meta-argument described above, module blocks have
 some more meta-arguments that have special meaning across all modules,
 described in more detail in other sections:
 
-* `version` - (Optional) A [version constraint](#module-versions)
+- `version` - (Optional) A [version constraint](#module-versions)
   string that specifies which versions of the referenced module are acceptable.
   The newest version matching the constraint will be used. `version` is supported
   only for modules retrieved from module registries.
 
-* `providers` - (Optional) A map whose keys are provider configuration names
+- `providers` - (Optional) A map whose keys are provider configuration names
   that are expected by child module and whose values are corresponding
   provider names in the calling module. This allows
   [provider configurations to be passed explicitly to child modules](#passing-providers-explicitly).
